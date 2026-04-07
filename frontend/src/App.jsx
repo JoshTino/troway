@@ -1,4 +1,4 @@
-https://troway1.onrender.comimport { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 import Login from "/components/Login"
@@ -15,27 +15,27 @@ function App() {
 
   return (
     <Routes>
-      <Route path="https://troway1.onrender.com/login" element={<Login />} />
-      <Route path="https://troway1.onrender.com/signup" element={<SignUp />} />
-      <Route path="https://troway1.onrender.com/reporter" element={
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/reporter" element={
         <ProtectedRoute>
           <Reporter />
         </ProtectedRoute>
       } />
 
-      <Route path="https://troway1.onrender.com/reporter-edit/:id" element={
+      <Route path="/reporter-edit/:id" element={
         <ProtectedRoute>
           <ReporterEdit />
       </ProtectedRoute>
       } />
 
-      <Route path="https://troway1.onrender.com/reporter-list" element={
+      <Route path="/reporter-list" element={
         <ProtectedRoute>
           <UserReportList />
         </ProtectedRoute>
       } />
 
-      <Route path="https://troway1.onrender.com/waste-location" element={
+      <Route path="/waste-location" element={
         <ProtectedRoute>
           <AdminMapView />
         </ProtectedRoute>
