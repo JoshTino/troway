@@ -5,8 +5,6 @@ const reportController = require('./controllers/reportController');
 const registerController = require('./controllers/registerController');
 const loginController = require('./controllers/loginController');
 
-const CLIENT_URL = process.env.CLIENT_URL;
-
 const app = express();
 
 console.log(CLIENT_URL);
