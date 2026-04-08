@@ -7,7 +7,6 @@ const loginController = require('./controllers/loginController');
 
 const app = express();
 
-console.log(CLIENT_URL);
 app.use(cors({
 	origin: process.env.CLIENT_URL,
 	methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
