@@ -11,7 +11,7 @@ console.log("CLIENT_URL:", process.env.CLIENT_URL);
 
 const allowedOrigins = [
   "http://localhost:5173",
-  process.env.CLIENT_URL
+  "https://troway1.onrender.com"
 ];
 
 app.use(cors({
