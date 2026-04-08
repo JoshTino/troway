@@ -8,7 +8,7 @@ const UserReportList = () => {
 	const navigate = useNavigate();
 	const logOut = () => {
 		localStorage.removeItem("token");
-		navigate("/login");
+		navigate("/");
 	}
 
 

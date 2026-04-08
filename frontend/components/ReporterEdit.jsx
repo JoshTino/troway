@@ -60,7 +60,7 @@ const ReporterEdit = () => {
 
 	const logOut = () => {
 		localStorage.removeItem("token");
-		navigate("/login");
+		navigate("/");
 	}
 
 
