@@ -16,6 +16,10 @@ app.use(express.urlencoded({extended: false}));
 //app.use(express.static('/public'));
 app.use('/uploads', express.static('uploads'));
 
+app.get("/", (req, res) => {
+  res.send("REAL BACKEND IS RUNNING");
+});
+
 //Fire message controller
 reportController(app);
 
