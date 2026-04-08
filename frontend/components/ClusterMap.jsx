@@ -2,10 +2,10 @@ import {useState, useEffect} from "react"
 import {MapContainer, TileLayer, Marker, Popup} from "react-leaflet"
 import MarkerClusterGroup from "react-leaflet-cluster"
 import TruckMarker from "/components/TruckMarker"
+import L from "leaflet"
 import "leaflet/dist/leaflet.css"
 import "react-leaflet-cluster/dist/assets/MarkerCluster.css";
 import "react-leaflet-cluster/dist/assets/MarkerCluster.Default.css";
-import L from "leaflet"
 
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
