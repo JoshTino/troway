@@ -34,12 +34,6 @@ const Reporter = () => {
 	}, []);
 
 
-	useEffect( () => {
-		const handleRedirect = (path) => {
-			navigate(path);
-		}
-	}, []);
-
 
 
 	const [formData, setFormData] = useState({
