@@ -11,7 +11,7 @@ const app = express();
 
 console.log(CLIENT_URL);
 app.use(cors({
-	origin: "https://troway1.onrender.com",
+	origin: process.env.CLIENT_URL,
 	methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
 	credentials: true
 }));
@@ -31,5 +31,4 @@ loginController(app);
 
 
 
-const PORT = process.env.PORT;
-app.listen(PORT, () => {console.log('Server running at port 5000')});
+app.listen(process.env.PORT, () => {console.log('Server running at port 5000')});
