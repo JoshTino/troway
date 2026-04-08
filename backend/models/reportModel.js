@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://test:test@report.kjsepfr.mongodb.net/?appName=report')
+mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("MongoDB Connected"));
 
 
