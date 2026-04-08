@@ -9,7 +9,11 @@ const app = express();
 
 console.log("CLIENT_URL:", process.env.CLIENT_URL);
 
-app.use(cors({}));
+app.use(cors({
+	origin: process.env.CLIENT_URL,
+	methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  	allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
