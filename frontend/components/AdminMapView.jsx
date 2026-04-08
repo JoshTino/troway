@@ -33,7 +33,7 @@ const AdminMapView = () => {
 			<nav className="flex justify-center">
 				<div className="flex w-11/12 justify-between rounded-lg mt-3 bg-white p-4">
 					<h1 className="text-4xl text-center text-green-400 font-nunito font-bold">TroWay</h1>
-					<button onClick={logOut} className="bg-red-500 text-white rounded-sm px-4 py-2 font-light font-nunito">Logout</button>
+					<button onClick={logOut} className="bg-red-500 text-white cursor-pointer rounded-sm px-4 py-2 font-light font-nunito">Logout</button>
 				</div>
 			</nav>
 			<div className="flex justify-center">
