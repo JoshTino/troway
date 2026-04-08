@@ -80,6 +80,12 @@ const ReporterEdit = () => {
 	}, [id]);
 
 
+	useEffect( () => {
+		const handleRedirect = (path) => {
+			navigate(path);
+		}
+	}, []);
+
 
 	/*const [location, setLocation] = useState({
 		lat: "",

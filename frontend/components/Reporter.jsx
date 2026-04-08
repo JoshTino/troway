@@ -34,6 +34,12 @@ const Reporter = () => {
 	}, []);
 
 
+	useEffect( () => {
+		const handleRedirect = (path) => {
+			navigate(path);
+		}
+	}, []);
+
 
 
 	const [formData, setFormData] = useState({
@@ -103,7 +109,7 @@ const Reporter = () => {
 			<div className="flex justify-center">
 				<div className="bg-white w-11/12 rounded-lg mt-3 px-6 py-3 shadow-lg">
 					<div className="bg-blue-400 px-2 py-1 w-fit rounded-xs">
-						<a onClick={handleRedirect("/reporter-list")} className="font-nunito text-sm font-bold text-gray-700">Click here to view report(s)</a>
+						<a onClick={() => handleRedirect("/reporter-list")} className="font-nunito text-sm font-bold text-gray-700">Click here to view report(s)</a>
 					</div>
 					<form onSubmit={handleSubmit} className="mt-6">
 						<div className="mb-5">
