@@ -16,6 +16,9 @@ dist-ssr/
 backend/uploads/*
 !backend/uploads/.gitkeep
 
+#Unwanted file(s)
+sample
+
 # Logs
 logs
 *.log
