@@ -9,12 +9,24 @@ const app = express();
 
 console.log("CLIENT_URL:", process.env.CLIENT_URL);
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  process.env.CLIENT_URL
+];
+
 app.use(cors({
-	origin: process.env.CLIENT_URL,
-	methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
-	credentials: true
+  origin: function(origin, callback) {
+    // allow requests with no origin like mobile apps or curl
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      console.log("Blocked by CORS:", origin);
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
+  credentials: true
 }));
-app.options("*", cors());
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
