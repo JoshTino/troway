@@ -9,11 +9,7 @@ const app = express();
 
 console.log("CLIENT_URL:", process.env.CLIENT_URL);
 
-app.use(cors({
-	origin: process.env.CLIENT_URL,
-	methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  	allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(cors({}));
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
@@ -30,5 +26,5 @@ registerController(app);
 loginController(app);
 
 
-
-app.listen(process.env.PORT, () => {console.log('Server running at port 5000')});
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {console.log('Server running at port 5000')});
