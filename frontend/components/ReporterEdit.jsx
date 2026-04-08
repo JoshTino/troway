@@ -63,9 +63,6 @@ const ReporterEdit = () => {
 		navigate("/login");
 	}
 
-	const handleRedirect = (path) => {
-		navigate(path);
-	}
 
 
 	useEffect( () => {
@@ -81,6 +78,13 @@ const ReporterEdit = () => {
 		})
 		.catch(err => console.log(err));
 	}, [id]);
+
+
+	useEffect( () => {
+		const handleRedirect = (path) => {
+			navigate(path);
+		}
+	}, []);
 
 
 	/*const [location, setLocation] = useState({

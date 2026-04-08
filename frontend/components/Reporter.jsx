@@ -34,6 +34,13 @@ const Reporter = () => {
 	}, []);
 
 
+	useEffect( () => {
+		const handleRedirect = (path) => {
+			navigate(path);
+		}
+	}, []);
+
+
 
 	const [formData, setFormData] = useState({
 		file: null,
@@ -86,10 +93,6 @@ const Reporter = () => {
 	const logOut = () => {
 		localStorage.removeItem('token');
 		navigate('/login');
-	}
-
-	const handleRedirect = (path) => {
-		navigate(path);
 	}
 
 
