@@ -9,9 +9,7 @@ const app = express();
 
 console.log("CLIENT_URL:", process.env.CLIENT_URL);
 
-app.use(cors({
-	origin: "*"
-}));
+app.use(cors({}));
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
