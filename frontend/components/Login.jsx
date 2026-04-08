@@ -31,7 +31,7 @@ const Login = () => {
 		e.preventDefault();
 
 		try {
-			const res = await fetch(`https://troway.onrender.com/login`, {
+			const res = await fetch(`${import.meta.env.VITE_BASE_URL}/login`, {
 				method: 'POST',
 				headers: {
 					"Content-Type": "application/json"
