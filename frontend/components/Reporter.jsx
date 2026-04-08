@@ -85,7 +85,7 @@ const Reporter = () => {
 
 	const logOut = () => {
 		localStorage.removeItem('token');
-		navigate('/');
+		navigate('/login');
 	}
 
 

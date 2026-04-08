@@ -25,7 +25,7 @@ const AdminMapView = () => {
 	
 	const logOut = () => {
 		localStorage.removeItem("token");
-		navigate("/");
+		navigate("/login");
 	}
 
 	return(
