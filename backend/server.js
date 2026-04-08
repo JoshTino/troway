@@ -15,7 +15,7 @@ app.use(cors({
 	credentials: true
 }));
 app.use(express.json());
-app.use(express.urlencoded({extend: false}));
+app.use(express.urlencoded({extended: false}));
 //app.use(express.static('/public'));
 app.use('/uploads', express.static('uploads'));
 
@@ -30,4 +30,5 @@ loginController(app);
 
 
 
-app.listen(5000, () => {console.log('Server running at port 5000')});
+const PORT = process.env.PORT;
+app.listen(PORT, () => {console.log('Server running at port 5000')});
