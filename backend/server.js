@@ -9,21 +9,8 @@ const app = express();
 
 console.log("CLIENT_URL:", process.env.CLIENT_URL);
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://troway1.onrender.com"
-];
-
 app.use(cors({
-  origin: function(origin, callback) {
-    // allow requests with no origin like mobile apps or curl
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      console.log("Blocked by CORS:", origin);
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origins: process.env.CLIENT_URL,
   methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
   credentials: true
 }));
