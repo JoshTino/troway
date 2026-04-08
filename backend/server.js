@@ -9,6 +9,7 @@ const CLIENT_URL = process.env.CLIENT_URL;
 
 const app = express();
 
+console.log(CLIENT_URL);
 app.use(cors({
 	origin: "https://troway1.onrender.com",
 	methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
