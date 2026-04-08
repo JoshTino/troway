@@ -15,8 +15,6 @@ const Login = () => {
 		}
 	}, []);
 
-	console.log(BASE_URL);
-
 	const [inputs, setInputs] = useState({
 		email: "",
 		password: ""
@@ -31,7 +29,7 @@ const Login = () => {
 		e.preventDefault();
 
 		try {
-			const res = await fetch(`${import.meta.env.VITE_BASE_URL}/login`, {
+			const res = await fetch(`${import.meta.env.VITE_BASE_URL}#/login`, {
 				method: 'POST',
 				headers: {
 					"Content-Type": "application/json"
