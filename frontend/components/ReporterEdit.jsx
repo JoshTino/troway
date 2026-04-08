@@ -63,6 +63,10 @@ const ReporterEdit = () => {
 		navigate("/login");
 	}
 
+	const handleRedirect = (path) => {
+		navigate(path);
+	}
+
 
 	useEffect( () => {
 		fetch(`${BASE_URL}/get_report_edit/${id}`, {
@@ -119,7 +123,7 @@ const ReporterEdit = () => {
 			<div className="flex justify-center">
 				<div className="bg-white w-11/12 rounded-lg mt-3 px-6 py-3 shadow-lg">
 					<div className="bg-blue-400 px-2 py-1 shadow-lg w-fit rounded-xs">
-						<a onClick={navigate('/reporter')} className="font-nunito text-sm font-bold text-gray-700">Click here to submit new report</a>
+						<a onClick={() => handleRedirect("/reporter")} className="font-nunito text-sm font-bold text-gray-700">Click here to submit new report</a>
 					</div>
 					<form className="mt-6" onSubmit={handleSubmit}>
 						<div className="mb-5">
