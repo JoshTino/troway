@@ -12,7 +12,6 @@ app.use(cors({
 	methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
 	credentials: true
 }));
-app.options("*", cors()); // preflight fix
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
