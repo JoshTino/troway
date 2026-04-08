@@ -10,17 +10,10 @@ const app = express();
 console.log("CLIENT_URL:", process.env.CLIENT_URL);
 
 app.use(cors({
-	origin: "https://troway1.onrender.com",
+	origin: process.env.CLIENT_URL,
   	methods: ["GET", "POST", "PUT", "PATCH",  "DELETE", "OPTIONS"],
   	allowedHeaders: ["Content-Type", "Authorization"],
 }));
-
-app.use((req, res, next) => {
-  if (req.method === "OPTIONS") {
-    return res.sendStatus(200);
-  }
-  next();
-});
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
