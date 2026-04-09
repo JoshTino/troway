@@ -22,7 +22,7 @@ const ReporterEdit = () => {
 	const handleEdit = async () => {
 
 		try {
-			const res = await fetch(`http://localhost:5000/edit_report/${id}`, {
+			const res = await fetch(`${BASE_URL}/edit_report/${id}`, {
 				method: 'PATCH',
 				headers: {
 					"Content-Type": "application/json",
