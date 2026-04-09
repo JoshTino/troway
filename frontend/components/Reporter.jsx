@@ -25,7 +25,7 @@ const Reporter = () => {
 
 			{
 				enableHighAccuracy: true,
-				timeout: 10000,
+				timeout: 30000,
 				maximumAge: 0
 			}
 		);
@@ -142,16 +142,7 @@ const Reporter = () => {
 								) : (
 									<p>Map loading...</p>
 								)}
-							</div>
-							{/*<div className="mb-4 w-6/12">
-								<span className="text-green-700 font-nunito">Longitude</span>
-								<input name="location" type="text" readOnly required value={location.lng} className="w-full font-nunito bg-gray-100 text-gray-700 p-4 outline-green-200 rounded-lg" />
-							</div>
-							<div className="mb-4 w-6/12">
-								<span className="text-green-700 font-nunito">Latitude</span>
-								<input name="location" type="text" readOnly required value={location.lat} className="w-full font-nunito bg-gray-100 text-gray-700 p-4 outline-green-200 rounded-lg" />
-							</div>*/}
-							
+							</div>							
 						</div>
 
 						<div className="mb-4 flex justify-center">
