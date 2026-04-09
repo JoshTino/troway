@@ -1,5 +1,8 @@
+import {useNavigate} from "react-router-dom"
+import AdminNavigation from "/components/AdminNavigation"
 
 const AdminMetric = () => {
+	const navigate = useNavigate();
 
 	const logOut = () => {
 		localStorage.removeItem("token");
@@ -15,12 +18,13 @@ const AdminMetric = () => {
 					<button onClick={logOut} className="bg-red-500 text-white cursor-pointer rounded-sm px-4 py-2 font-light font-nunito">Logout</button>
 				</div>
 			</nav>
+			<AdminNavigation navigate={navigate}/>
 			<div className="flex flex-col items-center mb-4">
 				<div className="bg-white w-11/12 mb-4 rounded-lg mt-3 px-4 py-3 shadow-lg">
 					<div className="flex justify-center mb-4">
 						<h1 className="font-light font-nunito text-2xl">Total Metric</h1>
 					</div>
-					<div className="flex flex-col mb-4 items-center gap-y-4 bg-red-500/60 p-2 border-2 border-red-400 rounded-lg">
+					<div className="flex flex-col mb-4 items-center gap-y-4 bg-red-500/50 p-2 border-2 border-red-400 rounded-lg">
 						<h2 className="text-center font-nunito text-xl font-bold">Total Report(s)</h2>
 						<p className="text-center font-nunito text-xl font-bold">400</p>
 						<button className="bg-yellow-500 font-nunito p-1 w-fit rounded-md font-light border-2 border-yellow-400">Assign Truck</button>
@@ -48,7 +52,7 @@ const AdminMetric = () => {
 						<div className="w-60 bg-blue-300 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-sm">Plastic pollution</span></div>
 						<div className="w-full bg-orange-700/50 my-2 px-2 py-[3px] rounded-sm"><span className="font-nunito text-sm">Broken waste bin</span></div>
 						<div className="w-45 bg-zinc-900/80 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-white text-sm">Uncollected waste</span></div>
-						<div className="w-80 bg-blue-700/80 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-white text-sm">Overflowing bin</span></div>
+						<div className="w-80 bg-blue-700/60 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-white text-sm">Overflowing bin</span></div>
 						<div className="w-50 bg-red-500/80 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-sm">Burning of waste</span></div>
 					</div>
 					<div className="flex justify-center gap-x-4 mb-4">
