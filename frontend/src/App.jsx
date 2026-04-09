@@ -7,6 +7,7 @@ import Reporter from "/components/Reporter"
 import UserReportList from "/components/UserReportList"
 import ReporterEdit from "/components/ReporterEdit"
 import AdminMapView from "/components/AdminMapView"
+import AdminMetric from "/components/AdminMetric"
 
 import ProtectedRoute from "/protected routes/ProtectedRoute"
 
@@ -40,6 +41,12 @@ function App() {
           <AdminMapView />
         </ProtectedRoute>
       } />
+
+      <Route path="/admin-metric" element={
+        <ProtectedRoute>
+          <AdminMetric />
+        </ProtectedRoute>}
+        />
     </Routes>
   )
 }
