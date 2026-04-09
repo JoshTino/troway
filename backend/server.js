@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express =  require('express');
 const cors = require('cors');
+const path = require("path");
 const reportController = require('./controllers/reportController');
 const registerController = require('./controllers/registerController');
 const loginController = require('./controllers/loginController');
