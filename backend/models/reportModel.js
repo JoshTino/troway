@@ -17,9 +17,10 @@ const reportSchema = new mongoose.Schema({
 	},
 	status: {
 		type: String,
-		enum: ["pending", "resolved"],
+		enum: ["pending", "cleared"],
 		default: "pending"
-	}
+	},
+	assignedTo: String,
 }, {timestamps: true});
 
 module.exports = mongoose.model('Report', reportSchema);
