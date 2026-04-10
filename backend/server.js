@@ -5,6 +5,7 @@ const path = require("path");
 const reportController = require('./controllers/reportController');
 const registerController = require('./controllers/registerController');
 const loginController = require('./controllers/loginController');
+const adminController = require('./controllers/adminController');
 
 const app = express();
 
@@ -33,6 +34,9 @@ registerController(app);
 
 //Fire Login Controller
 loginController(app);
+
+//Fire Admin Controller
+adminController(app);
 
 
 const PORT = process.env.PORT || 5000;
