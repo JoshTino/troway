@@ -1,8 +1,100 @@
+import {useState, useEffect} from "react"
 import {useNavigate} from "react-router-dom"
 import AdminNavigation from "/components/AdminNavigation"
+import BASE_URL from "/constants/base-url"
 
 const AdminViewUsers = () => {
 	const navigate = useNavigate();
+	const [moderators, setModerator] = useState([]);
+	const [users, setUser] = useState([]);
+
+	//Retrieving moderators
+	useEffect( () => {
+		const token = localStorage.getItem("token");
+
+		fetch(`${BASE_URL}/get_moderators`, {
+			method: 'GET',
+			headers: {
+				Authorization: `Bearer ${token}`,
+			}
+		})
+		.then(res => res.json())
+		.then(data => {
+			setModerator(data);
+		})
+		.catch(err => console.log(err));
+	}, []);
+
+	//Retrieving users
+	useEffect(() => {
+		const token = localStorage.getItem("token");
+
+		fetch(`${BASE_URL}/get_users`, {
+			method: 'GET',
+			headers: {
+				Authorization: `Bearer ${token}`,
+			}
+		})
+		.then(res => res.json())
+		.then(data => {
+			setUser(data);
+		})
+		.catch(err => console.log(err));
+	}, []);
+
+	const makeModerator = async (userId) =>  {
+		const token = localStorage.getItem("token");
+
+		try {
+			const response = await fetch(`${BASE_URL}/make_moderator/${userId}`, {
+				method: 'PATCH',
+				headers: {
+					Authorization: `Bearer ${token}`,
+				}
+			});
+
+			const result = await response.json();
+			console.log(result);
+		} catch(err) {
+			console.error(err);
+		}
+	}
+
+	const removeUser = async (userId) => {
+		const token = localStorage.getItem("token");
+
+		try {
+			const response = await fetch(`${ BASE_URL}/remove_user/${userId}`, {
+				method: 'DELETE',
+				headers: {
+					Authorization: `Bearer ${token}`
+				}
+			});
+
+			const result = await response.json();
+			console.log(result);
+		} catch (err) {
+			console.error(err);
+		}
+	}
+
+	const removeModerator = async (userId) => {
+		const token = localStorage.getItem("token");
+
+		try {
+			const response = await fetch(`${ BASE_URL}/remove_moderator/${userId}`, {
+				method: 'PATCH',
+				headers: {
+					Authorization: `Bearer ${token}`
+				}
+			});
+
+			const result = await response.json();
+			console.log(result);
+		} catch (err) {
+			console.error(err);
+		}
+	}
 
 	const logOut = () => {
 		localStorage.removeItem("token");
@@ -24,96 +116,54 @@ const AdminViewUsers = () => {
 						<h1 className="font-light font-nunito text-2xl">Moderators</h1>
 					</div>
 					<div className="flex flex-col md:flex-row gap-4">
-						<div className="flex gap-x-2 shadow-md p-2 border-1 border-gray-200/50 rounded-md">
-							<div>
-								<img className="rounded-full object-cover size-20"  src={"https://image.pngaaa.com/595/2541595-middle.png"} />
-							</div>
-							<div>
-								<h2 className="font-nunito font-bold text-xl">Dangana Joshua</h2>
-								<p className="font-nunito">joshuatino33@gmail.com</p>
-								<div className="flex gap-x-2">
-								<button className="bg-yellow-500 font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1">Remove</button>
-								<button className="bg-teal-500 font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1">Assign task</button>	
-								</div>
-							</div>
-						</div>
 
-						<div className="flex gap-x-2 shadow-md p-2 border-1 border-gray-200/50 rounded-md">
-							<div>
-								<img className="rounded-full object-cover size-20"  src={"https://image.pngaaa.com/595/2541595-middle.png"} />
-							</div>
-							<div>
-								<h2 className="font-nunito font-bold text-xl">Longi Pam</h2>
-								<p className="font-nunito">longipan@yahoo.com</p>
-								<div className="flex gap-x-2">
-								<button className="bg-yellow-500 font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1">Remove</button>
-								<button className="bg-teal-500 font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1">Assign task</button>	
-								</div>
-							</div>
-						</div>
+						{moderators && moderators.length > 0 ? (
 
-						<div className="flex gap-x-2 shadow-md p-2 border-1 border-gray-200/50 rounded-md">
-							<div>
-								<img className="rounded-full object-cover size-20"  src={"https://image.pngaaa.com/595/2541595-middle.png"} />
-							</div>
-							<div>
-								<h2 className="font-nunito font-bold text-xl">Simon Dumlak</h2>
-								<p className="font-nunito">dumlak04@gmail.com</p>
-								<div className="flex gap-x-2">
-								<button className="bg-yellow-500 font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1">Remove</button>
-								<button className="bg-teal-500 font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1">Assign task</button>	
+							moderators.map((moderator) => (
+								<div key={moderator._id} className="flex gap-x-2 shadow-md p-2 border-1 border-gray-200/50 rounded-md">
+									<div>
+										<img className="rounded-full object-cover size-20"  src={"https://image.pngaaa.com/595/2541595-middle.png"} />
+									</div>
+									<div>
+										<h2 className="font-nunito font-bold text-xl">{moderator.name}</h2>
+										<p className="font-nunito">{moderator.email}</p>
+										<div className="flex gap-x-2">
+										<button className="bg-yellow-500 font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1" onClick={() => removeModerator(`${moderator._id}`)}>Remove</button>
+										<button className="bg-teal-500 font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1">Assign task</button>	
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
+							))
+
+						): (
+							<p className="text-center font-nunito">No moderator. Add from users below</p>
+						)}
+
 					</div>
 				</div>
-				<div className="bg-white w-11/12 md:w-6/12 rounded-lg mt-3 px-4 py-3 shadow-lg">
+				<div className="bg-white w-11/12 rounded-lg mt-3 px-4 py-3 shadow-lg">
 					<div className="flex justify-center mb-4">
 						<h1 className="font-light font-nunito text-2xl">Users</h1>
 					</div>
 
 					<div className="flex flex-col md:flex-row gap-4">
-						<div className="flex gap-x-2 shadow-md p-2 border-1 border-gray-200/50 rounded-md">
-							<div>
-								<img className="rounded-full object-cover size-20"  src="https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-avatar-placeholder-png-image_3416697.jpg" />
-							</div>
-							<div>
-								<h2 className="font-nunito font-bold text-xl">Dangana Joshua</h2>
-								<p className="font-nunito">joshuatino33@gmail.com</p>
-								<div className="flex gap-x-2">
-								<button className="bg-yellow-500 font-nunito font-light rounded-xs text-sm  shadow-md mt-2 px-1">Remove</button>
-								<button className="bg-green-500 font-nunito font-light rounded-xs  text-sm shadow-md mt-2 px-1">Make moderator</button>
-								</div>								
-							</div>
-						</div>
+						{users.map((user) => (
 
-						<div className="flex gap-x-2 shadow-md p-2 border-1 border-gray-200/50 rounded-md">
-							<div>
-								<img className="rounded-full object-cover size-20"  src="https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-avatar-placeholder-png-image_3416697.jpg" />
+							<div key={user._id} className="flex gap-x-2 shadow-md p-2 border-1 border-gray-200/50 rounded-md">
+								<div>
+									<img className="rounded-full object-cover size-20"  src="https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-avatar-placeholder-png-image_3416697.jpg" />
+								</div>
+								<div>
+									<h2 className="font-nunito font-bold text-xl">{user.name}</h2>
+									<p className="font-nunito">{user.email}</p>
+									<div className="flex gap-x-2">
+									<button className="bg-yellow-500 font-nunito font-light rounded-xs text-sm  shadow-md mt-2 px-1" onClick={() => removeUser(`${user._id}`)}>Remove</button>
+									<button className="bg-green-500 font-nunito font-light rounded-xs  text-sm shadow-md mt-2 px-1" onClick={() => makeModerator(`${user._id}`)}>Make moderator</button>
+									</div>								
+								</div>
 							</div>
-							<div>
-								<h2 className="font-nunito font-bold text-xl">Longi Pam</h2>
-								<p className="font-nunito">longipan@yahoo.com</p>
-								<div className="flex gap-x-2">
-								<button className="bg-yellow-500 font-nunito font-light rounded-xs text-sm  shadow-md mt-2 px-1">Remove</button>
-								<button className="bg-green-500 font-nunito font-light rounded-xs  text-sm shadow-md mt-2 px-1">Make moderator</button>
-								</div>								
-							</div>
-						</div>
 
-						<div className="flex gap-x-2 shadow-md p-2 border-1 border-gray-200/50 rounded-md">
-							<div>
-								<img className="rounded-full object-cover size-20"  src="https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-avatar-placeholder-png-image_3416697.jpg" />
-							</div>
-							<div>
-								<h2 className="font-nunito font-bold text-xl">Simon Dumlak</h2>
-								<p className="font-nunito">dumlak04@gmail.com</p>
-								<div className="flex gap-x-2">
-								<button className="bg-yellow-500 font-nunito font-light rounded-xs text-sm  shadow-md mt-2 px-1">Remove</button>
-								<button className="bg-green-500 font-nunito font-light rounded-xs  text-sm shadow-md mt-2 px-1">Make moderator</button>
-								</div>								
-							</div>
-						</div>
+						))}
 					</div>
 					
 				</div>
