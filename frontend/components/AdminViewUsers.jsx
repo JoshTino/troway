@@ -112,8 +112,8 @@ const AdminViewUsers = () => {
 			<AdminNavigation navigate={navigate}/>
 			<div className="flex flex-col items-center mb-4">
 				<div className="bg-white w-11/12 mb-4 rounded-lg mt-3 px-4 py-3 shadow-lg">
-					<div className="flex justify-center mb-4">
-						<h1 className="font-light font-nunito text-2xl">Moderators</h1>
+					<div className="flex justify-start mb-1">
+						<h1 className="font-light font-nunito text-lg">Moderators</h1>
 					</div>
 					<div className="flex flex-col md:flex-row gap-4">
 
@@ -125,11 +125,11 @@ const AdminViewUsers = () => {
 										<img className="rounded-full object-cover size-20"  src={"https://image.pngaaa.com/595/2541595-middle.png"} />
 									</div>
 									<div>
-										<h2 className="font-nunito font-bold text-xl">{moderator.name}</h2>
-										<p className="font-nunito">{moderator.email}</p>
+										<h2 className="font-nunito font-bold text-lg">{moderator.name}</h2>
+										<p className="font-nunito text-sm">{moderator.email}</p>
 										<div className="flex gap-x-2">
-										<button className="bg-yellow-500 font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1" onClick={() => removeModerator(`${moderator._id}`)}>Remove</button>
-										<button className="bg-teal-500 font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1">Assign task</button>	
+										<button className="bg-yellow-500 cursor-pointer font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1" onClick={() => removeModerator(`${moderator._id}`)}>Remove</button>
+										<button className="bg-teal-500 cursor-pointer font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1">Assign task</button>	
 										</div>
 									</div>
 								</div>
@@ -142,8 +142,8 @@ const AdminViewUsers = () => {
 					</div>
 				</div>
 				<div className="bg-white w-11/12 rounded-lg mt-3 px-4 py-3 shadow-lg">
-					<div className="flex justify-center mb-4">
-						<h1 className="font-light font-nunito text-2xl">Users</h1>
+					<div className="flex justify-start mb-1">
+						<h1 className="font-light font-nunito text-lg">Users</h1>
 					</div>
 
 					<div className="flex flex-col md:flex-row gap-4">
@@ -154,11 +154,11 @@ const AdminViewUsers = () => {
 									<img className="rounded-full object-cover size-20"  src="https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-avatar-placeholder-png-image_3416697.jpg" />
 								</div>
 								<div>
-									<h2 className="font-nunito font-bold text-xl">{user.name}</h2>
-									<p className="font-nunito">{user.email}</p>
+									<h2 className="font-nunito font-bold text-lg">{user.name}</h2>
+									<p className="font-nunito text-sm">{user.email}</p>
 									<div className="flex gap-x-2">
-									<button className="bg-yellow-500 font-nunito font-light rounded-xs text-sm  shadow-md mt-2 px-1" onClick={() => removeUser(`${user._id}`)}>Remove</button>
-									<button className="bg-green-500 font-nunito font-light rounded-xs  text-sm shadow-md mt-2 px-1" onClick={() => makeModerator(`${user._id}`)}>Make moderator</button>
+									<button className="bg-yellow-500 cursor-pointer font-nunito font-light rounded-xs text-sm  shadow-md mt-2 px-1" onClick={() => removeUser(`${user._id}`)}>Remove</button>
+									<button className="bg-green-500 cursor-pointer font-nunito font-light rounded-xs  text-sm shadow-md mt-2 px-1" onClick={() => makeModerator(`${user._id}`)}>Make moderator</button>
 									</div>								
 								</div>
 							</div>
