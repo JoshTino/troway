@@ -134,7 +134,7 @@ const AdminViewUsers = () => {
 					<div className="flex justify-start mb-1">
 						<h1 className="font-light font-nunito text-lg">Moderators</h1>
 					</div>
-					<div className="grid md:grid-cols-3 gap-4">
+					<div className="grid md:grid-cols-2 gap-4">
 
 						{moderators && moderators.length > 0 ? (
 
@@ -147,7 +147,7 @@ const AdminViewUsers = () => {
 										<h2 className="font-nunito font-bold text-lg">{moderator.name}</h2>
 										<p className="font-nunito text-sm">{moderator.email}</p>
 										<div className="flex gap-x-2">
-										<button className="bg-yellow-500 cursor-pointer font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1" onClick={() => removeModerator(`${moderator._id}`)}>Remove</button>
+										<button className="bg-yellow-500 cursor-pointer font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1" onClick={() => {setShowModal(true); setSelectedId(moderator._id); setMessage(`This user "${moderator.name}" will no longer be a moderator.`); removeModerator(`${moderator._id}`); }}>Remove</button>
 										<button className="bg-teal-500 cursor-pointer font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1">Assign task</button>	
 										</div>
 									</div>
@@ -165,7 +165,7 @@ const AdminViewUsers = () => {
 						<h1 className="font-light font-nunito text-lg">Users</h1>
 					</div>
 
-					<div className="grid md:grid-cols-3 gap-4">
+					<div className="grid md:grid-cols-2 gap-4">
 						{users && users.length > 0 ? (
 
 							users.map((user) => (
