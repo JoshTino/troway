@@ -24,18 +24,18 @@ const AdminMetric = () => {
 					<div className="flex justify-center mb-4">
 						<h1 className="font-light font-nunito text-2xl">Total Metric</h1>
 					</div>
-					<div className="flex flex-col mb-4 items-center gap-y-4 bg-red-500/50 p-2 border-2 border-red-400 rounded-lg">
+					<div className="flex flex-col mb-4 items-center gap-y-4 p-4 border-2 border-red-400/50 rounded-lg">
 						<h2 className="text-center font-nunito text-xl font-bold">Total Report(s)</h2>
 						<p className="text-center font-nunito text-xl font-bold">400</p>
-						<button className="bg-yellow-500 font-nunito p-1 w-fit rounded-md font-light border-2 border-yellow-400">Assign Truck</button>
+						<button className="bg-yellow-500 font-nunito p-1 w-fit text-sm rounded-xs text-white shadow-lg font-bold border-1 border-yellow-400">Assign Truck</button>
 					</div>
 
 					<div className="flex gap-x-2">
-						<div className="flex flex-col mb-4 items-center w-6/12 gap-y-4 bg-green-500/60 p-2 border-2 border-green-400 rounded-lg">
+						<div className="flex flex-col mb-4 items-center w-6/12 gap-y-4 p-2 border-1 border-green-400/50 rounded-lg">
 							<h2 className="text-center font-nunito text-xl font-bold">Total Cleared</h2>
 							<p className="text-center font-nunito text-xl font-bold">40</p>
 						</div>
-						<div className="flex flex-col mb-4 items-center w-6/12 gap-y-4 bg-yellow-500/60 p-2 border-2 border-yellow-400 rounded-lg">
+						<div className="flex flex-col mb-4 items-center w-6/12 gap-y-4 p-2 border-1 border-yellow-400/50 rounded-lg">
 							<h2 className="text-center font-nunito text-xl font-bold">Total Pending</h2>
 							<p className="text-center font-nunito text-xl font-bold">360</p>
 						</div>
