@@ -56,7 +56,7 @@ const SignUp = () => {
 				</div>
 			</nav>
 			<div className="flex justify-center">
-				<div className="bg-white w-11/12 rounded-lg mt-10 p-6 shadow-lg">
+				<div className="bg-white w-11/12 md:w-4/12 rounded-lg mt-10 mb-4 p-6 shadow-lg">
 					<form onSubmit={handleSubmit}>
 						<div className="mb-4">
 							<h2 className="text-gray-900 text-2xl text-center font-nunito">Sign Up</h2>
@@ -84,7 +84,7 @@ const SignUp = () => {
 							<button className="bg-green-500 text-white font-nunito  cursor-pointer rounded-sm w-5/12 py-3 px-4" type="submit">Register</button>
 						</div>
 						<div className="mb-6 flex justify-center">
-							<span className="font-nunito text-lg text-green-400">Already have an account? <a href="/login" className="text-gray-700 font-bold">Login</a></span>
+							<span className="font-nunito text-lg text-green-400">Already have an account? <a onClick={() => navigate('/login')} className="text-gray-700 font-bold cursor-pointer">Login</a></span>
 						</div>
 					</form>
 				</div>
