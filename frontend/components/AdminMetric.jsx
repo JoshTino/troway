@@ -27,7 +27,7 @@ const AdminMetric = () => {
 					<div className="flex flex-col mb-4 items-center gap-y-4 p-4 border-2 border-red-400/50 rounded-lg">
 						<h2 className="text-center font-nunito text-xl font-bold">Total Report(s)</h2>
 						<p className="text-center font-nunito text-xl font-bold">400</p>
-						<button className="bg-yellow-500 font-nunito p-1 w-fit text-sm rounded-xs text-white shadow-lg font-bold border-1 border-yellow-400">Assign Truck</button>
+						<button className="bg-yellow-500 font-nunito p-1 w-fit text-sm rounded-xs text-white shadow-lg font-bold border-1 border-yellow-400 cursor-pointer" onClick={() => navigate('/waste-location')}>Assign Truck</button>
 					</div>
 
 					<div className="flex gap-x-2">
@@ -46,14 +46,14 @@ const AdminMetric = () => {
 						<h1 className="font-light font-nunito text-2xl">Daily Metric</h1>
 					</div>
 					<div className="mb-6">
-						<div className="w-45 bg-yellow-500/80 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-sm">Harzardous waste</span></div>
-						<div className="w-70 bg-green-700/80 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-white text-sm">Blocked Drainage</span></div>
-						<div className="w-50 bg-slate-700/80 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-white text-sm">Illegal dumping</span></div>
+						<div className="w-45 bg-yellow-500/35 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-sm">Harzardous waste</span></div>
+						<div className="w-70 bg-green-700/35 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-white text-sm">Blocked Drainage</span></div>
+						<div className="w-50 bg-slate-700/35 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-white text-sm">Illegal dumping</span></div>
 						<div className="w-60 bg-blue-300 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-sm">Plastic pollution</span></div>
 						<div className="w-full bg-orange-700/50 my-2 px-2 py-[3px] rounded-sm"><span className="font-nunito text-sm">Broken waste bin</span></div>
-						<div className="w-45 bg-zinc-900/80 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-white text-sm">Uncollected waste</span></div>
-						<div className="w-80 bg-blue-700/60 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-white text-sm">Overflowing bin</span></div>
-						<div className="w-50 bg-red-500/80 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-sm">Burning of waste</span></div>
+						<div className="w-45 bg-zinc-900/35 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-white text-sm">Uncollected waste</span></div>
+						<div className="w-80 bg-blue-700/35 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-white text-sm">Overflowing bin</span></div>
+						<div className="w-50 bg-red-500/35 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-sm">Burning of waste</span></div>
 					</div>
 					<div className="flex justify-center gap-x-4 mb-4">
 						<div className="flex flex-col items-center p-1 rounded-sm w-4/12 border-1 border-red-400">
@@ -66,7 +66,7 @@ const AdminMetric = () => {
 						</div>
 					</div>
 					<div className="flex justify-center">
-						<button className="bg-yellow-500 p-2 rounded-xs font-light font-nunito">Assign Truck</button>
+						<button className="bg-yellow-500 p-2 rounded-xs font-light font-nunito cursor-pointer" onClick={() => navigate('/waste-location')}>Assign Truck</button>
 					</div>
 				</div>
 			</div>
