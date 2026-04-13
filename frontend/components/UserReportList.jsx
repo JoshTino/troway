@@ -4,6 +4,7 @@ import BASE_URL from "/constants/base-url"
 
 const UserReportList = () => {
 	const [reports, setReports] = useState([]);
+	const token = localStorage.getItem("token");
 
 	const navigate = useNavigate();
 	const logOut = () => {
@@ -13,7 +14,6 @@ const UserReportList = () => {
 
 
 	useEffect( () => {
-		const token = localStorage.getItem("token");
 
 		fetch(`${BASE_URL}/get_report`, {
 			method: 'GET',
