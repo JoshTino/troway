@@ -1,11 +1,9 @@
-
-
 const Modal = ( {isOpen, onClose, onConfirm, message} ) => {
 
 	if (!isOpen) return null;
 
 	return(
-		<div className="fixed flex items-center justify-center inset-0 bg-black/50 z-50">
+		<div className="fixed flex items-center justify-center inset-0 bg-black/50 z-[1000]">
 			<div className="bg-white w-11/12 md:w-5/12 p-6 flex flex-col items-center gap-y-4  rounded-lg">
 				<h2 className="text-lg font-nunito font-bold">Confirm Action</h2>
 				<p className="text-center font-nunito text-md">{message}</p>
