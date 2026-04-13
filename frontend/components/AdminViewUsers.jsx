@@ -12,7 +12,9 @@ const AdminViewUsers = () => {
 	const [message, setMessage] = useState("") ;
 	const [selectedId, setSelectedId] = useState(null);
 	const [showModal, setShowModal] = useState(false);
-	
+	const [action, setAction] = useState(null);
+	const [id, setId] = useState(null);
+
 	const token = localStorage.getItem("token");
 
 	//Retrieving moderators
@@ -46,6 +48,25 @@ const AdminViewUsers = () => {
 		})
 		.catch(err => console.log(err));
 	}, []);
+
+
+	const removeModerator = async (userId) => {
+		const token = localStorage.getItem("token");
+
+		try {
+			const response = await fetch(`${ BASE_URL}/remove_moderator/${userId}`, {
+				method: 'PATCH',
+				headers: {
+					Authorization: `Bearer ${token}`
+				}
+			});
+
+			const result = await response.json();
+			console.log(result);
+		} catch (err) {
+			console.error(err);
+		}
+	}
 
 	const makeModerator = async (userId) =>  {
 		const token = localStorage.getItem("token");
@@ -83,23 +104,6 @@ const AdminViewUsers = () => {
 		}
 	}
 
-	const removeModerator = async (userId) => {
-		const token = localStorage.getItem("token");
-
-		try {
-			const response = await fetch(`${ BASE_URL}/remove_moderator/${userId}`, {
-				method: 'PATCH',
-				headers: {
-					Authorization: `Bearer ${token}`
-				}
-			});
-
-			const result = await response.json();
-			console.log(result);
-		} catch (err) {
-			console.error(err);
-		}
-	}
 
 
 
@@ -109,9 +113,12 @@ const AdminViewUsers = () => {
 	}
 
 	const handleConfirm = () => {
-		setUser((prev) => prev.filter((user) => user._id != selectedId));
 		setShowModal(false);
 		setSelectedId(null);
+
+		if (action === "remove moderator") return removeModerator(id); setUser((prev) => prev.filter((user) => user._id != selectedId));
+		if (action === "make moderator") return makeModerator(id); setUser((prev) => prev.filter((user) => user._id != selectedId));
+		if (action === "delete user") return removeUser(id); setUser((prev) => prev.filter((user) => user._id != selectedId));
 	}
 
 	return(
@@ -147,7 +154,7 @@ const AdminViewUsers = () => {
 										<h2 className="font-nunito font-bold text-lg">{moderator.name}</h2>
 										<p className="font-nunito text-sm">{moderator.email}</p>
 										<div className="flex gap-x-2">
-										<button className="bg-yellow-500 cursor-pointer font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1" onClick={() => {setShowModal(true); setSelectedId(moderator._id); setMessage(`This user "${moderator.name}" will no longer be a moderator.`); removeModerator(`${moderator._id}`); }}>Remove</button>
+										<button className="bg-yellow-500 cursor-pointer font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1" onClick={() => {setShowModal(true); setSelectedId(moderator._id); setAction("remove moderator"); setMessage(`This user "${moderator.name}" will no longer be a moderator.`); setId(moderator._id); /*removeModerator(`${moderator._id}`);*/ }}>Remove</button>
 										<button className="bg-teal-500 cursor-pointer font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1">Assign task</button>	
 										</div>
 									</div>
@@ -178,8 +185,8 @@ const AdminViewUsers = () => {
 										<h2 className="font-nunito font-bold text-lg">{user.name}</h2>
 										<p className="font-nunito text-sm">{user.email}</p>
 										<div className="flex gap-x-2">
-										<button className="bg-yellow-500 cursor-pointer font-nunito font-light rounded-xs text-sm  shadow-md mt-2 px-1" onClick={() => { setSelectedId(user._id); setMessage("Are you sure you want to delete this user?"); setShowModal(true); removeUser(`${user._id}`)}}>Remove</button>
-										<button className="bg-green-500 cursor-pointer font-nunito font-light rounded-xs  text-sm shadow-md mt-2 px-1" onClick={() => { setSelectedId(user._id); setMessage(`You are about making this user "${user.name}" a moderator`); setShowModal(true); makeModerator(`${user._id}`);}}>Make moderator</button>
+										<button className="bg-yellow-500 cursor-pointer font-nunito font-light rounded-xs text-sm  shadow-md mt-2 px-1" onClick={() => { setSelectedId(user._id); setAction("delete user");  setMessage("Are you sure you want to delete this user?"); setShowModal(true); setId(user._id);}}>Remove</button>
+										<button className="bg-green-500 cursor-pointer font-nunito font-light rounded-xs  text-sm shadow-md mt-2 px-1" onClick={() => { setSelectedId(user._id); setAction("make moderator"); setMessage(`You are about making this user "${user.name}" a moderator`); setShowModal(true); setId(user._id);}}>Make moderator</button>
 										</div>								
 									</div>
 								</div>
