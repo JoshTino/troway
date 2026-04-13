@@ -12,10 +12,11 @@ const AdminViewUsers = () => {
 	const [message, setMessage] = useState("") ;
 	const [selectedId, setSelectedId] = useState(null);
 	const [showModal, setShowModal] = useState(false);
+	
+	const token = localStorage.getItem("token");
 
 	//Retrieving moderators
 	useEffect( () => {
-		const token = localStorage.getItem("token");
 
 		fetch(`${BASE_URL}/get_moderators`, {
 			method: 'GET',
@@ -32,7 +33,6 @@ const AdminViewUsers = () => {
 
 	//Retrieving users
 	useEffect(() => {
-		const token = localStorage.getItem("token");
 
 		fetch(`${BASE_URL}/get_users`, {
 			method: 'GET',
