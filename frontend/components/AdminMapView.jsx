@@ -11,7 +11,8 @@ const AdminMapView = () => {
 	const token = localStorage.getItem("token");
 	const navigate = useNavigate();
 
-
+	const [showSuccessModal, setShowSuccessModal] = useState(false);
+	const [modalMessage, setModalMessage] = useState("");
 
 
 	useEffect( () => {
@@ -72,6 +73,12 @@ const AdminMapView = () => {
 
 			const result = await response.json();
 			console.log(result);
+
+			setShowSuccessModal(true);
+			setModalMessage("Moderator assigned")
+			setTimeout(() => {
+				setShowSuccessModal(false);
+			}, 3000);
 		} catch (err) {
 			console.log(err);
 		}
@@ -92,7 +99,7 @@ const AdminMapView = () => {
 							<div className="w-full">
 								{reports && reports.length > 0 ? (
 
-									<ClusterMap reports={reports} moderators={moderators} selectedModerator={selectedModerator} handleModeratorSelect={handleModeratorSelect} submitModeratorTask={submitModeratorTask}/>
+									<ClusterMap reports={reports} moderators={moderators} selectedModerator={selectedModerator} handleModeratorSelect={handleModeratorSelect} submitModeratorTask={submitModeratorTask} showSuccessModal={showSuccessModal} modalMessage={modalMessage}/>
 								) : (
 									<p>Map loading...</p>
 								)}
