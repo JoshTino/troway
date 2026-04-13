@@ -61,14 +61,27 @@ module.exports = (app) => {
 
 
 	app.patch('/remove_moderator/:id', authMiddleware, async (req, res) => {
-		try {
-			const userId = req.params.id;
+		const userId = req.params.id;
 
+		try {
 			const removeModerator = await User.findByIdAndUpdate(userId, {role: "user"});
 
 			if (removeModerator) return res.status(200).json(removeModerator);
 
 			return res.status(404).json({message: "Not Found"});
+		} catch (err) {
+			return res.status(500).json(err);
+		}
+	});
+
+	app.patch('/assign_task/:moderatorId/:reportId', authMiddleware, async (req, res) => {
+		const {moderatorId, reportId} = req.params;
+		try {
+			const assignTask = await Report.findByIdAndUpdate(reportId, {assignedTo: moderatorId});
+
+			if (assignTask) return res.status(200).json(assignTask);
+
+			return res.status(204).status({message: "No Content"});
 		} catch (err) {
 			return res.status(500).json(err);
 		}
