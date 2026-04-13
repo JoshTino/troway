@@ -7,8 +7,12 @@ import AdminNavigation from "/components/AdminNavigation"
 
 const AdminMapView = () => {
 	const [reports, setReports] = useState([]);
+	const [moderators, setModerators] = useState([]);
 	const token = localStorage.getItem("token");
 	const navigate = useNavigate();
+
+
+
 
 	useEffect( () => {
 		fetch(`${BASE_URL}/get_all_waste_location`, {
@@ -23,29 +27,72 @@ const AdminMapView = () => {
 		})
 		.catch(err => console.log(err));
 	}, []);
+
+	useEffect( () => {
+		fetch(`${BASE_URL}/get_moderators`, {
+			method: 'GET',
+			headers: {
+				Authorization: `Bearer ${token}`
+			}
+		})
+		.then(res => res.json())
+		.then(data => {
+			setModerators(data);
+		})
+		.catch(err => console.log(err));
+	}, []);
+
+
+
 	
 	const logOut = () => {
 		localStorage.removeItem("token");
 		navigate("/login");
 	}
 
+	const [selectedModerator, setSelectedModerator] = useState({});
+
+	const handleModeratorSelect = (reportId, moderatorId) => {
+		setSelectedModerator(prev => ({...prev,
+			[reportId]: moderatorId
+		}));
+	}
+
+
+	const submitModeratorTask = async (reportId) => {
+		const moderatorId = selectedModerator[reportId];
+
+		try {
+			const response = await fetch(`${BASE_URL}/assign_task/${moderatorId}/${reportId}`, {
+				method: 'PATCH',
+				headers: {
+					Authorization: `Bearer ${token}`
+				}
+			});
+
+			const result = await response.json();
+			console.log(result);
+		} catch (err) {
+			console.log(err);
+		}
+	}
+
 	return(
 		<>	
-			<nav className="flex justify-center">
+			{/*<nav className="flex justify-center">
 				<div className="flex w-11/12 justify-between rounded-lg mt-3 bg-white p-4">
 					<h1 className="text-4xl text-center text-green-400 font-nunito font-bold">TroWay</h1>
 					<button onClick={logOut} className="bg-red-500 text-white cursor-pointer rounded-sm px-4 py-2 font-light font-nunito">Logout</button>
 				</div>
-			</nav>
+			</nav>*/}
 			<AdminNavigation navigate={navigate} />
 			<div className="flex justify-center">
 				<div className="bg-white w-11/12 rounded-lg mt-3 p-1 shadow-lg">
-
 						<div className="w-full">
 							<div className="w-full">
 								{reports && reports.length > 0 ? (
 
-									<ClusterMap reports={reports} />
+									<ClusterMap reports={reports} moderators={moderators} selectedModerator={selectedModerator} handleModeratorSelect={handleModeratorSelect} submitModeratorTask={submitModeratorTask}/>
 								) : (
 									<p>Map loading...</p>
 								)}
