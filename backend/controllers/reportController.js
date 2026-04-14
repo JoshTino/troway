@@ -90,9 +90,14 @@ module.exports = (app) => {
 	app.delete('/delete_report/:id', authMiddleware, async (req, res) => {
 		const reportId = req.params.id;
 
+
 		try {
 			const deleteReport = await Report.findByIdAndDelete({_id: reportId});
 
+			/*if (deleteReport.user.toString() !== req.user.id) {
+				return res.status(403).json({ message: "Unauthorized" });
+			}*/
+			
 			if (deleteReport) return res.status(200).json({message: "Report deleted"});
 
 			res.status(400).json({message: "Report not found"});
