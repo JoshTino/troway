@@ -9,6 +9,7 @@ import ReporterEdit from "/components/ReporterEdit"
 import AdminMapView from "/components/AdminMapView"
 import AdminMetric from "/components/AdminMetric"
 import AdminViewUsers from "/components/AdminViewUsers"
+import ModeratorMapView from "/components/ModeratorMapView"
 
 import ProtectedRoute from "/protected routes/ProtectedRoute"
 
@@ -54,6 +55,12 @@ function App() {
             <AdminViewUsers />
           </ProtectedRoute>
         }/>
+
+        <Route path="/moderator-map-view" element={
+          <ProtectedRoute>
+            <ModeratorMapView />
+          </ProtectedRoute>
+        } />
     </Routes>
   )
 }
