@@ -6,13 +6,12 @@ const reportController = require('./controllers/reportController');
 const registerController = require('./controllers/registerController');
 const loginController = require('./controllers/loginController');
 const adminController = require('./controllers/adminController');
+const moderatorController = require('./controllers/moderatorController');
 
 const app = express();
 
-console.log("CLIENT_URL:", process.env.CLIENT_URL);
-
 app.use(cors({
-	origin: process.env.CLIENT_URL,
+		origin:  process.env.CLIENT_URL,
   	methods: ["GET", "POST", "PUT", "PATCH",  "DELETE", "OPTIONS"],
   	allowedHeaders: ["Content-Type", "Authorization"],
 }));
@@ -37,6 +36,9 @@ loginController(app);
 
 //Fire Admin Controller
 adminController(app);
+
+//Fire Moderator Controller
+moderatorController(app);
 
 
 const PORT = process.env.PORT || 5000;
