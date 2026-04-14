@@ -108,7 +108,7 @@ const AdminClusterMap = ({ reports, moderators, selectedModerator, handleModerat
 									))
 
 								) : (
-									<option>No moderator yet..</option>
+									<option value="">No moderator yet..</option>
 								)}
 							</select>
 							<button onClick={() => submitModeratorTask(report._id)} disabled={!selectedModerator[report._id]} className="bg-yellow-500 disabled:opacity-50 w-6/12 font-nunito cursor-pointer rounded-sm p-2">Done</button>
