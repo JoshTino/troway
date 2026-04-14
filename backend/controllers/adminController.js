@@ -1,12 +1,13 @@
 const User = require('../models/userModel');
 const Report = require('../models/reportModel');
 const authMiddleware = require('../middleware/authMiddleware');
+const authorize = require('../middleware/authorize');
 
 
 
 module.exports = (app) => {
 
-	app.get('/get_moderators', authMiddleware, async (req, res) => {
+	app.get('/get_moderators', authMiddleware, authorize("admin"), async (req, res) => {
 		try {
 			const moderators = await User.find({role: "moderator"});
 
@@ -18,7 +19,7 @@ module.exports = (app) => {
 		}
 	});
 
-	app.get('/get_users', authMiddleware, async (req, res) => {
+	app.get('/get_users', authMiddleware, authorize("admin"), async (req, res) => {
 		try {
 			const users = await User.find({role: "user"});
 
@@ -30,7 +31,7 @@ module.exports = (app) => {
 		}
 	});
 
-	app.patch('/make_moderator/:id', authMiddleware, async (req, res) => {
+	app.patch('/make_moderator/:id', authMiddleware, authorize("admin"), async (req, res) => {
 		try {
 			const userId = req.params.id;
 
@@ -45,7 +46,7 @@ module.exports = (app) => {
 	});
 
 
-	app.delete('/remove_user/:id', authMiddleware, async (req, res) => {
+	app.delete('/remove_user/:id', authMiddleware, authorize("admin"), async (req, res) => {
 		try {
 			const userId = req.params.id;
 
@@ -60,7 +61,7 @@ module.exports = (app) => {
 	});
 
 
-	app.patch('/remove_moderator/:id', authMiddleware, async (req, res) => {
+	app.patch('/remove_moderator/:id', authMiddleware, authorize("admin"), async (req, res) => {
 		const userId = req.params.id;
 
 		try {
@@ -74,7 +75,7 @@ module.exports = (app) => {
 		}
 	});
 
-	app.patch('/assign_task/:moderatorId/:reportId', authMiddleware, async (req, res) => {
+	app.patch('/assign_task/:moderatorId/:reportId', authMiddleware, authorize("admin"), async (req, res) => {
 		const {moderatorId, reportId} = req.params;
 		try {
 			const assignTask = await Report.findByIdAndUpdate(reportId, {assignedTo: moderatorId});
