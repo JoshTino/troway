@@ -29,41 +29,30 @@ const ClusterMap = ({ reports, moderators, selectedModerator, handleModeratorSel
 
 	const [location, setLocation] = useState({lat: null, lng: null});
 
-	const iconManager = (category) => {
-		switch(category)  {
-			case "Harzadous Waste":
+	const iconManager = (status) => {
+		switch(status)  {
+			case "pending":
 				return new L.Icon({
-					iconUrl: '/icons/harzadous-waste.png',
-					iconSize: [50, 50]
+					iconUrl: '/icons/red.png',
+					iconSize: [50, 45]
 				});
 			break;
-			case "Burning of Waste":
+			case "cleared":
 				return new L.Icon({
-					iconUrl: '/icons/burning-waste.png',
-					iconSize: [50, 50]
-				});
-			break;
-			case "Overflowing Bin":
-				return new L.Icon({
-					iconUrl: '/icons/overflowing-bin.png',
-					iconSize: [50, 50]
-				});
-			break;
-			case "Plastic Pollution":
-				return new L.Icon({
-					iconUrl: '/icons/plastic-waste.png',
-					iconSize: [50, 50]
+					iconUrl: '/icons/gray.png',
+					iconSize: [50, 45]
 				});
 			break;
 			default:
 			return new L.Icon({
-					iconUrl: '/icons/plastic-waste.png',
-					iconSize: [50, 50]
+					iconUrl: '/icons/gray.png',
+					iconSize: [50, 45]
 				});
 
 		}
 
 	}
+
 
 	useEffect( () => {
 		//Getting coordinates of location to be passed into TruckMarker
@@ -102,8 +91,9 @@ const ClusterMap = ({ reports, moderators, selectedModerator, handleModeratorSel
 			<TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 			<MarkerClusterGroup showCoverageOnHover={true}>
 				{reports.map((report) => {
+					
 					return (
-				<Marker key={report._id} position={[report.location.lat, report.location.lng]}>
+				<Marker icon={iconManager(report.status)} key={report._id} position={[report.location.lat, report.location.lng]}>
 					<Popup>
 						<img className="shadow-lg" src={`${BASE_URL}/uploads/${report.file}`} />
 						<p className="font-bold font-nunito text-lg">{report.category}</p>
