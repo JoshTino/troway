@@ -5,6 +5,7 @@ import BASE_URL from "/constants/base-url"
 import AdminNavigation from "/components/AdminNavigation"
 
 
+
 const AdminMapView = () => {
 	const [reports, setReports] = useState([]);
 	const [moderators, setModerators] = useState([]);
