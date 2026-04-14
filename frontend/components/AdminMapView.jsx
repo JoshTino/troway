@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react"
 import {useNavigate} from 'react-router-dom'
-import ClusterMap from "/components/ClusterMap"
+import AdminClusterMap from "/components/AdminClusterMap"
 import BASE_URL from "/constants/base-url"
 import AdminNavigation from "/components/AdminNavigation"
 
@@ -99,7 +99,7 @@ const AdminMapView = () => {
 							<div className="w-full">
 								{reports && reports.length > 0 ? (
 
-									<ClusterMap reports={reports} moderators={moderators} selectedModerator={selectedModerator} handleModeratorSelect={handleModeratorSelect} submitModeratorTask={submitModeratorTask} showSuccessModal={showSuccessModal} modalMessage={modalMessage}/>
+									<AdminClusterMap reports={reports} moderators={moderators} selectedModerator={selectedModerator} handleModeratorSelect={handleModeratorSelect} submitModeratorTask={submitModeratorTask} showSuccessModal={showSuccessModal} modalMessage={modalMessage}/>
 								) : (
 									<p>Map loading...</p>
 								)}
