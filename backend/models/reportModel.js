@@ -23,6 +23,10 @@ const reportSchema = new mongoose.Schema({
 	assignedTo: {
 		type: String,
 		default: "nil"
+	}, 
+	completedBy: {
+		type: String,
+		default: "nil"
 	}
 }, {timestamps: true});
 
