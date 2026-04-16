@@ -27,6 +27,10 @@ const reportSchema = new mongoose.Schema({
 	completedBy: {
 		type: String,
 		default: "nil"
+	},
+	photoEvidence: {
+		type: String,
+		default: null
 	}
 }, {timestamps: true});
 
