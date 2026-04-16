@@ -25,7 +25,7 @@ module.exports = (app) => {
 		const file = req.file.filename;
 		console.log(file);
 
-		/*try {
+		try {
 			const taskCompleted = await Report.findByIdAndUpdate(moderatorId, {completedBy: moderatorId, photoEvidence: file});
 
 			if (taskCompleted) return res.status.json(taskCompleted);
@@ -33,6 +33,6 @@ module.exports = (app) => {
 			return res.status(404).json({message: "Report not found"});
 		} catch (err) {
 			return res.status(500).json(err);
-		}*/
+		}
 	});
 }
