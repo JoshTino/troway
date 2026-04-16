@@ -8,8 +8,7 @@ const ModeratorMapView = () => {
 	const navigate = useNavigate();
 	const token = localStorage.getItem("token");
 	const [reports, setReport] = useState([]);
-
-	console.log(localStorage.getItem("token", "id"));
+	const [photo, setPhoto] = useState({});
 
 	useEffect( () => {
 		fetch(`${BASE_URL}/get_moderator_task`, {
@@ -24,6 +23,27 @@ const ModeratorMapView = () => {
 		})
 		.catch(err => console.log(err));
 	}, []);
+
+	const handleChange = (e) => {
+		const files = e.target.files;
+		setPhoto({...photo, file: files[0]});
+	}
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+
+		try {
+			const response = await fetch(`${BASE_URL}/mark_completed_task`, {
+				method: 'POST',
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+				body: Json.stringify(photo)
+			});
+		} catch (err) {
+
+		}
+	}
 
 	return(
 		<>	
@@ -40,7 +60,7 @@ const ModeratorMapView = () => {
 							<div className="w-full">
 								{reports && reports.length > 0 ? (
 
-									<ModeratorClusterMap reports={reports} /*moderators={moderators} selectedModerator={selectedModerator} handleModeratorSelect={handleModeratorSelect} submitModeratorTask={submitModeratorTask} showSuccessModal={showSuccessModal} modalMessage={modalMessage}*//>
+									<ModeratorClusterMap reports={reports} handleChange={handleChange} handleSubmit={handleSubmit} />
 								) : (
 									<p>Map loading...</p>
 								)}

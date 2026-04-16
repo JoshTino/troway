@@ -16,7 +16,7 @@ import BASE_URL from "/constants/base-url"
 import SuccessModal from "/components/SuccessModal"
 
 
-const AdminClusterMap = ({ reports }) => {
+const ModeratorClusterMap = ({ reports, handleChange, handleSubmit }) => {
 
 	delete L.Icon.Default.prototype._getIconUrl;
 
@@ -93,26 +93,18 @@ const AdminClusterMap = ({ reports }) => {
 				{reports.map((report) => {
 					
 					return (
-				<Marker icon={iconManager(report.status)} key={report._id} position={[report.location.lat, report.location.lng]}>
+				<Marker  key={report._id} position={[report.location.lat, report.location.lng]}>
 					<Popup>
 						<img className="shadow-lg" src={`${BASE_URL}/uploads/${report.file}`} />
 						<p className="font-bold font-nunito text-lg">{report.category}</p>
-						<button onClick={() => alert(`${report._id}`)} className="bg-green-500 font-nunito rounded-sm p-2 text-white">Resolved</button>
-						{/*<div className="flex flex-col items-center gap-y-1">
-							<span className="text-sm font-nunito font-light">Select to assign pickup to moderators</span>
-							<select value={selectedModerator[report._id] || ""} required onChange={(e) => handleModeratorSelect(report._id, e.target.value)} className="bg-gray-100 text-gray-700 font-light font-nunito text-lg p-1 w-full outline-green-200 rounded-sm">
-								<option value="">--Select Moderator--</option>
-								{moderators && moderators.length > 0 ? (
-									moderators.map((moderator) => (
-										<option key={moderator._id} value={moderator._id}>{moderator.name}</option>
-									))
-
-								) : (
-									<option>No moderator yet..</option>
-								)}
-							</select>
-							<button onClick={() => submitModeratorTask(report._id)} disabled={!selectedModerator[report._id]} className="bg-yellow-500 disabled:opacity-50 w-6/12 font-nunito cursor-pointer rounded-sm p-2">Done</button>
-						</div>*/}
+						<form onSubmit={handleSubmit} className="flex flex-col items-center gap-y-2">
+							<span className="text-sm font-nunito font-light">Upload photo evidence of clean up</span>
+							<input onChange={handleChange} name="file" type="file" accept="image/*" required className="text-sm text-stone-500 w-full file:mr-5 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-bold file:bg-green-50 file:text-green-700 hover:file:bg-green-100 hover:file:cursor-pointer"/>
+							<div className="">
+								<button className="bg-green-500 font-nunito rounded-sm p-2 text-white cursor-pointer">Completed</button>
+								{/*<button className="bg-yellow-500 font-nunito rounded-sm p-2 text-black">No able to clean up</button>*/}
+							</div>
+						</form>
 					</Popup>
 				</Marker>
 				);
@@ -129,4 +121,4 @@ const AdminClusterMap = ({ reports }) => {
 
 	);
 }
-export default AdminClusterMap;
+export default ModeratorClusterMap;
