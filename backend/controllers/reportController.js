@@ -1,4 +1,4 @@
-const multer = require('multer');
+const multer = require('../multer/multer');
 const Report = require('../models/reportModel');
 const authMiddleware = require('../middleware/authMiddleware');
 
@@ -18,27 +18,6 @@ const reportSchema = new mongoose.Schema({
 
 const Report = mongoose.model('Report', reportSchema);*/
 
-const storage = multer.diskStorage({
-	destination: (req, file, cb) => {
-		cb(null, 'uploads/');
-	},
-
-	filename: (req, file, cb) => {
-		cb(null, Date.now()+ "-" + file.originalname);
-	}
-});
-
-const upload = multer({
-	storage,
-	limits: {filesize: 2 * 1023 * 1024},
-	filter: (req, file, cb) => {
-		if (file.mimetype === 'image/') {
-			cb(null, true);
-		} else {
-			cb(new Error("Only images are allowed"), false);
-		}
-	}
-});
 
 module.exports = (app) => {
 
@@ -97,7 +76,7 @@ module.exports = (app) => {
 			/*if (deleteReport.user.toString() !== req.user.id) {
 				return res.status(403).json({ message: "Unauthorized" });
 			}*/
-			
+
 			if (deleteReport) return res.status(200).json({message: "Report deleted"});
 
 			res.status(400).json({message: "Report not found"});
@@ -106,7 +85,7 @@ module.exports = (app) => {
 		}
 	});
 
-	app.post('/submit_report', authMiddleware, upload.single('file'), async (req, res) => {
+	app.post('/submit_report', authMiddleware, multer.upload.single('file'), async (req, res) => {
 
 		const {category, lat, lng} = req.body;
 		const file = req.file.filename;
