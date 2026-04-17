@@ -97,7 +97,10 @@ const ModeratorClusterMap = ({ reports, handleChange, handleSubmit }) => {
 					<Popup>
 						<img className="shadow-lg" src={`${BASE_URL}/uploads/${report.file}`} />
 						<p className="font-bold font-nunito text-lg">{report.category}</p>
-						<form onSubmit={handleSubmit} className="flex flex-col items-center gap-y-2">
+						<form onSubmit={(e) => {
+						 	e.preventDefault();
+							handleSubmit(report._id);
+						 	}} className="flex flex-col items-center gap-y-2">
 							<span className="text-sm font-nunito font-light">Upload photo evidence of clean up</span>
 							<input onChange={handleChange} name="file" type="file" accept="image/*" required className="text-sm text-stone-500 w-full file:mr-5 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-bold file:bg-green-50 file:text-green-700 hover:file:bg-green-100 hover:file:cursor-pointer"/>
 							<div className="">
