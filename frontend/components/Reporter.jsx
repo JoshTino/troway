@@ -130,7 +130,7 @@ const Reporter = () => {
 								<option >Burning of Waste</option>
 								<option >Plastic Pollution</option>
 								<option >Broken Waste Bin</option>
-								<option >Harzadous Waste</option>
+								<option >Hazardous Waste</option>
 							</select>
 						</div>
 
