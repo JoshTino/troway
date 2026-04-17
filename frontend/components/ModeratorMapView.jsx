@@ -8,7 +8,7 @@ const ModeratorMapView = () => {
 	const navigate = useNavigate();
 	const token = localStorage.getItem("token");
 	const [reports, setReport] = useState([]);
-	const [photo, setPhoto] = useState({});
+	const [formData, setFormData] = useState({file: null});
 
 	useEffect( () => {
 		fetch(`${BASE_URL}/get_moderator_task`, {
@@ -26,22 +26,28 @@ const ModeratorMapView = () => {
 
 	const handleChange = (e) => {
 		const files = e.target.files;
-		setPhoto({...photo, file: files[0]});
+		setFormData({...formData, file: files[0]});
 	}
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
+	const handleSubmit = async (reportId) => {
+
+		const data = new FormData();
+		data.append("file", formData.file);
+
+		console.log(reportId);
 
 		try {
-			const response = await fetch(`${BASE_URL}/mark_completed_task`, {
+			const response = await fetch(`${BASE_URL}/mark_completed_task/${reportId}`, {
 				method: 'POST',
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},
-				body: Json.stringify(photo)
+				body: data
 			});
+			const result = await response.json();
+			console.log(result);
 		} catch (err) {
-
+			console.log(err);
 		}
 	}
 
