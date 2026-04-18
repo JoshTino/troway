@@ -34,7 +34,6 @@ const ModeratorMapView = () => {
 		const data = new FormData();
 		data.append("file", formData.file);
 
-		console.log(reportId);
 
 		try {
 			const response = await fetch(`${BASE_URL}/mark_completed_task/${reportId}`, {
