@@ -10,6 +10,9 @@ const ModeratorMapView = () => {
 	const [reports, setReport] = useState([]);
 	const [formData, setFormData] = useState({file: null});
 
+	const [showSuccessModal, setShowSuccessModal] = useState(false);
+	const [modalMessage, setModalMessage] = useState("");
+
 	useEffect( () => {
 		fetch(`${BASE_URL}/get_moderator_task`, {
 			method: 'GET',
@@ -45,6 +48,12 @@ const ModeratorMapView = () => {
 			});
 			const result = await response.json();
 			console.log(result);
+
+			setShowSuccessModal(true);
+			setModalMessage("Task Completed");
+			setTimeout(() => {
+				setShowSuccessModal(false);
+			}, 3000);
 		} catch (err) {
 			console.log(err);
 		}
@@ -65,7 +74,7 @@ const ModeratorMapView = () => {
 							<div className="w-full">
 								{reports && reports.length > 0 ? (
 
-									<ModeratorClusterMap reports={reports} handleChange={handleChange} handleSubmit={handleSubmit} />
+									<ModeratorClusterMap reports={reports} handleChange={handleChange} handleSubmit={handleSubmit} showSuccessModal={showSuccessModal} modalMessage={modalMessage} />
 								) : (
 									<p>Map loading...</p>
 								)}

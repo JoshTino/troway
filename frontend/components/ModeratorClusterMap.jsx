@@ -16,7 +16,7 @@ import BASE_URL from "/constants/base-url"
 import SuccessModal from "/components/SuccessModal"
 
 
-const ModeratorClusterMap = ({ reports, handleChange, handleSubmit }) => {
+const ModeratorClusterMap = ({ reports, handleChange, handleSubmit, showSuccessModal, modalMessage }) => {
 
 	delete L.Icon.Default.prototype._getIconUrl;
 
@@ -83,11 +83,11 @@ const ModeratorClusterMap = ({ reports, handleChange, handleSubmit }) => {
 	
 	return (
 		<MapContainer center={[9.9247, 8.8911]} maxBounds={[ [9.7, 8.8], [10.0, 9.2]]} maxBoundsViscosity={0.0} zoom={12.5} style={{width: "100%", height: "760px"}}>
-			{/*<SuccessModal 
+			<SuccessModal 
 				isOpen={showSuccessModal}
 				onClose={() => setShowSuccessModal(false)}
 				modalMessage={modalMessage}
-			 />*/}
+			 />
 			<TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 			<MarkerClusterGroup showCoverageOnHover={true}>
 				{reports.map((report) => {
