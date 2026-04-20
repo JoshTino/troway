@@ -2,22 +2,6 @@ const multer = require('../multer/multer');
 const Report = require('../models/reportModel');
 const authMiddleware = require('../middleware/authMiddleware');
 
-/*const mongoose = require('mongoose');
-
-mongoose.connect('mongodb+srv://test:test@report.kjsepfr.mongodb.net/?appName=report')
-.then(() => console.log("MongoDB Connected"));
-
-const reportSchema = new mongoose.Schema({
-	file: String,
-	category: String,
-	location: {
-		lat: Number,
-		lng: Number
-	}
-});
-
-const Report = mongoose.model('Report', reportSchema);*/
-
 
 module.exports = (app) => {
 
