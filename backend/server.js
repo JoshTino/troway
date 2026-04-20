@@ -7,6 +7,7 @@ const registerController = require('./controllers/registerController');
 const loginController = require('./controllers/loginController');
 const adminController = require('./controllers/adminController');
 const moderatorController = require('./controllers/moderatorController');
+const truckLocationController = require('./controllers/truckLocationController');
 
 const app = express();
 
@@ -39,6 +40,9 @@ adminController(app);
 
 //Fire Moderator Controller
 moderatorController(app);
+
+//Fire Truck Location Controller
+truckLocationController(app);
 
 
 const PORT = process.env.PORT || 5000;
