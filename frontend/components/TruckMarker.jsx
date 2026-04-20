@@ -15,10 +15,10 @@ const TruckMarker = ( {location} ) => {
 	// if (!location) return null;
 
 	useEffect( () => {
-		// if (!location || !markerRef.current) return;
+		//if (!location || !markerRef.current) return;
 
 		markerRef.current.setLatLng([location.lat, location.lng]);
-		map.panTo([location.lat, location.lng]);
+		//map.panTo([location.lat, location.lng]);
 
 	}, [location]);
 
