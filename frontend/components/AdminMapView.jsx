@@ -1,12 +1,15 @@
-import {useState, useEffect} from "react"
+import {useState, useEffect, useRef} from "react"
 import {useNavigate} from 'react-router-dom'
 import AdminClusterMap from "/components/AdminClusterMap"
 import BASE_URL from "/constants/base-url"
 import AdminNavigation from "/components/AdminNavigation"
+import { handleTracking } from "/helpers/tracker"
 
 
 
 const AdminMapView = () => {
+	const markerRef = useRef();
+
 	const [reports, setReports] = useState([]);
 	const [moderators, setModerators] = useState([]);
 	const token = localStorage.getItem("token");
@@ -84,6 +87,26 @@ const AdminMapView = () => {
 			console.log(err);
 		}
 	}
+
+	useEffect( () => {
+		const watchId = navigator.geolocation.watchPosition(
+			async (position) => {
+				handleTracking(markerRef.current, position, token);
+			}, 
+
+			(error) => {
+				console.log(error);
+			}, 
+
+			{
+				enableHighAccuracy: true ,
+				timeout: 10000,
+				maximumAge: 0
+			}
+		);
+
+		return () => navigator.geolocation.clearWatch(watchId);
+	}, []);
 
 	return(
 		<>	
