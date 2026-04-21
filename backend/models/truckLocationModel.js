@@ -12,6 +12,3 @@ const truckLocationSchema = new mongoose.Schema({
 }, {timestamps: true});
 
 module.exports = mongoose.model('TruckLocation', truckLocationSchema);
-
-
-TruckLocation.find
