@@ -84,17 +84,24 @@ export async function sendToBackend(point, token) {
   }
 }
 
-export function handleTracking(marker, position, token) {
-  const point = updateMarkerSmooth(marker, position);
+let lastSentPoint = null;
 
-  //if (!point) return;
+export function handleTracking(marker, position, token) {
+  updateMarkerSmooth(marker, position);
 
   const rawPoint = {
     lat: position.coords.latitude,
     lng: position.coords.longitude,
   };
 
-  if (shouldSendByTime(5000)) {
+  if (!lastSentPoint) {
+    lastSentPoint = rawPoint;
+  }
+
+  const distanceMoved = getDistance(lastSentPoint, rawPoint);
+
+  if (distanceMoved > 5 && shouldSendByTime(5000)) {
     sendToBackend(rawPoint, token);
+    lastSentPoint = rawPoint;
   }
 }
