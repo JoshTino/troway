@@ -6,9 +6,12 @@ const truckLocationSchema = new mongoose.Schema({
 		ref: "User"
 	},
 	location: {
-		lat: String,
-		lng: String
+		lat: Number,
+		lng: Number
 	}
 }, {timestamps: true});
 
 module.exports = mongoose.model('TruckLocation', truckLocationSchema);
+
+
+TruckLocation.find
