@@ -68,7 +68,7 @@ export function shouldSendByTime(interval = 5000) {
 
 export async function sendToBackend(point, token) {
   try {
-    await fetch(`http://localhost:5000/api/truck-location`, {
+    await fetch(`${import.meta.env.VITE_BASE_URL}/api/truck-location`, {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${token}`,
