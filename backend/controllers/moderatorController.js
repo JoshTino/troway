@@ -10,7 +10,7 @@ module.exports = (app) => {
 		const moderatorId =  req.user.id;
 
 		try {
-			const moderatorTask = await Report.find({assignedTo: moderatorId, status: "pending"});
+			const moderatorTask = await Report.find({assignedTo: moderatorId, status: "assigned"});
 
 			if (moderatorTask) return res.status(200).json(moderatorTask);
 
