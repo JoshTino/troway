@@ -3,8 +3,6 @@ import {useNavigate} from 'react-router-dom'
 import AdminClusterMap from "/components/AdminClusterMap"
 import BASE_URL from "/constants/base-url"
 import AdminNavigation from "/components/AdminNavigation"
-import { handleTracking } from "/helpers/tracker"
-
 
 
 const AdminMapView = () => {
@@ -87,26 +85,6 @@ const AdminMapView = () => {
 			console.log(err);
 		}
 	}
-
-	useEffect( () => {
-		const watchId = navigator.geolocation.watchPosition(
-			async (position) => {
-				handleTracking(markerRef.current, position, token);
-			}, 
-
-			(error) => {
-				console.log(error);
-			}, 
-
-			{
-				enableHighAccuracy: true ,
-				timeout: 10000,
-				maximumAge: 0
-			}
-		);
-
-		return () => navigator.geolocation.clearWatch(watchId);
-	}, []);
 
 
 	const [trucks, setTrucks] = useState([]);
