@@ -135,7 +135,7 @@ const AdminClusterMap = ({ reports, moderators, selectedModerator, handleModerat
 
 				{trucks.map(truck => (
 					<MultiTruckMarker 
-						key={truck.truckId}
+						key={truck._id}
 						location={{lat: truck.lat, lng: truck.lng}}
 					/>
 				))}
