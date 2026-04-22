@@ -39,8 +39,8 @@ const AdminClusterMap = ({ reports, moderators, selectedModerator, handleModerat
 			break;
 			case "assigned":
 				return new L.Icon({
-					iconUrl: '/icons/orange.png',
-					iconSize: [50, 45]
+					iconUrl: '/icons/yellow.png',
+					iconSize: [30, 45]
 				});
 			break;
 			case "cleared":
