@@ -17,7 +17,7 @@ const ModeratorMapView = () => {
 	const [modalMessage, setModalMessage] = useState("");
 
 	useEffect( () => {
-		fetch(`${BASE_URL}/get_moderator_task`, {
+		fetch(`${BASE_URL}/api/moderator-task`, {
 			method: 'GET',
 			headers: {
 				Authorization: `Bearer ${token}`
@@ -42,7 +42,7 @@ const ModeratorMapView = () => {
 
 
 		try {
-			const response = await fetch(`${BASE_URL}/mark_completed_task/${reportId}`, {
+			const response = await fetch(`${BASE_URL}/api/mark-completed-task/${reportId}`, {
 				method: 'POST',
 				headers: {
 					Authorization: `Bearer ${token}`,

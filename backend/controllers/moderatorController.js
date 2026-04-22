@@ -6,7 +6,7 @@ const authMiddleware = require('../middleware/authMiddleware');
 
 
 module.exports = (app) => {
-	app.get('/get_moderator_task', authMiddleware, async (req, res) => {
+	app.get('/api/moderator-task', authMiddleware, async (req, res) => {
 		const moderatorId =  req.user.id;
 
 		try {
@@ -20,7 +20,7 @@ module.exports = (app) => {
 		}
 	});
 
-	app.post('/mark_completed_task/:id', authMiddleware, multer.upload.single("file"), async (req, res) => {
+	app.post('/api/mark-completed-task/:id', authMiddleware, multer.upload.single("file"), async (req, res) => {
 
 		const reportId = req.params.id;
 		const moderatorId = req.user.id;
