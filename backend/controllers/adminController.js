@@ -77,7 +77,7 @@ module.exports = (app) => {
 
 	app.patch('/assign_task/:moderatorId/:reportId', authMiddleware, authorize("admin"), async (req, res) => {
 		const {moderatorId, reportId} = req.params;
-		console.log(moderatorId+" --- "+ reportId);
+		
 		try {
 			const assignTask = await Report.findOneAndUpdate(
 				{_id: reportId},
