@@ -31,7 +31,7 @@ const ModeratorClusterMap = ({ reports, handleChange, handleSubmit, showSuccessM
 
 	const iconManager = (status) => {
 		switch(status)  {
-			case "pending":
+			case "assigned":
 				return new L.Icon({
 					iconUrl: '/icons/red.png',
 					iconSize: [50, 45]
