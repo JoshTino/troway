@@ -1,10 +1,13 @@
-import {useState, useEffect} from "react"
+import {useState, useEffect, useRef} from "react"
 import {useNavigate} from "react-router-dom"
 import ModeratorClusterMap from "/components/ModeratorClusterMap"
 import BASE_URL from "/constants/base-url"
 import AdminNavigation from "/components/AdminNavigation"
+import { handleTracking } from "/helpers/tracker"
 
 const ModeratorMapView = () => {
+	const markerRef = useRef();
+
 	const navigate = useNavigate();
 	const token = localStorage.getItem("token");
 	const [reports, setReport] = useState([]);
@@ -59,6 +62,26 @@ const ModeratorMapView = () => {
 		}
 	}
 
+	useEffect( () => {
+		const watchId = navigator.geolocation.watchPosition(
+			async (position) => {
+				handleTracking(markerRef.current, position, token);
+			}, 
+
+			(error) => {
+				console.log(error);
+			}, 
+
+			{
+				enableHighAccuracy: true ,
+				timeout: 10000,
+				maximumAge: 0
+			}
+		);
+
+		return () => navigator.geolocation.clearWatch(watchId);
+	}, []);
+
 	return(
 		<>	
 			{/*<nav className="flex justify-center">
@@ -74,7 +97,7 @@ const ModeratorMapView = () => {
 							<div className="w-full">
 								{reports && reports.length > 0 ? (
 
-									<ModeratorClusterMap reports={reports} handleChange={handleChange} handleSubmit={handleSubmit} showSuccessModal={showSuccessModal} modalMessage={modalMessage} />
+									<ModeratorClusterMap reports={reports} handleChange={handleChange} handleSubmit={handleSubmit} showSuccessModal={showSuccessModal} modalMessage={modalMessage}/>
 								) : (
 									<p>Map loading...</p>
 								)}
