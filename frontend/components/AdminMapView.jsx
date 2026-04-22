@@ -130,6 +130,7 @@ const AdminMapView = () => {
 	    }
 	  };
 	
+	  //Initial call
 	  fetchTrucks();
 	
 	  const interval = setInterval(fetchTrucks, 5000);
