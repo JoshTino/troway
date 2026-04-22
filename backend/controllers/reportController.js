@@ -108,4 +108,43 @@ module.exports = (app) => {
 		}
 	});
 
+	app.get('/api/pending-waste', authMiddleware, async (req, res) => {
+
+		try {
+			const pendingWaste = await Report.find({status: "pending"});
+
+			if (pendingWaste) return res.status(200).json(pendingWaste);
+
+			res.status(404).json({message: "Reports not found"});
+		} catch (err) {
+			res.status(500).json(err.message);
+		}
+	});
+
+	app.get('/api/assigned-waste', authMiddleware, async (req, res) => {
+
+		try {
+			const assignedWaste = await Report.find({status: "assigned"});
+
+			if (assignedWaste) return res.status(200).json(assignedWaste);
+
+			res.status(404).json({message: "Reports not found"});
+		} catch (err) {
+			res.status(500).json(err.message);
+		}
+	});
+
+	app.get('/api/cleared-waste', authMiddleware, async (req, res) => {
+
+		try {
+			const clearedWaste = await Report.find({status: "cleared"});
+
+			if (clearedWaste) return res.status(200).json(clearedWaste);
+
+			res.status(404).json({message: "Reports not found"});
+		} catch (err) {
+			res.status(500).json(err.message);
+		}
+	});
+
 }
