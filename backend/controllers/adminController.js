@@ -77,12 +77,16 @@ module.exports = (app) => {
 
 	app.patch('/assign_task/:moderatorId/:reportId', authMiddleware, authorize("admin"), async (req, res) => {
 		const {moderatorId, reportId} = req.params;
+		console.log(moderatorId+" --- "+ reportId);
 		try {
-			const assignTask = await Report.findOneAndUpdate({reportId}, { $set: {assignedTo: moderatorId, status: "assigned"}}, {returnDocument: "after"});
+			const assignTask = await Report.findOneAndUpdate(
+				{_id: reportId},
+				{ $set: {assignedTo: moderatorId, status: "assigned"} },
+				{returnDocument: "after"});
 
 			if (assignTask) return res.status(200).json(assignTask);
 
-			return res.status(204).status({message: "No Content"});
+			return res.status(204).json({message: "No Content"});
 		} catch (err) {
 			return res.status(500).json(err);
 		}
