@@ -108,6 +108,36 @@ const AdminMapView = () => {
 		return () => navigator.geolocation.clearWatch(watchId);
 	}, []);
 
+
+	const [trucks, setTrucks] = useState([]);
+
+	useEffect(() => {
+	  if (!token) return;
+	
+	  const fetchTrucks = async () => {
+	    try {
+	      const res = await fetch(`${BASE_URL}/api/truck-latest-location`, {
+	        headers: {
+	          Authorization: `Bearer ${token}`
+	        }
+	      });
+	
+	      const data = await res.json();
+	      setTrucks(data);
+		console.log(data);
+	    } catch (err) {
+	      console.error(err);
+	    }
+	  };
+	
+	  fetchTrucks();
+	
+	  const interval = setInterval(fetchTrucks, 5000);
+	
+	  return () => clearInterval(interval);
+	
+	}, [token]);
+
 	return(
 		<>	
 			{/*<nav className="flex justify-center">
@@ -123,7 +153,7 @@ const AdminMapView = () => {
 							<div className="w-full">
 								{reports && reports.length > 0 ? (
 
-									<AdminClusterMap reports={reports} moderators={moderators} selectedModerator={selectedModerator} handleModeratorSelect={handleModeratorSelect} submitModeratorTask={submitModeratorTask} showSuccessModal={showSuccessModal} modalMessage={modalMessage}/>
+									<AdminClusterMap reports={reports} moderators={moderators} selectedModerator={selectedModerator} handleModeratorSelect={handleModeratorSelect} submitModeratorTask={submitModeratorTask} showSuccessModal={showSuccessModal} modalMessage={modalMessage} trucks={trucks}/>
 								) : (
 									<p>Map loading...</p>
 								)}
