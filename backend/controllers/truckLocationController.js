@@ -29,4 +29,36 @@ module.exports = (app) => {
 		}
 
 	});
+
+	app.get('/api/truck-latest-location', authMiddleware, authorize("admin"), async (req, res) => {
+
+		try {
+			const startOfToday = new Date();
+			startOfToday.setHours(0, 0, 0, 0);
+
+			const truckLatestLocation = await TruckLocation.aggregate([
+				
+
+				{
+					$sort: {
+						truckId: 1,
+						createdAt: -1
+					}
+				},
+
+				{
+					$group: {
+						_id: "$truckId",
+						lat: {$first: { $toDouble: "$location.lat"} },
+						lng: {$first: { $toDouble: "$location.lng"} },
+						createdAt: {$first: "$createdAt"}
+					}
+				}
+			]);
+
+			res.status(200).json(truckLatestLocation);
+		} catch (err) {
+			return res.status(500).json(err);
+		}
+	});
 }
