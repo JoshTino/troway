@@ -11,7 +11,7 @@ const TruckMarker = ({ location }) => {
 	const map = useMap();
 
 	const truckIcon = new L.Icon({
-		iconUrl: "/icons/t1.png",
+		iconUrl: "/icons/green-truck.png",
 		iconSize: [65, 65],
 		iconAnchor: [32, 32] // VERY IMPORTANT (center rotation)
 	});
