@@ -63,7 +63,7 @@ const Reporter = () => {
 
 		try {
 			const token = localStorage.getItem("token");
-			const res = await fetch(`${BASE_URL}/submit_report`, {
+			const res = await fetch(`${BASE_URL}/api/report`, {
 				method: 'POST',
 				headers: {
 					Authorization: `Bearer ${token}`

@@ -22,7 +22,7 @@ const ReporterEdit = () => {
 	const handleEdit = async () => {
 
 		try {
-			const res = await fetch(`${BASE_URL}/edit_report/${id}`, {
+			const res = await fetch(`${BASE_URL}/api/report/${id}`, {
 				method: 'PATCH',
 				headers: {
 					"Content-Type": "application/json",
@@ -41,7 +41,7 @@ const ReporterEdit = () => {
 	const handleDelete = async () => {
 
 		try {
-			const res = await fetch(`${BASE_URL}/delete_report/${id}`, {
+			const res = await fetch(`${BASE_URL}/api/report/${id}`, {
 				method: 'DELETE',
 				headers: {
 					Authorization: `Bearer ${token}`

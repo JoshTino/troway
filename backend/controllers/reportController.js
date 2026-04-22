@@ -50,7 +50,7 @@ module.exports = (app) => {
 		}
 	});
 
-	app.delete('/delete_report/:id', authMiddleware, async (req, res) => {
+	app.delete('/api/report/:id', authMiddleware, async (req, res) => {
 		const reportId = req.params.id;
 
 
@@ -69,7 +69,7 @@ module.exports = (app) => {
 		}
 	});
 
-	app.post('/submit_report', authMiddleware, multer.upload.single('file'), async (req, res) => {
+	app.post('/api/report', authMiddleware, multer.upload.single('file'), async (req, res) => {
 
 		const {category, lat, lng} = req.body;
 		const file = req.file.filename;
@@ -95,7 +95,7 @@ module.exports = (app) => {
 	});
 
 
-	app.get('/get_all_waste_location', authMiddleware, async (req, res) => {
+	app.get('/api/all-waste-location', authMiddleware, async (req, res) => {
 
 		try {
 			const getAllWasteLocation = await Report.find();
