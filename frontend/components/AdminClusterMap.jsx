@@ -2,6 +2,7 @@ import {useState, useEffect, createContext ,useContext} from "react"
 import {MapContainer, TileLayer, Marker, Popup} from "react-leaflet"
 import MarkerClusterGroup from "react-leaflet-cluster"
 import TruckMarker from "/components/TruckMarker"
+import MultiTruckMarker from "/components/MultiTruckMarker"
 import L from "leaflet"
 import "leaflet/dist/leaflet.css"
 import "react-leaflet-cluster/dist/assets/MarkerCluster.css";
@@ -16,7 +17,7 @@ import BASE_URL from "/constants/base-url"
 import SuccessModal from "/components/SuccessModal"
 
 
-const AdminClusterMap = ({ reports, moderators, selectedModerator, handleModeratorSelect, submitModeratorTask, showSuccessModal,  modalMessage }) => {
+const AdminClusterMap = ({ reports, moderators, selectedModerator, handleModeratorSelect, submitModeratorTask, showSuccessModal,  modalMessage, trucks }) => {
 
 	delete L.Icon.Default.prototype._getIconUrl;
 
@@ -126,11 +127,18 @@ const AdminClusterMap = ({ reports, moderators, selectedModerator, handleModerat
 
 			</MarkerClusterGroup>
 			
-				{location.lat && location.lng ? (
+				{/*{location.lat && location.lng ? (
 					<TruckMarker location={location} />
 				) : (
 					<p>Tracking</p>
-				)}
+				)}*/}
+
+				{trucks.map(truck => (
+					<MultiTruckMarker 
+						key={truck.truckId}
+						location={{lat: truck.lat, lng: truck.lng}}
+					/>
+				))}
 		</MapContainer>
 
 	);
