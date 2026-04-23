@@ -37,7 +37,11 @@ module.exports = (app) => {
 			startOfToday.setHours(0, 0, 0, 0);
 
 			const truckLatestLocation = await TruckLocation.aggregate([
-				
+				{
+					$match: {
+						createdAt: { $gte: startOfToday}
+					}
+				},
 
 				{
 					$sort: {
