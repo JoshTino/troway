@@ -5,7 +5,7 @@ const authMiddleware = require('../middleware/authMiddleware');
 
 module.exports = (app) => {
 
-	app.get('/get_report', authMiddleware, async (req, res) => {
+	app.get('/api/report', authMiddleware, async (req, res) => {
 		try {
 			const userId = req.user.id;
 			const report = await Report.find({user: userId});
@@ -34,7 +34,7 @@ module.exports = (app) => {
 		}
 	});
 
-	app.patch('/edit_report/:id', authMiddleware, async (req, res) => {
+	app.patch('/api/report/:id', authMiddleware, async (req, res) => {
 		const reportId = req.params.id;
 		const {category} = req.body;
 

@@ -20,7 +20,7 @@ const AdminViewUsers = () => {
 	//Retrieving moderators
 	useEffect( () => {
 
-		fetch(`${BASE_URL}/get_moderators`, {
+		fetch(`${BASE_URL}/api/moderators`, {
 			method: 'GET',
 			headers: {
 				Authorization: `Bearer ${token}`,
@@ -36,7 +36,7 @@ const AdminViewUsers = () => {
 	//Retrieving users
 	useEffect(() => {
 
-		fetch(`${BASE_URL}/get_users`, {
+		fetch(`${BASE_URL}/api/users`, {
 			method: 'GET',
 			headers: {
 				Authorization: `Bearer ${token}`,
@@ -54,7 +54,7 @@ const AdminViewUsers = () => {
 		const token = localStorage.getItem("token");
 
 		try {
-			const response = await fetch(`${ BASE_URL}/remove_moderator/${userId}`, {
+			const response = await fetch(`${ BASE_URL}/api/remove-moderator/${userId}`, {
 				method: 'PATCH',
 				headers: {
 					Authorization: `Bearer ${token}`
@@ -72,7 +72,7 @@ const AdminViewUsers = () => {
 		const token = localStorage.getItem("token");
 
 		try {
-			const response = await fetch(`${BASE_URL}/make_moderator/${userId}`, {
+			const response = await fetch(`${BASE_URL}/api/moderator/${userId}`, {
 				method: 'PATCH',
 				headers: {
 					Authorization: `Bearer ${token}`,
@@ -90,7 +90,7 @@ const AdminViewUsers = () => {
 		const token = localStorage.getItem("token");
 
 		try {
-			const response = await fetch(`${ BASE_URL}/remove_user/${userId}`, {
+			const response = await fetch(`${ BASE_URL}/api/user/${userId}`, {
 				method: 'DELETE',
 				headers: {
 					Authorization: `Bearer ${token}`

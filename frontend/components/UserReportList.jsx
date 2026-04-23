@@ -15,7 +15,7 @@ const UserReportList = () => {
 
 	useEffect( () => {
 
-		fetch(`${BASE_URL}/get_report`, {
+		fetch(`${BASE_URL}/api/report`, {
 			method: 'GET',
 			headers: {
 				Authorization: `Bearer ${token}`

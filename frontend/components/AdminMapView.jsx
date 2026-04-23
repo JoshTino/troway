@@ -66,7 +66,7 @@ const AdminMapView = () => {
 		const moderatorId = selectedModerator[reportId];
 
 		try {
-			const response = await fetch(`${BASE_URL}/assign_task/${moderatorId}/${reportId}`, {
+			const response = await fetch(`${BASE_URL}/api/assign-task/${moderatorId}/${reportId}`, {
 				method: 'PATCH',
 				headers: {
 					Authorization: `Bearer ${token}`
