@@ -32,7 +32,7 @@ const AdminMapView = () => {
 	}, []);
 
 	useEffect( () => {
-		fetch(`${BASE_URL}/get_moderators`, {
+		fetch(`${BASE_URL}/api/moderators`, {
 			method: 'GET',
 			headers: {
 				Authorization: `Bearer ${token}`
