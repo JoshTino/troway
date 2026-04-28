@@ -135,7 +135,7 @@ const AdminViewUsers = () => {
 			<nav className="flex flex-col items-center justify-center">
 				<div className="flex w-11/12 justify-between rounded-lg mt-3 bg-white p-4">
 					<h1 className="text-4xl text-center text-green-400 font-nunito font-bold">TroWay</h1>
-					<button onClick={() => setOpen(!open)}>
+					<button className="text-gray-700" onClick={() => setOpen(!open)}>
 						{open ? <X size={40}/> : <Menu size={40} />}
 					</button>					
 				</div>
