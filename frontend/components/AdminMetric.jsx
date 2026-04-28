@@ -18,7 +18,7 @@ const AdminMetric = () => {
 					<button onClick={logOut} className="bg-red-500 text-white cursor-pointer rounded-sm px-4 py-2 font-light font-nunito">Logout</button>
 				</div>
 			</nav>
-			<AdminNavigation navigate={navigate}/>
+			<AdminNavigation />
 			<div className="flex flex-col items-center mb-4">
 				<div className="bg-white w-11/12 mb-4 rounded-lg mt-3 px-4 py-3 shadow-lg">
 					<div className="flex justify-center mb-4">
@@ -75,4 +75,3 @@ const AdminMetric = () => {
 		</>
 	);
 }
-export default AdminMetric;

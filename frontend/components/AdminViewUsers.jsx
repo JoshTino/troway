@@ -124,7 +124,7 @@ const AdminViewUsers = () => {
 				message={message}
 			 />
 			<HamburgerNav />
-			<AdminNavigation navigate={navigate}/>
+			<AdminNavigation />
 			<div className="flex flex-col items-center mb-4">
 				<div className="bg-white w-11/12 mb-4 rounded-lg mt-3 px-4 py-3 shadow-lg">
 					<div className="flex justify-start mb-1">
