@@ -1,5 +1,7 @@
+import {useNavigate} from "react-router-dom"
 
-const AdminNavigation = ( {navigate} ) => {
+const AdminNavigation = () => {
+	const navigate = useNavigate();
 	return(
 		<>
 			<div className="flex justify-center">
