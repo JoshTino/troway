@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react"
 import {useNavigate} from "react-router-dom"
-import {X, Menu} from "lucide-react"
+import HamburgerNav from "/components/HamburgerNav"
 import AdminNavigation from "/components/AdminNavigation"
 import Modal from "/components/Modal"
 import BASE_URL from "/constants/base-url"
@@ -9,8 +9,6 @@ const AdminViewUsers = () => {
 	const navigate = useNavigate();
 	const [moderators, setModerator] = useState([]);
 	const [users, setUser] = useState([]);
-
-	const [open, setOpen] = useState(false);
 
 	const [message, setMessage] = useState("") ;
 	const [selectedId, setSelectedId] = useState(null);
@@ -108,13 +106,6 @@ const AdminViewUsers = () => {
 	}
 
 
-
-
-	const logOut = () => {
-		localStorage.removeItem("token");
-		navigate("/login");
-	}
-
 	const handleConfirm = () => {
 		setShowModal(false);
 		setSelectedId(null);
@@ -132,20 +123,7 @@ const AdminViewUsers = () => {
 				onConfirm={handleConfirm}
 				message={message}
 			 />
-			<nav className="flex flex-col items-center justify-center">
-				<div className="flex w-11/12 justify-between rounded-lg mt-3 bg-white p-4">
-					<h1 className="text-4xl text-center text-green-400 font-nunito font-bold">TroWay</h1>
-					<button className="text-gray-700" onClick={() => setOpen(!open)}>
-						{open ? <X size={40}/> : <Menu size={40} />}
-					</button>					
-				</div>
-				{open && (
-					<div className="bg-white w-5/12 flex flex-col self-end mr-5 absolute top-21 border border-1 border-gray-200 md:hidden">
-						<button onClick={logOut} className="text-black cursor-pointer rounded-sm py-2 font-light font-nunito">Profile</button>
-						<button onClick={logOut} className="text-black cursor-pointer rounded-sm py-2 font-light font-nunito">Logout</button>
-					</div>
-				)}
-			</nav>
+			<HamburgerNav />
 			<AdminNavigation navigate={navigate}/>
 			<div className="flex flex-col items-center mb-4">
 				<div className="bg-white w-11/12 mb-4 rounded-lg mt-3 px-4 py-3 shadow-lg">
