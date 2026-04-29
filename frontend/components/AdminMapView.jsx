@@ -2,7 +2,7 @@ import {useState, useEffect, useRef} from "react"
 import {useNavigate} from 'react-router-dom'
 import AdminClusterMap from "/components/AdminClusterMap"
 import BASE_URL from "/constants/base-url"
-import AdminNavigation from "/components/AdminNavigation"
+import MapNav from "/components/MapNav"
 
 
 const AdminMapView = () => {
@@ -125,19 +125,14 @@ const AdminMapView = () => {
 					<button onClick={logOut} className="bg-red-500 text-white cursor-pointer rounded-sm px-4 py-2 font-light font-nunito">Logout</button>
 				</div>
 			</nav>*/}
-			<AdminNavigation />
-			<div className="flex justify-center">
-				<div className="bg-white w-11/12 rounded-lg mt-3 p-1 shadow-lg">
-						<div className="w-full">
-							<div className="w-full">
-								{reports && reports.length > 0 ? (
-
-									<AdminClusterMap reports={reports} moderators={moderators} selectedModerator={selectedModerator} handleModeratorSelect={handleModeratorSelect} submitModeratorTask={submitModeratorTask} showSuccessModal={showSuccessModal} modalMessage={modalMessage} trucks={trucks}/>
-								) : (
-									<p>Map loading...</p>
-								)}
-							</div>
-						</div>
+			<MapNav />
+			<div className="flex flex-col justify-center p-2 fixed inset-0">
+				<div className="bg-white w-full rounded-lg shadow-lg">
+					{reports && reports.length > 0 ? (
+						<AdminClusterMap reports={reports} moderators={moderators} selectedModerator={selectedModerator} handleModeratorSelect={handleModeratorSelect} submitModeratorTask={submitModeratorTask} showSuccessModal={showSuccessModal} modalMessage={modalMessage} trucks={trucks}/>
+					) : (
+						<p>Map loading...</p>
+					)}
 				</div>
 			</div>
 		</>
