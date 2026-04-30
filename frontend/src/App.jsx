@@ -11,6 +11,7 @@ import AdminMetric from "/components/AdminMetric"
 import AdminViewUsers from "/components/AdminViewUsers"
 import ModeratorMapView from "/components/ModeratorMapView"
 import Profile from "/components/Profile"
+import Unauthorized from "/components/Unauthorized"
 
 import ProtectedRoute from "/protected routes/ProtectedRoute"
 
@@ -21,6 +22,7 @@ function App() {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
+      <Route path="/unauthorized" element={<Unauthorized />}/>
       <Route path="/reporter" element={
         <ProtectedRoute allowedRoles={["user"]}>
           <Reporter />
