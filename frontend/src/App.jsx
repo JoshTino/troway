@@ -22,43 +22,43 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/reporter" element={
-        <ProtectedRoute>
+        <ProtectedRoute allowedRoles={["user"]}>
           <Reporter />
         </ProtectedRoute>
       } />
 
       <Route path="/reporter-edit/:id" element={
-        <ProtectedRoute>
+        <ProtectedRoute allowedRoles={["user"]}>
           <ReporterEdit />
       </ProtectedRoute>
       } />
 
       <Route path="/reporter-list" element={
-        <ProtectedRoute>
+        <ProtectedRoute allowedRoles={["user"]}>
           <UserReportList />
         </ProtectedRoute>
       } />
 
       <Route path="/waste-location" element={
-        <ProtectedRoute>
+        <ProtectedRoute allowedRoles={["admin"]}>
           <AdminMapView />
         </ProtectedRoute>
       } />
 
       <Route path="/admin-metric" element={
-        <ProtectedRoute>
+        <ProtectedRoute allowedRoles={["admin"]}>
           <AdminMetric />
         </ProtectedRoute>}
         />
 
         <Route path="/view-users" element={
-          <ProtectedRoute>
+          <ProtectedRoute allowedRoles={["admin"]}>
             <AdminViewUsers />
           </ProtectedRoute>
         }/>
 
         <Route path="/moderator-map-view" element={
-          <ProtectedRoute>
+          <ProtectedRoute allowedRoles={["moderator"]}>
             <ModeratorMapView />
           </ProtectedRoute>
         } />

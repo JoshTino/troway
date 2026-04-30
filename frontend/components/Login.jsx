@@ -41,8 +41,25 @@ const Login = () => {
 			console.log(result);
 
 			if (res.ok) {
-				localStorage.setItem("token", result.token);
-				navigate('/reporter');
+				const {token, user} = result;
+
+				localStorage.setItem("token", token);
+				localStorage.setItem("role", result.user.role);
+
+				switch (user.role) {
+				case "super_admin":
+					navigate('/admin-metric');
+					break;
+				case "moderator":
+					navigate('/moderator-map-view');
+					break;
+				case "user":
+					navigate('/reporter');
+					break;
+				default:
+					navigate('/admin-metric');
+				}
+				// navigate('/reporter');
 			} else {
 				alert(result.message);
 			}
