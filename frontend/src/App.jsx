@@ -10,6 +10,7 @@ import AdminMapView from "/components/AdminMapView"
 import AdminMetric from "/components/AdminMetric"
 import AdminViewUsers from "/components/AdminViewUsers"
 import ModeratorMapView from "/components/ModeratorMapView"
+import Profile from "/components/Profile"
 
 import ProtectedRoute from "/protected routes/ProtectedRoute"
 
@@ -61,6 +62,12 @@ function App() {
             <ModeratorMapView />
           </ProtectedRoute>
         } />
+
+        <Route path="/profile" element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        }/>
     </Routes>
   )
 }
