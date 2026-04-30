@@ -5,7 +5,7 @@ import {X, Menu} from "lucide-react"
 const HamburgerNav = () => {
 
 	const navigate = useNavigate();
-	
+
 	const [open, setOpen] = useState(false);
 
 	const logOut = () => {
@@ -23,7 +23,7 @@ const HamburgerNav = () => {
 				</div>
 				{open && (
 					<div className="bg-white w-5/12 flex flex-col self-end mr-5 absolute top-21 border border-1 border-gray-200 md:hidden">
-						<button className="text-black cursor-pointer rounded-sm py-2 font-light font-nunito">Profile</button>
+						<button onClick={() => navigate('/profile')} className="text-black cursor-pointer rounded-sm py-2 font-light font-nunito">Profile</button>
 						<button onClick={logOut} className="text-black cursor-pointer rounded-sm py-2 font-light font-nunito">Logout</button>
 					</div>
 				)}
