@@ -21,7 +21,15 @@ module.exports = (app) => {
 			{expiresIn: "1d"}
 		);
 
-		res.status(200).json({token});
+		res.status(200).json(
+			{
+				token,
+				user: {
+					id: user._id,
+					role: user.role
+				}
+			}
+			);
 	});
 
 }
