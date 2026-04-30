@@ -6,7 +6,7 @@ const Profile = () => {
 	return(
 		<>
 			<HamburgerNav/>	
-			<AdminNavigation navigate={navigate}/>
+			<AdminNavigation/>
 		</>
 	);
 }
