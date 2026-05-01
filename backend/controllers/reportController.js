@@ -1,6 +1,7 @@
 const multer = require('../multer/multer');
 const Report = require('../models/reportModel');
 const authMiddleware = require('../middleware/authMiddleware');
+const authorize = require('../middleware/authorize');
 
 
 module.exports = (app) => {
@@ -144,6 +145,27 @@ module.exports = (app) => {
 			res.status(404).json({message: "Reports not found"});
 		} catch (err) {
 			res.status(500).json(err.message);
+		}
+	});
+
+	app.get('/api/report-stats', authMiddleware, authorize("admin"), async (req, res) => {
+
+		try {
+			const [total, pending, assigned, cleared] = await Promise.all([
+				Report.countDocuments(),
+				Report.countDocuments({status: "pending"}),
+				Report.countDocuments({status: "assigned"}),
+				Report.countDocuments({status: "cleared"})
+			]);
+
+			res.status(200).json({
+				total,
+				pending,
+				assigned,
+				cleared
+			});
+		} catch(err) {
+			res.status(500).json(err);
 		}
 	});
 
