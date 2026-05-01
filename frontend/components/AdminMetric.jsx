@@ -1,15 +1,36 @@
-import {useNavigate} from "react-router-dom"
+import {useState, useEffect} from "react"
 import AdminNavigation from "/components/AdminNavigation"
 import HamburgerNav from "/components/HamburgerNav"
 
+import BASE_URL from "../constants/base-url"
+
 const AdminMetric = () => {
-	const navigate = useNavigate();
 
-	const logOut = () => {
-		localStorage.removeItem("token");
-		navigate("/login");
-	}
+	const token = localStorage.getItem("token");
 
+	const [stats, setStats] = useState({
+		total: 0,
+		pending: 0,
+		assigned: 0,
+		cleared: 0
+	});
+
+	useEffect(() => {
+		const fetchData = async () => {
+			const response = await fetch(`${BASE_URL}/api/report-stats`, {
+				method: 'GET',
+				headers: {
+					Authorization: `Bearer ${token}`
+				}
+			});
+
+			const result = await response.json();
+			setStats(result);
+
+		}
+
+		fetchData();
+	}, []);
 
 	return(
 		<>
@@ -22,18 +43,18 @@ const AdminMetric = () => {
 					</div>
 					<div className="flex flex-col mb-4 items-center gap-y-4 p-4 bg-gray-50 rounded-lg">
 						<h2 className="text-center font-nunito text-xl font-bold">Pending Report(s)</h2>
-						<p className="text-center font-nunito text-xl font-bold">360</p>
+						<p className="text-center font-nunito text-xl font-bold">{stats.pending}</p>
 						<button className="bg-yellow-500 font-nunito p-1 w-fit text-sm rounded-xs shadow-xs border-1 border-yellow-400 cursor-pointer" onClick={() => navigate('/waste-location')}>Assign Task</button>
 					</div>
 
 					<div className="flex gap-x-2">
 						<div className="flex flex-col mb-4 items-center w-6/12 gap-y-4 p-2 bg-gray-50 shadow-xs border-1 border-gray-400/20 rounded-lg">
 							<h2 className="text-center font-nunito text-xl font-bold">Total Report(s)</h2>
-							<p className="text-center font-nunito text-xl font-bold">400</p>
+							<p className="text-center font-nunito text-xl font-bold">{stats.total}</p>
 						</div>
 						<div className="flex flex-col mb-4 items-center w-6/12 gap-y-4 p-2 bg-gray-50 shadow-xs border-1 border-gray-400/20 rounded-lg">
 							<h2 className="text-center font-nunito text-xl font-bold">Total Clean Up</h2>
-							<p className="text-center font-nunito text-xl font-bold">40</p>
+							<p className="text-center font-nunito text-xl font-bold">{stats.cleared}</p>
 						</div>
 					</div>
 				</div>
