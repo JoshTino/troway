@@ -54,7 +54,7 @@ function App() {
         />
 
         <Route path="/view-users" element={
-          <ProtectedRoute allowedRoles={["admin"]}>
+          <ProtectedRoute allowedRoles={["admin, moderator"]}>
             <AdminViewUsers />
           </ProtectedRoute>
         }/>
