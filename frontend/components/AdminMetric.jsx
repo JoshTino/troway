@@ -64,14 +64,45 @@ const AdminMetric = () => {
 							<h1 className="font-light font-nunito text-2xl">Waste Chart</h1>
 						</div>
 						<div className="mb-6">
-							<div className="w-[50%] bg-yellow-500/35 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-sm">Hazardous waste</span></div>
-							<div className="w-70 bg-green-700/35 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-white text-sm">Blocked Drainage</span></div>
-							<div className="w-50 bg-slate-700/35 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-white text-sm">Illegal dumping</span></div>
-							<div className="w-60 bg-blue-300 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-sm">Plastic pollution</span></div>
-							<div className="w-full bg-orange-700/50 my-2 px-2 py-[3px] rounded-sm"><span className="font-nunito text-sm">Broken waste bin</span></div>
-							<div className="w-45 bg-zinc-900/35 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-white text-sm">Uncollected waste</span></div>
-							<div className="w-80 bg-blue-700/35 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-white text-sm">Overflowing bin</span></div>
-							<div className="w-50 bg-red-500/35 my-3 px-2 py-[3px] rounded-sm"><span className="font-nunito text-sm">Burning of waste</span></div>
+							<div>
+								<span className="bg-white font-nunito text-xs border-1 border-gray-200 px-1">Hazardous waste</span>
+								<div className="w-[14.93%] bg-yellow-500/35 mb-2 px-2 py-2 rounded-sm"></div>
+							</div>
+
+							<div>
+								<span className="bg-white font-nunito text-xs border-1 border-gray-200 px-1">Blocked Drainage</span>
+								<div className="w-[1.20%] bg-green-700/35 mb-2 px-2 py-2 rounded-sm"></div>
+							</div>
+
+							<div>
+								<span className="bg-white font-nunito text-xs border-1 border-gray-200 px-1">Illegal dumping</span>
+								<div className="w-[11.12%] bg-slate-700/35 mb-2 px-2 py-2 rounded-sm"></div>
+							</div>
+
+							<div>
+								<span className="bg-white font-nunito text-xs border-1 border-gray-200 px-1">Plastic pollution</span>
+								<div className="w-[18.32%] bg-blue-300 mb-2 px-2 py-2 rounded-sm"></div>
+							</div>
+
+							<div>
+								<span className="bg-white font-nunito text-xs border-1 border-gray-200 px-1">Broken waste bin</span>
+								<div className="w-[24.83%] bg-orange-700/50 mb-2 px-2 py-2 rounded-sm"></div>
+							</div>
+
+							<div>
+								<span className="bg-white font-nunito text-xs border-1 border-gray-200 px-1">Uncollected waste</span>
+								<div className="w-[9.83%] bg-zinc-900/35 mb-2 px-2 py-2 rounded-sm"></div>
+							</div>
+
+							<div>
+								<span className="bg-white font-nunito text-xs border-1 border-gray-200 px-1">Overflowing bin</span>
+								<div className="w-[4.17%] bg-blue-700/35 mb-2 px-2 py-2 rounded-sm"></div>
+							</div>
+
+							<div>
+								<span className="bg-white font-nunito text-xs border-1 border-gray-200 px-1">Burning of waste</span>
+								<div className="w-[15.60%] bg-red-500/35 mb-2 px-2 py-2 rounded-sm"></div>
+							</div>
 						</div>
 						<div className="flex justify-center gap-x-4 mb-4">
 							<div className="flex flex-col items-center p-3 rounded-sm w-fit md:w-4/12 bg-white shadow-md">
