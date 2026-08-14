@@ -135,16 +135,16 @@ const AdminViewUsers = () => {
 						{moderators && moderators.length > 0 ? (
 
 							moderators.map((moderator) => (
-								<div key={moderator._id} className="flex gap-x-2 shadow-md p-2 border-1 border-gray-200/50 rounded-md">
+								<div key={moderator._id} className="flex gap-x-2 shadow-md p-2 border-x-2 border-green-500 border-dashed rounded-md">
 									<div>
-										<img className="rounded-full object-cover size-20"  src={"https://image.pngaaa.com/595/2541595-middle.png"} />
+										<img className="rounded-full object-cover size-15"  src={"https://image.pngaaa.com/595/2541595-middle.png"} />
 									</div>
 									<div>
-										<h2 className="font-nunito font-bold text-lg">{moderator.name}</h2>
-										<p className="font-nunito text-sm">{moderator.email}</p>
+										<h2 className="font-nunito font-bold text-sm">{moderator.name}</h2>
+										<p className="font-nunito text-xs">{moderator.email}</p>
 										<div className="flex gap-x-2">
-										<button className="bg-yellow-500 cursor-pointer font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1" onClick={() => {setShowModal(true); setSelectedId(moderator._id); setAction("remove moderator"); setMessage(`This user "${moderator.name}" will no longer be a moderator.`); setId(moderator._id); /*removeModerator(`${moderator._id}`);*/ }}>Remove</button>
-										<button className="bg-teal-500 cursor-pointer font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1">Assign task</button>	
+										<button className="underline cursor-pointer font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1" onClick={() => {setShowModal(true); setSelectedId(moderator._id); setAction("remove moderator"); setMessage(`This user "${moderator.name}" will no longer be a moderator.`); setId(moderator._id); /*removeModerator(`${moderator._id}`);*/ }}>Remove</button>
+										<button className="underline text-green-700 cursor-pointer font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1">Assign task</button>	
 										</div>
 									</div>
 								</div>
@@ -166,16 +166,16 @@ const AdminViewUsers = () => {
 
 							users.map((user) => (
 
-								<div key={user._id} className="flex gap-x-2 shadow-md p-2 border-1 border-gray-200/50 rounded-md">
+								<div key={user._id} className="flex gap-x-2 shadow-md p-2 border-x-2 border-yellow-500 border-dashed rounded-md">
 									<div>
-										<img className="rounded-full object-cover size-20"  src="https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-avatar-placeholder-png-image_3416697.jpg" />
+										<img className="rounded-full object-cover size-15"  src="https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-avatar-placeholder-png-image_3416697.jpg" />
 									</div>
 									<div>
-										<h2 className="font-nunito font-bold text-lg">{user.name}</h2>
-										<p className="font-nunito text-sm">{user.email}</p>
+										<h2 className="font-nunito font-bold text-sm">{user.name}</h2>
+										<p className="font-nunito text-xs">{user.email}</p>
 										<div className="flex gap-x-2">
-										<button className="bg-yellow-500 cursor-pointer font-nunito font-light rounded-xs text-sm  shadow-md mt-2 px-1" onClick={() => { setSelectedId(user._id); setAction("delete user");  setMessage("Are you sure you want to delete this user?"); setShowModal(true); setId(user._id);}}>Remove</button>
-										<button className="bg-green-500 cursor-pointer font-nunito font-light rounded-xs  text-sm shadow-md mt-2 px-1" onClick={() => { setSelectedId(user._id); setAction("make moderator"); setMessage(`You are about making this user "${user.name}" a moderator`); setShowModal(true); setId(user._id);}}>Make moderator</button>
+										<button className="underline cursor-pointer font-nunito font-light rounded-xs text-sm  shadow-md mt-2 px-1" onClick={() => { setSelectedId(user._id); setAction("delete user");  setMessage("Are you sure you want to delete this user?"); setShowModal(true); setId(user._id);}}>Remove</button>
+										<button className="underline text-green-700 cursor-pointer font-nunito font-light rounded-xs  text-sm shadow-md mt-2 px-1" onClick={() => { setSelectedId(user._id); setAction("make moderator"); setMessage(`You are about making this user "${user.name}" a moderator`); setShowModal(true); setId(user._id);}}>Make moderator</button>
 										</div>								
 									</div>
 								</div>
