@@ -140,7 +140,7 @@ const Reporter = () => {
 
 									<Map lat={location.lat} lng={location.lng} />
 								) : (
-									<p>Map loading...</p>
+									<p className="bg-red-200 p-1 rounded-sm w-fit font-nunito text-red-500 font-bold text-sm">Please Turn On Device Location...</p>
 								)}
 							</div>							
 						</div>
