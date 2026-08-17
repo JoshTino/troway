@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react"
 import {useNavigate} from 'react-router-dom'
 import Map from "/components/Map"
+import HamburgerNav from "/components/HamburgerNav"
 import BASE_URL from "/constants/base-url"
 
 
@@ -97,12 +98,7 @@ const Reporter = () => {
 
 	return(
 		<>	
-			<nav className="flex justify-center">
-				<div className="flex w-11/12 justify-between rounded-lg mt-3 bg-white p-4">
-					<h1 className="text-4xl text-center text-green-400 font-nunito font-bold">TroWay</h1>
-					<button onClick={logOut} className="bg-red-500 text-white cursor-pointer rounded-sm px-4 py-2 font-light font-nunito">Logout</button>
-				</div>
-			</nav>
+			<HamburgerNav />
 			<div className="flex justify-center">
 				<div className="bg-white w-11/12 rounded-lg mt-3 px-6 py-3 shadow-lg">
 					<div className="bg-green-200 px-2 py-1 w-fit rounded-xs">
