@@ -121,7 +121,7 @@ const Reporter = () => {
 						</div>
 						<div className="mb-4">
 							<span className="text-green-700 font-nunito">Condition of Waste</span>
-							<select name="category" required value={formData.category} onChange={handleChange} className="w-full font-nunito bg-gray-100 text-gray-700 p-4 outline-green-200 rounded-lg">
+							<select name="category" required value={formData.category} onChange={handleChange} className="w-full font-nunito bg-gray-100 text-gray-700 border-1 border-green-300 p-4 outline-green-500 rounded-lg">
 								<option value="" disabled hidden className="text-red-300">--Condition of Waste--</option>
 								<option >Overflowing Bin</option>
 								<option >Illegal Dumping</option>
