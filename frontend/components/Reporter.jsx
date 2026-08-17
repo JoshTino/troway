@@ -105,8 +105,8 @@ const Reporter = () => {
 			</nav>
 			<div className="flex justify-center">
 				<div className="bg-white w-11/12 rounded-lg mt-3 px-6 py-3 shadow-lg">
-					<div className="bg-blue-400 px-2 py-1 w-fit rounded-xs">
-						<a onClick={handleRedirect} className="font-nunito text-sm cursor-pointer font-bold text-gray-700">Click here to view report(s)</a>
+					<div className="bg-green-200 px-2 py-1 w-fit rounded-xs">
+						<a onClick={handleRedirect} className="font-nunito text-sm underline cursor-pointer font-bold text-green-800">Click Here To View Report(s)</a>
 					</div>
 					<form onSubmit={handleSubmit} className="mt-6">
 						<div className="mb-5">
