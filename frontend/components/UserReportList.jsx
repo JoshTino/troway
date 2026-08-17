@@ -48,9 +48,9 @@ const UserReportList = () => {
 						<h1 className="text-gray-700 text-xl font-bold text-center font-nunito">Your report(s)</h1>
 					</div>
 					{reports.map((report, i) => (
-						<div key={i} className="flex justify-between relative mb-4 shadow-xl border-1 border-gray-300 py-4 px-2 rounded-lg font-bold font-nunito text-lg">
-							<p className="text-gray-700">{report.category}</p><a className="border-2 border-yellow-400 text-blue-500 cursor-pointer px-4 text-gray-700 rounded-lg" onClick={() => navigate(`/reporter-edit/${report._id}`)}>Edit</a>
-							<span className="absolute bottom-1 bg-blue-400 px-2 rounded-sm text-white text-xs font-inter">{new Date(report.createdAt).toLocaleDateString()}</span>							
+						<div key={i} className="flex justify-between relative mb-4 bg-green-100 py-4 px-2 rounded-sm border-2 border-green-300 border-dashed font-bold font-nunito text-lg">
+							<p className="text-green-700 text-sm">{report.category}</p><a className="text-yellow-500 underline cursor-pointer px-4 text-gray-700 text-sm" onClick={() => navigate(`/reporter-edit/${report._id}`)}>Edit</a>
+							<span className="absolute bottom-0.5 bg-green-400 px-1 rounded-xm text-white text-xs font-nunito">{new Date(report.createdAt).toLocaleDateString()}</span>							
 						</div>
 					))}
 				</div>
