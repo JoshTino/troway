@@ -123,8 +123,8 @@ const ReporterEdit = () => {
 			</nav>
 			<div className="flex justify-center">
 				<div className="bg-white w-11/12 rounded-lg mt-3 px-6 py-3 shadow-lg">
-					<div className="bg-blue-400 px-2 py-1 shadow-lg w-fit rounded-xs">
-						<a onClick={handleRedirect} className="font-nunito text-sm cursor-pointer font-bold text-gray-700">Click here to submit new report</a>
+					<div className="bg-green-200 px-2 py-1 w-fit rounded-xs">
+						<a onClick={handleRedirect} className="font-nunito text-sm underline cursor-pointer font-bold text-green-800"><strong>+</strong> Click here to submit new report</a>
 					</div>
 					<form className="mt-6" onSubmit={handleSubmit}>
 						<div className="mb-5">
