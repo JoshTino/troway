@@ -156,8 +156,8 @@ const ReporterEdit = () => {
 						</div>
 
 						<div className="mb-4 flex justify-around">
-							<button onClick={handleEdit} type="submit" className="bg-gray-500 text-white font-nunito  cursor-pointer rounded-sm w-5/12 py-3 px-4">Apply Change</button>
-							<button onClick={handleDelete} type="submit" className="bg-yellow-500 text-black font-nunito  cursor-pointer rounded-sm w-5/12 py-3 px-4">Delete</button>
+							<button onClick={handleEdit} type="submit" className="shadow-sm text-yellow-500 border-1 border-gray-50 underline font-nunito  cursor-pointer rounded-sm w-5/12 py-2 px-1">Apply Change</button>
+							<button onClick={handleDelete} type="submit" className="shadow-sm text-red-500 border-1 border-gray-50 underline font-nunito  cursor-pointer rounded-sm w-5/12 py-2 px-1">Delete</button>
 						</div>
 					</form>
 				</div>
