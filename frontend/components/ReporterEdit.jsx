@@ -127,7 +127,7 @@ const ReporterEdit = () => {
 							{/*<h1 className="text-4xl text-center text-green-400 font-nunito font-bold">TroWay</h1>*/}
 						</div>
 						<div className="mb-4">
-							<h2 className="text-gray-700 text-xl font-bold text-center font-nunito">Edit or Delete Your Report</h2>
+							<h2 className="text-gray-700 text-xl font-bold font-nunito">Edit or Delete Your Report</h2>
 						</div>
 						<div className="mb-4">
 							<span className="text-green-700 font-nunito">Condition of Waste</span>

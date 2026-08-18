@@ -109,7 +109,7 @@ const Reporter = () => {
 							{/*<h1 className="text-4xl text-center text-green-400 font-nunito font-bold">TroWay</h1>*/}
 						</div>
 						<div className="mb-4">
-							<h2 className="text-gray-700 text-xl font-bold text-center font-nunito">Request for sanitation workers</h2>
+							<h2 className="text-gray-700 text-xl font-bold font-nunito">Request for sanitation workers</h2>
 						</div>
 						<div className="mb-6">
 							<span className="text-green-700 font-nunito">Upload a Picture of The Waste</span>
