@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react"
 import {useNavigate} from 'react-router-dom'
 import Map from "/components/Map"
-import HamburgerNav from "/components/HamburgerNav"
+import ReporterHamburgerNav from "/components/ReporterHamburgerNav"
 import BASE_URL from "/constants/base-url"
 
 
