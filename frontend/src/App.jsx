@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import Login from "/components/Login"
 import SignUp from "/components/SignUp"
 import Reporter from "/components/Reporter"
+import ReporterProfile from "/components/ReporterProfile"
 import UserReportList from "/components/UserReportList"
 import ReporterEdit from "/components/ReporterEdit"
 import AdminMapView from "/components/AdminMapView"
@@ -40,6 +41,8 @@ function App() {
           <UserReportList />
         </ProtectedRoute>
       } />
+
+      <Route path="/reporter-profile" element={<ReporterProfile />}/>
 
       <Route path="/waste-location" element={
         <ProtectedRoute allowedRoles={["admin"]}>
