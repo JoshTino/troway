@@ -42,7 +42,11 @@ function App() {
         </ProtectedRoute>
       } />
 
-      <Route path="/reporter-profile" element={<ReporterProfile />}/>
+      <Route path="/reporter-profile" element={
+        <ProtectedRoute allowedRoles={["user"]}> 
+          <ReporterProfile />
+      </ProtectedRoute>}
+    />
 
       <Route path="/waste-location" element={
         <ProtectedRoute allowedRoles={["admin"]}>
