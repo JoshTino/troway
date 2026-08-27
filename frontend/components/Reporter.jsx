@@ -98,7 +98,7 @@ const Reporter = () => {
 
 	return(
 		<>	
-			<HamburgerNav />
+			<ReporterHamburgerNav />
 			<div className="flex justify-center">
 				<div className="bg-white w-11/12 rounded-lg mt-3 px-6 py-3 shadow-lg">
 					<div className="bg-green-200 px-2 py-1 w-fit rounded-xs">

@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react"
 import {useNavigate} from "react-router-dom"
 import BASE_URL from "/constants/base-url"
-import HamburgerNav from "/components/HamburgerNav"
+import ReporterHamburgerNav from "/components/ReporterHamburgerNav"
 
 const UserReportList = () => {
 	const [reports, setReports] = useState([]);
@@ -33,7 +33,7 @@ const UserReportList = () => {
 	
 	return(
 		<>
-			<HamburgerNav />
+			<ReporterHamburgerNav />
 			<div className="flex justify-center">
 				
 				<div className="fixed hidden bottom-25 rounded-sm bg-red-400 py-4 px-20">

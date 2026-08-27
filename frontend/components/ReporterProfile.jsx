@@ -1,14 +1,14 @@
 import {useState, useEffect} from "react"
 import {useNavigate} from  "react-router-dom"
 import BASE_URL from "/constants/base-url"
-import HamburgerNav from "/components/HamburgerNav"
+import ReporterHamburgerNav from "/components/ReporterHamburgerNav"
 
 
 
 const ReporterProfile = () => {
 	return(
 		<>
-			<HamburgerNav/>
+			<ReporterHamburgerNav/>
 			<div className="flex flex-col items-center justify-center">
 				<div className="bg-white w-11/12 rounded-lg mt-3 px-6 py-3 shadow-lg">
 					<div className="flex flex-col gap-x-8">

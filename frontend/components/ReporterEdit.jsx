@@ -2,7 +2,7 @@ import {useState, useEffect} from "react"
 import {useNavigate, useParams} from "react-router-dom"
 import Map from '/components/Map'
 import BASE_URL from "/constants/base-url"
-import HamburgerNav from "/components/HamburgerNav"
+import ReporterHamburgerNav from "/components/ReporterHamburgerNav"
 
 const ReporterEdit = () => {
 	const navigate = useNavigate();
@@ -116,7 +116,7 @@ const ReporterEdit = () => {
 
 	return(
 		<>
-			<HamburgerNav />
+			<ReporterHamburgerNav />
 			<div className="flex justify-center">
 				<div className="bg-white w-11/12 rounded-lg mt-3 px-6 py-3 shadow-lg">
 					<div className="bg-green-200 px-2 py-1 w-fit rounded-xs">
