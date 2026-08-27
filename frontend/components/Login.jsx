@@ -73,7 +73,7 @@ const Login = () => {
 		<>
 			<nav className="flex justify-center">
 				<div className="flex w-11/12 justify-between rounded-lg mt-3 bg-white p-4">
-					<h1 className="text-4xl text-center text-green-400 font-nunito font-bold">{import.meta.env.VITE_APP_NAME}</h1>
+					<h1 className="text-4xl text-center text-green-400 font-nunito font-bold">TroWay</h1>
 				</div>
 			</nav>
 			<div className="flex justify-center">
