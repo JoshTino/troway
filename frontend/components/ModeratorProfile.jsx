@@ -1,11 +1,11 @@
 import {useState, useEffect} from "react"
 import ModeratorNavigation from "/components/ModeratorNavigation"
-import HamburgerNav from "/components/HamburgerNav"
+import ModeratorHamburgerNav from "/components/HamburgerNav"
 
 const ModeratorProfile = () => {
 	return(
 		<>
-			<HamburgerNav/>	
+			<ModeratorHamburgerNav/>	
 			<ModeratorNavigation/>
 			<div className="flex flex-col items-center justify-center">
 				<div className="bg-white w-11/12 rounded-lg mt-3 px-6 py-3 shadow-lg">
