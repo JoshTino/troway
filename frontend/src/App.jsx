@@ -5,6 +5,7 @@ import Login from "/components/Login"
 import SignUp from "/components/SignUp"
 import Reporter from "/components/Reporter"
 import ReporterProfile from "/components/ReporterProfile"
+import ModeratorProfile from "/components/ModeratorProfile"
 import UserReportList from "/components/UserReportList"
 import ReporterEdit from "/components/ReporterEdit"
 import AdminMapView from "/components/AdminMapView"
@@ -47,6 +48,12 @@ function App() {
           <ReporterProfile />
       </ProtectedRoute>}
     />
+
+    <Route path="/moderator-profile" element={
+      <ProtectedRoute allowedRoles={["moderator"]}>
+        <ModeratorProfile />
+      </ProtectedRoute>
+    }/>
 
       <Route path="/waste-location" element={
         <ProtectedRoute allowedRoles={["admin"]}>
