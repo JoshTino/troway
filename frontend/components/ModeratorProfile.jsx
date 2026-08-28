@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react"
 import ModeratorNavigation from "/components/ModeratorNavigation"
-import ModeratorHamburgerNav from "/components/HamburgerNav"
+import ModeratorHamburgerNav from "/components/ModeratorHamburgerNav"
 
 const ModeratorProfile = () => {
 	return(
