@@ -80,7 +80,7 @@ function App() {
         } />
 
         <Route path="/profile" element={
-          <ProtectedRoute>
+          <ProtectedRoute allowedRoles={["admin"]}>
             <Profile />
           </ProtectedRoute>
         }/>
