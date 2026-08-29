@@ -2,7 +2,7 @@ import {useState, useEffect, useRef} from "react"
 import {useNavigate} from "react-router-dom"
 import ModeratorClusterMap from "/components/ModeratorClusterMap"
 import BASE_URL from "/constants/base-url"
-import MapNav from "/components/MapNav"
+import ModeratorMapNavigation from "/components/ModeratorMapNavigation"
 import { handleTracking } from "/helpers/tracker"
 
 const ModeratorMapView = () => {
@@ -90,7 +90,7 @@ const ModeratorMapView = () => {
 					<button onClick={logOut} className="bg-red-500 text-white cursor-pointer rounded-sm px-4 py-2 font-light font-nunito">Logout</button>
 				</div>
 			</nav>*/}
-			<MapNav />
+			<ModeratorMapNavigation />
 			<div className="flex flex-col justify-center p-2 fixed inset-0">
 				<div className="bg-white w-full rounded-lg shadow-lg">
 					{reports && reports.length > 0 ? (
