@@ -11,7 +11,7 @@ const Login = () => {
 		const token = localStorage.getItem("token");
 
 		if (token) {
-			navigate('/reporter');
+			navigate(-1);
 		}
 	}, []);
 
