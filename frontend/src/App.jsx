@@ -15,6 +15,8 @@ import ModeratorMapView from "/components/ModeratorMapView"
 import Profile from "/components/Profile"
 import Unauthorized from "/components/Unauthorized"
 
+import AddAdmin from "/components/AddAdmin"
+
 import ProtectedRoute from "/protected routes/ProtectedRoute"
 
 
@@ -76,6 +78,12 @@ function App() {
         <Route path="/moderator-map-view" element={
           <ProtectedRoute allowedRoles={["moderator"]}>
             <ModeratorMapView />
+          </ProtectedRoute>
+        } />
+
+        <Route path="/add-new-admin" element={
+          <ProtectedRoute allowedRoles={["admin"]}>
+            <AddAdmin />
           </ProtectedRoute>
         } />
 
