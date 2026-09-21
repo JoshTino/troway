@@ -11,7 +11,21 @@ const Login = () => {
 		const token = localStorage.getItem("token");
 
 		if (token) {
-			navigate(-1);
+			//Get stored user role and navigate to their respective default page
+			const storedRole = localStorage.getItem("role");
+			switch (storedRole) {
+			case 'admin':
+				navigate('/admin-metric');
+				break;
+			case 'moderator':
+				navigate('/moderator-map-view');
+				break;
+			case 'reporter':
+				navigate('/reporter');
+				break;
+			default:
+
+			}
 		}
 	}, []);
 
