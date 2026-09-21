@@ -16,6 +16,7 @@ import Profile from "/components/Profile"
 import Unauthorized from "/components/Unauthorized"
 
 import AddAdmin from "/components/AddAdmin"
+import AddReporter from "/components/AddReporter"
 
 import ProtectedRoute from "/protected routes/ProtectedRoute"
 
@@ -84,6 +85,12 @@ function App() {
         <Route path="/add-new-admin" element={
           <ProtectedRoute allowedRoles={["admin"]}>
             <AddAdmin />
+          </ProtectedRoute>
+        } />
+
+        <Route path="/add-new-reporter" element={
+          <ProtectedRoute allowedRoles={["moderator"]}>
+            <AddReporter />
           </ProtectedRoute>
         } />
 
