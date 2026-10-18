@@ -44,7 +44,7 @@ const AdminMetric = () => {
 					<div className="flex flex-col mb-4 items-center gap-y-4 p-4 border-x-2 border-red-300 border-dashed bg-gray-50 rounded-lg">
 						<h2 className="text-center font-nunito text-lg font-bold text-gray-800 tracking-wide">Pending Report(s)</h2>
 						<p className="text-center font-nunito text-xl font-bold h-10 w-10 bg-red-300 p-1 rounded-full">{stats.pending}</p>
-						<button className="bg-yellow-500 font-nunito p-1 w-fit text-sm rounded-xs shadow-xs border-1 border-yellow-400 cursor-pointer" onClick={() => navigate('/waste-location')}>Assign Task</button>
+						<button className="bg-yellow-500 font-nunito p-1 w-fit text-sm rounded-lg shadow-xs border-1 border-yellow-400 cursor-pointer" onClick={() => navigate('/waste-location')}>Assign Task</button>
 					</div>
 
 					<div className="flex gap-x-2">
@@ -115,7 +115,7 @@ const AdminMetric = () => {
 							</div>
 						</div>
 						<div className="flex justify-center">
-							<button className="bg-yellow-500 p-2 rounded-xs font-light font-nunito cursor-pointer" onClick={() => navigate('/waste-location')}>Assign Truck</button>
+							<button className="bg-yellow-500 p-2 rounded-lg font-light font-nunito cursor-pointer" onClick={() => navigate('/waste-location')}>Assign Truck</button>
 						</div>
 					</div>
 				</div>
