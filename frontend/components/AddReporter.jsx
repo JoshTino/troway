@@ -28,7 +28,7 @@ const AddReporter = () => {
 					"Content-Type": "application/json",
 					"Authorization": `Bearer ${token}`
 				},
-				body: Json.stringify(inputs);
+				body: Json.stringify(inputs)
 			});
 
 		} catch (err) {
