@@ -5,6 +5,8 @@ import BASE_URL from "/constants/base-url"
 
 const AddReporter = () => {
 
+	const token = localStorage.getItem(token);
+
 	const [inputs, setInputs] = useState({
 		name: "",
 		email: ""
