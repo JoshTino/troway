@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react"
 import ModeratorNavigation from "/components/ModeratorNavigation"
 import ModeratorHamburgerNav from "/components/ModeratorHamburgerNav"
+import BASE_URL from "/constants/base-url"
 
 const AddReporter = () => {
 
