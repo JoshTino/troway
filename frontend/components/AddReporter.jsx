@@ -48,12 +48,12 @@ const AddReporter = () => {
 						</div>
 						<div className="mb-6">
 							<span className="text-gray-400 font-nunito text-sm">Name</span>
-							<input className="bg-gray-100 text-gray-700 font-nunito text-sm p-4 w-full outline-green-100 rounded-lg" required placeholder="(E.g) Surname  Firstname" type="text" name="name" value={inputs.name} value={handleChange}  />
+							<input className="bg-gray-100 text-gray-700 font-nunito text-sm p-4 w-full outline-green-100 rounded-lg" required placeholder="(E.g) Surname  Firstname" type="text" name="name" value={inputs.name} onChange={handleChange}  />
 						</div>
 
 						<div className="mb-6">
 							<span className="text-gray-400 font-nunito text-sm">Email</span>
-							<input className="bg-gray-100 text-gray-700 font-nunito text-sm p-4 w-full outline-green-100 rounded-lg" required placeholder="Your email" type="email" name="email" value={inputs.email} value={handleChange}  />
+							<input className="bg-gray-100 text-gray-700 font-nunito text-sm p-4 w-full outline-green-100 rounded-lg" required placeholder="Your email" type="email" name="email" value={inputs.email} onChange={handleChange}  />
 						</div>
 
 						<div className="mb-6 flex justify-center">
