@@ -22,7 +22,7 @@ const AddReporter = () => {
 
 		try {
 
-			const res = await fetch(`${BASE_URL}/api/reporter`, {
+			const res = await fetch(`${BASE_URL}/api/add-reporter`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
