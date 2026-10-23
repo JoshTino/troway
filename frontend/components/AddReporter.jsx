@@ -13,7 +13,7 @@ const AddReporter = () => {
 	});
 
 	const handleChange = (e) => {
-		const {name, email} = e.target;
+		const {name, value} = e.target;
 		setInputs({...inputs, [name]:value});
 	}
 
