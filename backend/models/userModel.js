@@ -17,6 +17,10 @@ const userSchema = new mongoose.Schema({
 	state: {
 		type: String,
 		default: null
+	},
+	lga: {
+		type: String,
+		default: null
 	}
 });
 
