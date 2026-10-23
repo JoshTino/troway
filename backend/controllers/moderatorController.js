@@ -2,6 +2,7 @@ const User = require('../models/userModel');
 const Report = require('../models/reportModel');
 const multer = require('../multer/multer');
 const authMiddleware = require('../middleware/authMiddleware');
+const bcrypt = require('bcryptjs');
 
 
 
@@ -38,5 +39,31 @@ module.exports = (app) => {
 		} catch (err) {
 			return res.status(500).json(err);
 		}
+	});
+
+	app.post('/api/add-reporter/', authMiddleware, async (req, res) => {
+		const {name, email} = req.body;
+		const moderatorId = req.user.id;
+		const defaultPassword = await bcrypt.hash("1234", 10);
+
+		const moderator = await User.findById(req.user.id);
+
+		try {
+
+			const addReporter = await User.create({
+				addedBy: moderatorId,
+				name,
+				email,
+				password: defaultPassword,
+				state: moderator.state
+			});
+
+			if (addReporter) return res.status(201).json(addReporter);
+
+		} catch (err) {
+			return res.status(500).json(err);
+		}
+
+
 	});
 }
