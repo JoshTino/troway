@@ -55,7 +55,8 @@ module.exports = (app) => {
 				name,
 				email,
 				password: defaultPassword,
-				state: moderator.state
+				state: moderator.state,
+				lga: moderator.lga
 			});
 
 			if (addReporter) return res.status(201).json(addReporter);
