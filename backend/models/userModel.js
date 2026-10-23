@@ -8,6 +8,10 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		enum: ["user", "moderator", "admin", "super_admin"],
 		default: "user"
+	},
+	state: {
+		type: String,
+		default: "nil"
 	}
 });
 
