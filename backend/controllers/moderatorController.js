@@ -13,7 +13,7 @@ module.exports = (app) => {
 		try {
 			const moderatorDetails = await User.findById(req.user.id);
 
-			if (makeModerator) return res.status(201).json(moderatorDetails);
+			if (moderatorDetails) return res.status(201).json(moderatorDetails);
 		} catch (err) {
 			return res.status(500).json(err);
 		}
