@@ -148,5 +148,4 @@ const coords = {
         maxBounds: [[11.97, 6.46], [12.37, 6.86]]
     }
 };
-
-module.exports = coords;
+export default coords;
