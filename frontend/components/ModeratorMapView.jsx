@@ -16,6 +16,8 @@ const ModeratorMapView = () => {
 	const [showSuccessModal, setShowSuccessModal] = useState(false);
 	const [modalMessage, setModalMessage] = useState("");
 
+	const [moderatorLga, setModeratorLga] = useState(null);
+
 	useEffect( () => {
 		fetch(`${BASE_URL}/api/moderator-task`, {
 			method: 'GET',
