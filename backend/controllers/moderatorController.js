@@ -7,6 +7,18 @@ const bcrypt = require('bcryptjs');
 
 
 module.exports = (app) => {
+
+	app.get('/api/moderator', authMiddleware, async (req, res) => {
+
+		try {
+			const moderatorDetails = await User.findById(req.user.id);
+
+			if (makeModerator) return res.status(201).json(moderatorDetails);
+		} catch (err) {
+			return res.status(500).json(err);
+		}
+	});
+
 	app.get('/api/moderator-task', authMiddleware, async (req, res) => {
 		const moderatorId =  req.user.id;
 
