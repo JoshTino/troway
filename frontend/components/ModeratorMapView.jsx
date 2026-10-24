@@ -32,6 +32,23 @@ const ModeratorMapView = () => {
 		.catch(err => console.log(err));
 	}, []);
 
+	useEffect( () => {
+
+		const fetchModeratorLga = async () => {
+			const res = await fetch(`${BASE_URL}/api/moderator`, {
+				method: "GET",
+				headers: {
+					Authorization: `Bearer ${token}`
+				}
+			});
+
+			const result = await res.json();
+			setModeratorLga(result.lga);
+		}
+
+		fetchModeratorLga();
+	}, []);
+
 	const handleChange = (e) => {
 		const files = e.target.files;
 		setFormData({...formData, file: files[0]});
