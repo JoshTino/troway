@@ -113,7 +113,7 @@ const ModeratorMapView = () => {
 			<div className="flex flex-col justify-center p-2 fixed inset-0">
 				<div className="bg-white w-full rounded-lg shadow-lg">
 					{reports && reports.length > 0 ? (
-						<ModeratorClusterMap reports={reports} handleChange={handleChange} handleSubmit={handleSubmit} showSuccessModal={showSuccessModal} modalMessage={modalMessage}/>
+						<ModeratorClusterMap moderatorLga={moderatorLga} reports={reports} handleChange={handleChange} handleSubmit={handleSubmit} showSuccessModal={showSuccessModal} modalMessage={modalMessage}/>
 					) : (
 						<p>Map loading...</p>
 					)}
