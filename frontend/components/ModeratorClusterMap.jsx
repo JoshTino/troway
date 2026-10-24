@@ -16,7 +16,7 @@ import BASE_URL from "/constants/base-url"
 import SuccessModal from "/components/SuccessModal"
 
 
-const ModeratorClusterMap = ({ reports, handleChange, handleSubmit, showSuccessModal, modalMessage }) => {
+const ModeratorClusterMap = ({ moderatorLga, reports, handleChange, handleSubmit, showSuccessModal, modalMessage }) => {
 
 	delete L.Icon.Default.prototype._getIconUrl;
 
