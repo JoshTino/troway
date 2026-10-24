@@ -12,6 +12,7 @@ import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
 
 import BASE_URL from "/constants/base-url"
+import coords from "/data/coords"
 
 import SuccessModal from "/components/SuccessModal"
 
