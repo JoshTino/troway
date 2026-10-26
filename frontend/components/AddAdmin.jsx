@@ -9,23 +9,23 @@ const AddAdmin = () => {
 			<AdminNavigation/>
 			<div className="flex flex-col items-center justify-center">
 				<div className="bg-white w-11/12 rounded-lg mt-3 px-6 py-3 shadow-lg">
-					<form >
+					<form onSubmit={handleSubmit}>
 						<div className="mb-4">
 							<h2 className="text-gray-900 text-xl font-light text-center font-nunito">Add new admin</h2>
 						</div>
 						<div className="mb-6">
 							<span className="text-gray-400 font-nunito text-sm">Name</span>
-							<input className="bg-gray-100 text-gray-700 font-nunito text-sm p-4 w-full outline-green-100 rounded-lg" required placeholder="(E.g) Surname  Firstname" type="text" name="name"  />
+							<input className="bg-gray-100 text-gray-700 font-nunito text-sm p-4 w-full outline-green-100 rounded-lg" required placeholder="(E.g) Surname  Firstname" type="text" name="name"  onChange={handleChange}/>
 						</div>
 
 						<div className="mb-6">
 							<span className="text-gray-400 font-nunito text-sm">Email</span>
-							<input className="bg-gray-100 text-gray-700 font-nunito text-sm p-4 w-full outline-green-100 rounded-lg" required placeholder="Your email" type="email" name="email"  />
+							<input className="bg-gray-100 text-gray-700 font-nunito text-sm p-4 w-full outline-green-100 rounded-lg" required placeholder="Your email" type="email" name="email"  onChange={handleChange}/>
 						</div>
 
 						<div className="mb-6">
 							<span className="text-gray-400 font-nunito text-sm">Assign LGA</span>
-							<select className="bg-gray-100 text-gray-700 font-nunito text-sm p-4 w-full outline-green-100 rounded-lg" required name="lga" >
+							<select className="bg-gray-100 text-gray-700 font-nunito text-sm p-4 w-full outline-green-100 rounded-lg" required name="lga" onClick={handleChange}>
 								    <option value="" disabled selected hidden>--Select a state capital--</option>
 								    <option value="umuahia">Umuahia</option>
 								    <option value="yola">Yola</option>
