@@ -26,7 +26,7 @@ const AddAdmin = () => {
 						<div className="mb-6">
 							<span className="text-gray-400 font-nunito text-sm">Assign LGA</span>
 							<select className="bg-gray-100 text-gray-700 font-nunito text-sm p-4 w-full outline-green-100 rounded-lg" required name="lga" >
-								    <option value="" disabled selected hidden>Select a state capital</option>
+								    <option value="" disabled selected hidden>--Select a state capital--</option>
 								    <option value="umuahia">Umuahia</option>
 								    <option value="yola">Yola</option>
 								    <option value="uyo">Uyo</option>
@@ -38,8 +38,8 @@ const AddAdmin = () => {
 								    <option value="calabar">Calabar</option>
 								    <option value="asaba">Asaba</option>
 								    <option value="abakaliki">Abakaliki</option>
-								    <option value="benin city">Benin City</option>
-								    <option value="ado-ekiti">Ado-Ekiti</option>
+								    <option value="beninCity">Benin City</option>
+								    <option value="adoEkiti">Ado-Ekiti</option>
 								    <option value="enugu">Enugu</option>
 								    <option value="gombe">Gombe</option>
 								    <option value="owerri">Owerri</option>
@@ -47,7 +47,7 @@ const AddAdmin = () => {
 								    <option value="kaduna">Kaduna</option>
 								    <option value="kano">Kano</option>
 								    <option value="katsina">Katsina</option>
-								    <option value="birnin kebbi">Birnin Kebbi</option>
+								    <option value="birninKebbi">Birnin Kebbi</option>
 								    <option value="lokoja">Lokoja</option>
 								    <option value="ilorin">Ilorin</option>
 								    <option value="ikeja">Ikeja</option>
@@ -58,7 +58,7 @@ const AddAdmin = () => {
 								    <option value="osogbo">Osogbo</option>
 								    <option value="ibadan">Ibadan</option>
 								    <option value="jos">Jos</option>
-								    <option value="port harcourt">Port Harcourt</option>
+								    <option value="portHarcourt">Port Harcourt</option>
 								    <option value="sokoto">Sokoto</option>
 								    <option value="jalingo">Jalingo</option>
 								    <option value="damaturu">Damaturu</option>
