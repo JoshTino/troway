@@ -14,6 +14,25 @@ const AddAdmin = () => {
 		const {name, value} = e.target;
 		setInputs({...inputs, [name]:value});
 	}
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+
+		try {
+
+			const res = await fetch(`${BASE_URL}/api/create-admin`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					"Authorization": `Bearer ${token}`
+				},
+				body: JSON.stringify(inputs)
+			});
+
+		} catch (err) {
+			console.error(err);
+		}
+	}
 	return(
 		<>
 			<HamburgerNav/>	
