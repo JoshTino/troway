@@ -23,7 +23,7 @@ const AddAdmin = () => {
 
 		try {
 
-			const res = await fetch(`${BASE_URL}/api/create-admin`, {
+			const res = await fetch(`${BASE_URL}/api/add-admin`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
