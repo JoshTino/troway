@@ -108,7 +108,7 @@ module.exports = (app) => {
 				email: email,
 				password: defaultPassword,
 				state: superAdmin.state,
-				lga: superAdmin.lga,
+				lga: lga,
 				role: "admin"
 			});
 
