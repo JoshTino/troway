@@ -26,7 +26,7 @@ const AddAdmin = () => {
 						<div className="mb-6">
 							<span className="text-gray-400 font-nunito text-sm">Assign State</span>
 							<select className="bg-gray-100 text-gray-700 font-nunito text-sm p-4 w-full outline-green-100 rounded-lg" required name="password" >
-								    <option value="">Select a state capital</option>
+								    <option value="" disabled selected hidden>Select a state capital</option>
 								    <option value="umuahia">Umuahia</option>
 								    <option value="yola">Yola</option>
 								    <option value="uyo">Uyo</option>
