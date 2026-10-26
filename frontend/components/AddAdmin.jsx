@@ -9,6 +9,11 @@ const AddAdmin = () => {
 		email: "",
 		lga: ""
 	});
+
+	const handleChange = (e) => {
+		const {name, value} = e.target;
+		setInputs({...inputs, [name]:value});
+	}
 	return(
 		<>
 			<HamburgerNav/>	
