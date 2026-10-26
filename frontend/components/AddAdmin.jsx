@@ -3,6 +3,12 @@ import AdminNavigation from "/components/AdminNavigation"
 import HamburgerNav from "/components/HamburgerNav"
 
 const AddAdmin = () => {
+
+	const [inputs, setInputs] = useState({
+		name: "",
+		email: "",
+		lga: ""
+	});
 	return(
 		<>
 			<HamburgerNav/>	
