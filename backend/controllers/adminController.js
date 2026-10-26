@@ -92,4 +92,30 @@ module.exports = (app) => {
 		}
 	});
 
+	app.post('/api/add-admin', authMiddleware, authorize("admin"), async (req, res) => {
+
+		const {name, email, lga} = req.body;
+		const defaultPassword = await bcrypt.hash("1234");
+
+		const superAdmin = await User.findById(req.user.id);
+
+		try {
+
+			const newAdmin = await User.create({
+				addedBy: req.user.id,
+				name: name,
+				email: email,
+				password: defaultPassword,
+				state: superAdmin.state,
+				lga: superAdmin.lga
+			});
+
+			if (newAdmin) return res.status(201).json(newAdmin);
+
+		} catch (err) {
+			return res.status(500).json(err);
+		}
+
+	});
+
 }
