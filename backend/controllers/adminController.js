@@ -108,7 +108,8 @@ module.exports = (app) => {
 				email: email,
 				password: defaultPassword,
 				state: superAdmin.state,
-				lga: superAdmin.lga
+				lga: superAdmin.lga,
+				role: "admin"
 			});
 
 			if (newAdmin) return res.status(201).json(newAdmin);
