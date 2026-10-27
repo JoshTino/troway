@@ -76,6 +76,8 @@ module.exports = (app) => {
 		const file = req.file.filename;
 		const userId = req.user.id;
 
+		const reporter = await User.findById(userId).select("lga state");
+
 		const data = {
 			user: userId,
 			file,
@@ -83,7 +85,9 @@ module.exports = (app) => {
 			location: {
 				lat,
 				lng
-			}
+			},
+			state: reporter.state,
+			lga: reporter.lga
 		}
 
 		try {
