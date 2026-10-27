@@ -15,6 +15,14 @@ const reportSchema = new mongoose.Schema({
 		lat: Number,
 		lng: Number
 	},
+	state: {
+		type: String,
+		default: null
+	},
+	lga: {
+		type: String,
+		default: null
+	},
 	status: {
 		type: String,
 		enum: ["pending", "assigned", "cleared"],
