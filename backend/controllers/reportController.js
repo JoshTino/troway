@@ -1,5 +1,6 @@
 const multer = require('../multer/multer');
 const Report = require('../models/reportModel');
+const User = require('../models/userModel');
 const authMiddleware = require('../middleware/authMiddleware');
 const authorize = require('../middleware/authorize');
 
