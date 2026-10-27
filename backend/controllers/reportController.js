@@ -175,7 +175,7 @@ module.exports = (app) => {
 
 		try {
 			const [total, pending, assigned, cleared] = await Promise.all([
-				Report.countDocuments(, {lga: admin.lga}),
+				Report.countDocuments({lga: admin.lga}),
 				Report.countDocuments({status: "pending"}, {lga: admin.lga}),
 				Report.countDocuments({status: "assigned"}, {lga: admin.lga}),
 				Report.countDocuments({status: "cleared"}, {lga: admin.lga})
