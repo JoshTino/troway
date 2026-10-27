@@ -169,4 +169,27 @@ module.exports = (app) => {
 		}
 	});
 
+	app.get('/api/report-stats-admin', authMiddleware, authorize("admin"), async (req, res) => {
+
+		const admin = await User.findById(req.user.id).select("lga");
+
+		try {
+			const [total, pending, assigned, cleared] = await Promise.all([
+				Report.countDocuments(, {lga: admin.lga}),
+				Report.countDocuments({status: "pending"}, {lga: admin.lga}),
+				Report.countDocuments({status: "assigned"}, {lga: admin.lga}),
+				Report.countDocuments({status: "cleared"}, {lga: admin.lga})
+			]);
+
+			res.status(200).json({
+				total,
+				pending,
+				assigned,
+				cleared
+			});
+		} catch(err) {
+			res.status(500).json(err);
+		}
+	});
+
 }
