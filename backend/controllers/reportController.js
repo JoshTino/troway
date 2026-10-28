@@ -176,9 +176,11 @@ module.exports = (app) => {
 
 	app.get('/api/report-stats-admin', authMiddleware, authorize("admin"), async (req, res) => {
 
-		const admin = await User.findById(req.user.id).select("lga");
 
 		try {
+
+			const admin = await User.findById(req.user.id).select("lga");
+			
 			const [total, pending, assigned, cleared] = await Promise.all([
 				Report.countDocuments({lga: admin.lga}),
 				Report.countDocuments({status: "pending", lga: admin.lga}),

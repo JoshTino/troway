@@ -98,9 +98,10 @@ module.exports = (app) => {
 		const {name, email, lga} = req.body;
 		const defaultPassword = await bcrypt.hash("1234", 10);
 
-		const superAdmin = await User.findById(req.user.id);
 
 		try {
+			
+			const superAdmin = await User.findById(req.user.id);
 
 			const newAdmin = await User.create({
 				addedBy: req.user.id,
