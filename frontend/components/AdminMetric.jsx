@@ -17,7 +17,7 @@ const AdminMetric = () => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const response = await fetch(`${BASE_URL}/api/report-stats`, {
+			const response = await fetch(`${BASE_URL}/api/report-stats-admin`, {
 				method: 'GET',
 				headers: {
 					Authorization: `Bearer ${token}`
