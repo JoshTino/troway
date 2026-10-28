@@ -119,4 +119,20 @@ module.exports = (app) => {
 
 	});
 
+	app.get('/api/admin-profile-data', authMiddleware, async (req, res) => {
+
+
+		try {
+
+		const admin = await User.findById(req.user.id);	
+
+		if (admin) return res.status(200).status(admin);
+
+		return res.status(404).json("Admin not found");
+
+		} catch (err) {
+			return res.status(500).json(err);
+		}
+	});
+
 }
