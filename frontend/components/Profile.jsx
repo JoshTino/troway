@@ -9,6 +9,8 @@ const Profile = () => {
 	const navigate = useNavigate();
 	const token = localStorage.getItem("token");
 
+	const [profile, setProfile] = useState([]);
+
 	useEffect( () => {
 
 		const fetchData = async () => {
@@ -22,7 +24,7 @@ const Profile = () => {
 			});
 
 			const result = await response.json();
-			console.log(result);
+			setProfile(result);
 		}
 
 		fetchData();
