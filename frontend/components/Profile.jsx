@@ -42,7 +42,7 @@ const Profile = () => {
 						</div>
 						<div className="flex flex-col items-center">
 							<span className="self-start font-bold text-green-600 font-nunito text-xl">{profile.name}</span>
-							<span className="self-start font-nunito text-xs bg-yellow-300 p-0.5 rounded-sm border-dashed">{profile.role}</span>
+							<span className="self-start font-nunito text-xs bg-yellow-300 p-0.5 rounded-sm border-dashed capitalize">{profile.role}</span>
 							<span className="self-start font-nunito text-xs p-0.5 rounded-sm border-1 font-bold my-2 border-green-300 border-dashed">{profile.email}</span>			
 							<span className="self-start"><span className="font-nunito text-xs p-0.5 rounded-sm font-bold my-2">Account Status:</span> <span className="text-green-700 text-xs font-bold font-nunito">Active</span></span>
 							<span className="self-start"><span className="font-nunito text-xs p-0.5 rounded-sm font-bold my-2">Date Joined:</span> <span className="text-green-700 text-xs font-bold font-nunito">{profile.createdAt}</span></span>
