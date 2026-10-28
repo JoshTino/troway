@@ -2,10 +2,32 @@ import {useState, useEffect} from "react"
 import AdminNavigation from "/components/AdminNavigation"
 import HamburgerNav from "/components/HamburgerNav"
 import { useNavigate } from "react-router-dom"
+import BASE_URL from "/constants/base-url"
 
 const Profile = () => {
 
 	const navigate = useNavigate();
+	const token = localStorage.getItem("token");
+
+	useEffect( () => {
+
+		const fetchData = async () => {
+
+			const response = await fetch(`${BASE_URL}/api/admin-profile-data`, {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+					"Authorization": `Bearer ${token}`
+				}
+			});
+
+			const result = await response.json();
+			console.log(result);
+		}
+
+		fetchData();
+	}, []);
+
 	return(
 		<>
 			<HamburgerNav/>	
