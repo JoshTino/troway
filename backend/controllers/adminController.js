@@ -129,11 +129,12 @@ module.exports = (app) => {
 
 		if (admin) return res.status(200).status(admin);
 
-		return res.status(404).json("Admin not found");
+		return res.status(404).json({message: "Admin not found"});
 
 		} catch (err) {
 			return res.status(500).json(err);
 		}
+
 	});
 
 }
