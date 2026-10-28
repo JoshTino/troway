@@ -127,7 +127,7 @@ module.exports = (app) => {
 
 		const admin = await User.findById(req.user.id);	
 
-		if (admin) return res.status(200).status(admin);
+		if (admin) return res.status(200).json(admin);
 
 		return res.status(404).json({message: "Admin not found"});
 
