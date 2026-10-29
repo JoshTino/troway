@@ -90,7 +90,7 @@ const AdminClusterMap = ({ adminLga, reports, moderators, selectedModerator, han
 
 	
 	return (
-		<MapContainer center={[9.9247, 8.8911]} maxBounds={[ [9.7, 8.8], [10.0, 9.2]]} maxBoundsViscosity={0.0} zoom={12.5} style={{width: "100%", height: "760px"}}>
+		<MapContainer center={coords[adminLga].center} maxBounds={coords[adminLga].maxBounds} maxBoundsViscosity={0.0} zoom={12.5} style={{width: "100%", height: "760px"}}>
 			<SuccessModal 
 				isOpen={showSuccessModal}
 				onClose={() => setShowSuccessModal(false)}
