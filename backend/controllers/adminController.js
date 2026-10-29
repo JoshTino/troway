@@ -154,4 +154,15 @@ module.exports = (app) => {
 
 	});
 
+	app.get('/api/admin', authMiddleware, async (req, res) => {
+
+		try {
+			const adminDetails = await User.findById(req.user.id);
+
+			if (adminDetails) return res.status(201).json(adminDetails);
+		} catch (err) {
+			return res.status(500).json(err);
+		}
+	});
+
 }
