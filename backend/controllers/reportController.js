@@ -128,6 +128,21 @@ module.exports = (app) => {
 		}
 	});
 
+	//This retrieve all pending waste report for super admin map
+	app.get('/api/pending-waste-lga', authMiddleware, async (req, res) => {
+
+		try {
+			const admin = await User.findById(req.user.id);
+			const pendingWaste = await Report.find({status: "pending", lga: admin.lga});
+
+			if (pendingWaste) return res.status(200).json(pendingWaste);
+
+			res.status(404).json({message: "Reports not found"});
+		} catch (err) {
+			res.status(500).json(err.message);
+		}
+	});
+
 	//This retrieve all assigned waste report for super admin map
 	app.get('/api/assigned-waste', authMiddleware, async (req, res) => {
 
