@@ -118,6 +118,23 @@ const AdminMapView = () => {
 	
 	}, [token]);
 
+	useEffect( () => {
+
+		const fetchAdminLga = async () => {
+			const res = await fetch(`${BASE_URL}/api/admin`, {
+				method: "GET",
+				headers: {
+					Authorization: `Bearer ${token}`
+				}
+			});
+
+			const result = await res.json();
+			setAdminLga(result.lga);
+		}
+
+		fetchAdminLga();
+	}, []);
+
 	return(
 		<>	
 			{/*<nav className="flex justify-center">
