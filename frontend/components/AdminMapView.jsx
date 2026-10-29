@@ -15,6 +15,7 @@ const AdminMapView = () => {
 
 	const [showSuccessModal, setShowSuccessModal] = useState(false);
 	const [modalMessage, setModalMessage] = useState("");
+	const [adminLga, setAdminLga] = useState(null);
 
 
 	useEffect( () => {
