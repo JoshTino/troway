@@ -17,7 +17,7 @@ import BASE_URL from "/constants/base-url"
 import SuccessModal from "/components/SuccessModal"
 
 
-const AdminClusterMap = ({ reports, moderators, selectedModerator, handleModeratorSelect, submitModeratorTask, showSuccessModal,  modalMessage, trucks }) => {
+const AdminClusterMap = ({ adminLga, reports, moderators, selectedModerator, handleModeratorSelect, submitModeratorTask, showSuccessModal,  modalMessage, trucks }) => {
 
 	delete L.Icon.Default.prototype._getIconUrl;
 
