@@ -100,7 +100,7 @@ module.exports = (app) => {
 		}
 	});
 
-
+	//This retrieve all waste report for super admin map
 	app.get('/api/all-waste-location', authMiddleware, async (req, res) => {
 
 		try {
@@ -114,6 +114,7 @@ module.exports = (app) => {
 		}
 	});
 
+	//This retrieve all pending waste report for super admin map
 	app.get('/api/pending-waste', authMiddleware, async (req, res) => {
 
 		try {
@@ -127,6 +128,7 @@ module.exports = (app) => {
 		}
 	});
 
+	//This retrieve all assigned waste report for super admin map
 	app.get('/api/assigned-waste', authMiddleware, async (req, res) => {
 
 		try {
@@ -140,6 +142,7 @@ module.exports = (app) => {
 		}
 	});
 
+	//This retrieve all cleared waste report for super admin map
 	app.get('/api/cleared-waste', authMiddleware, async (req, res) => {
 
 		try {
@@ -153,6 +156,7 @@ module.exports = (app) => {
 		}
 	});
 
+	//This retrieve number of all pending, assigned and cleared waste report for super admin metric
 	app.get('/api/report-stats', authMiddleware, authorize("admin"), async (req, res) => {
 
 		try {
@@ -174,13 +178,14 @@ module.exports = (app) => {
 		}
 	});
 
+	//This retrieve number of all pending, assigned and cleared waste report for admin metric
 	app.get('/api/report-stats-admin', authMiddleware, authorize("admin"), async (req, res) => {
 
 
 		try {
 
 			const admin = await User.findById(req.user.id).select("lga");
-			
+
 			const [total, pending, assigned, cleared] = await Promise.all([
 				Report.countDocuments({lga: admin.lga}),
 				Report.countDocuments({status: "pending", lga: admin.lga}),
