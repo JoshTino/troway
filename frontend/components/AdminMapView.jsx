@@ -147,7 +147,7 @@ const AdminMapView = () => {
 			<div className="flex flex-col justify-center p-2 fixed inset-0">
 				<div className="bg-white w-full rounded-lg shadow-lg">
 					{reports && reports.length > 0 ? (
-						<AdminClusterMap reports={reports} moderators={moderators} selectedModerator={selectedModerator} handleModeratorSelect={handleModeratorSelect} submitModeratorTask={submitModeratorTask} showSuccessModal={showSuccessModal} modalMessage={modalMessage} trucks={trucks}/>
+						<AdminClusterMap adminLga={adminLga} reports={reports} moderators={moderators} selectedModerator={selectedModerator} handleModeratorSelect={handleModeratorSelect} submitModeratorTask={submitModeratorTask} showSuccessModal={showSuccessModal} modalMessage={modalMessage} trucks={trucks}/>
 					) : (
 						<p>Map loading...</p>
 					)}
