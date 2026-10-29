@@ -20,6 +20,23 @@ module.exports = (app) => {
 		}
 	});
 
+	app.get('/api/lga-moderators', authMiddleware, authorize("admin"), async (req, res) => {
+
+
+		try {
+
+			const admin = await User.findById(req.user.id);
+
+			const moderators = await User.find({role: "moderator", lga: admin.lga});
+
+			if (moderators) return res.status(200).json(moderators);
+
+			return res.status(404).json({message: "No moderator"});
+		} catch (err) {
+			return res.status(500).json(err);
+		}
+	});
+
 	app.get('/api/users', authMiddleware, authorize("admin"), async (req, res) => {
 		try {
 			const users = await User.find({role: "user"});
