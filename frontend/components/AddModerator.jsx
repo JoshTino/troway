@@ -56,7 +56,7 @@ const AddAdmin = () => {
 						</div>
 
 						<div className="mb-6 flex justify-center">
-							<button className="shadow-md shadow-gray-200 text-yellow-600 underline font-nunito cursor-pointer rounded-sm md:w-2/12 py-3 px-4" type="submit">Add Admin</button>
+							<button className="shadow-md shadow-gray-200 text-yellow-600 underline font-nunito cursor-pointer rounded-sm md:w-2/12 py-3 px-4" type="submit">Add Moderator</button>
 						</div>
 					</form>
 				</div>
