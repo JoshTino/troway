@@ -165,4 +165,31 @@ module.exports = (app) => {
 		}
 	});
 
+	app.post('/api/add-moderator', authMiddleware, authorize("admin"), async (req, res) => {
+
+		const {name, email} = req.body;
+		const defaultPassword = await bcrypt.hash("1234", 10);
+
+
+		try {
+			
+			const admin = await User.findById(req.user.id);
+
+			const newModerator = await User.create({
+				addedBy: req.user.id,
+				name: name,
+				email: email,
+				password: defaultPassword,
+				lga: admin.lga,
+				role: "moderator"
+			});
+
+			if (newModerator) return res.status(201).json(newModerator);
+
+		} catch (err) {
+			return res.status(500).json(err);
+		}
+
+	});
+
 }
