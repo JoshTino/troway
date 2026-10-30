@@ -19,7 +19,7 @@ const AdminMapView = () => {
 
 
 	useEffect( () => {
-		fetch(`${BASE_URL}/api/pending-waste`, {
+		fetch(`${BASE_URL}/api/pending-waste-lga`, {
 			method: 'GET',
 			headers: {
 				Authorization: `Bearer ${token}`
