@@ -17,6 +17,7 @@ import Unauthorized from "/components/Unauthorized"
 
 import AddAdmin from "/components/AddAdmin"
 import AddReporter from "/components/AddReporter"
+import AddModerator from "/components/AddModerator"
 
 import ProtectedRoute from "/protected routes/ProtectedRoute"
 
