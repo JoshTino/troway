@@ -89,6 +89,12 @@ function App() {
           </ProtectedRoute>
         } />
 
+        <Route path="add-moderator" element={
+          <ProtectedRoute allowedRoles={["admin"]}>
+            <AddModerator />
+          </ProtectedRoute>
+        } />
+
         <Route path="/add-new-reporter" element={
           <ProtectedRoute allowedRoles={["moderator"]}>
             <AddReporter />
