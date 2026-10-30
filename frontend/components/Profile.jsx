@@ -55,7 +55,7 @@ const Profile = () => {
 					<div className="flex flex-col items-center">
 						<span className="font-nunito text-xl text-center text-gray-600 font-bold">Create Users</span>
 						<button className="shadow-sm shadow-gray-300 my-2 py-2 px-3 cursor-pointer hover:shadow-lg font-nunito text-sm underline w-fit text-green-600" onClick={ () => navigate('/add-new-admin')}>Create new admin</button>
-						<button className="shadow-sm shadow-gray-300 my-2 py-2 px-3 cursor-pointer hover:shadow-lg font-nunito text-sm underline w-fit text-yellow-700">Create new moderator</button>
+						<button className="shadow-sm shadow-gray-300 my-2 py-2 px-3 cursor-pointer hover:shadow-lg font-nunito text-sm underline w-fit text-yellow-700" onClick={() => navigate('/add-moderator')}>Create new moderator</button>
 					</div>						
 				</div>
 			</div>
