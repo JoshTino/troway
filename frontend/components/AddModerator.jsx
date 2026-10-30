@@ -43,7 +43,7 @@ const AddAdmin = () => {
 				<div className="bg-white w-11/12 rounded-lg mt-3 px-6 py-3 shadow-lg">
 					<form onSubmit={handleSubmit}>
 						<div className="mb-4">
-							<h2 className="text-gray-900 text-xl font-light text-center font-nunito">Add new admin</h2>
+							<h2 className="text-gray-900 text-xl font-light text-center font-nunito">Add new moderator</h2>
 						</div>
 						<div className="mb-6">
 							<span className="text-gray-400 font-nunito text-sm">Name</span>
