@@ -42,7 +42,7 @@ const ModeratorProfile = () => {
 						<div className="flex flex-col items-center">
 							<span className="self-start font-bold text-green-600 font-nunito text-xl">{profile.name}</span>
 							<span className="self-start font-nunito text-xs bg-yellow-300 p-0.5 border-dashed">{profile.role}</span>
-							<span className="self-start font-nunito text-xs p-0.5 border-1 font-bold my-2 border-green-300 border-dashed">{profile.email}}</span>			
+							<span className="self-start font-nunito text-xs p-0.5 border-1 font-bold my-2 border-green-300 border-dashed">{profile.email}</span>			
 							<span className="self-start"><span className="font-nunito text-xs p-0.5 font-bold my-2">Account Status:</span> <span className="text-green-700 text-xs font-bold font-nunito">Active</span></span>
 							<span className="self-start"><span className="font-nunito text-xs p-0.5 font-bold my-2">Date Joined:</span> <span className="text-green-700 text-xs font-bold font-nunito">{profile.createdAt}</span></span>
 							<span className="self-start"><span className="font-nunito text-xs p-0.5 font-bold my-2">Account ID:</span> <span className="text-green-700 text-xs font-bold font-nunito">{profile._id}</span></span>
