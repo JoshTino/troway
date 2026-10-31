@@ -3,6 +3,7 @@ import AdminNavigation from "/components/AdminNavigation"
 import HamburgerNav from "/components/HamburgerNav"
 import { useNavigate } from "react-router-dom"
 import BASE_URL from "/constants/base-url"
+import DateFormat from "/helpers/date.js"
 
 const Profile = () => {
 
@@ -45,7 +46,7 @@ const Profile = () => {
 							<span className="self-start font-nunito text-xs bg-yellow-300 p-0.5 rounded-sm border-dashed capitalize">{profile.role}</span>
 							<span className="self-start font-nunito text-xs p-0.5 rounded-sm border-1 font-bold my-2 border-green-300 border-dashed">{profile.email}</span>			
 							<span className="self-start"><span className="font-nunito text-xs p-0.5 rounded-sm font-bold my-2">Account Status:</span> <span className="text-green-700 text-xs font-bold font-nunito">Active</span></span>
-							<span className="self-start"><span className="font-nunito text-xs p-0.5 rounded-sm font-bold my-2">Date Joined:</span> <span className="text-green-700 text-xs font-bold font-nunito">{profile.createdAt}</span></span>
+							<span className="self-start"><span className="font-nunito text-xs p-0.5 rounded-sm font-bold my-2">Date Joined:</span> <span className="text-green-700 text-xs font-bold font-nunito">{DateFormat(profile)}</span></span>
 							<span className="self-start"><span className="font-nunito text-xs p-0.5 rounded-sm font-bold my-2">Account ID:</span> <span className="text-green-700 text-xs font-bold font-nunito">{profile._id}</span></span>
 							<span className="self-start"><span className="font-nunito text-xs p-0.5 rounded-sm font-bold my-2">Total Users Managed:</span> <span className="text-green-700 text-xs font-bold font-nunito">758</span></span>
 						</div>
