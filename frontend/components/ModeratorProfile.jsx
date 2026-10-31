@@ -2,6 +2,7 @@ import {useState, useEffect} from "react"
 import {useNavigate} from "react-router-dom"
 import ModeratorNavigation from "/components/ModeratorNavigation"
 import ModeratorHamburgerNav from "/components/ModeratorHamburgerNav"
+import BASE_URL from "/constants/base-url"
 
 const ModeratorProfile = () => {
 	const navigate = useNavigate();
