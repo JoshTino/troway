@@ -5,6 +5,29 @@ import ModeratorHamburgerNav from "/components/ModeratorHamburgerNav"
 
 const ModeratorProfile = () => {
 	const navigate = useNavigate();
+
+	const [profile, setProfile] = useState([]);
+	const token = localStorage.getItem("token");
+
+	useEffect( () => {
+
+		const fetchData = async () => {
+
+			const response = await fetch(`${BASE_URL}/api/moderator-profile-data`, {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+					"Authorization": `Bearer ${token}`
+				}
+			});
+
+			const result = await response.json();
+			setProfile(result);
+		}
+
+		fetchData();
+	}, []);
+
 	return(
 		<>
 			<ModeratorHamburgerNav/>	
