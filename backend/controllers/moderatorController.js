@@ -79,4 +79,22 @@ module.exports = (app) => {
 
 
 	});
+
+
+	app.get('/api/moderator-profile-data', authMiddleware, async (req, res) => {
+
+
+		try {
+
+		const moderator = await User.findById(req.user.id);	
+
+		if (moderator) return res.status(200).json(moderator);
+
+		return res.status(404).json({message: "Moderator not found"});
+
+		} catch (err) {
+			return res.status(500).json(err);
+		}
+
+	});
 }
