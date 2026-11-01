@@ -219,4 +219,25 @@ module.exports = (app) => {
 		}
 	});
 
+	//This retrieve number of total, assigned and cleared waste report for moderator dashboard
+	app.get('/api/report-stats-moderator', authMiddleware, authorize("moderator"), async (req, res) => {
+
+		try {
+
+			const [total, assigned, cleared] = await Promise.all([
+				Report.countDocuments({assignedTo: req.user.id}),
+				Report.countDocuments({status: "assigned", assignedTo: req.user.id}),
+				Report.countDocuments({status: "cleared", assignedTo: req.user.id})
+			]);
+
+			res.status(200).json({
+				total,
+				assigned,
+				cleared
+			});
+		} catch(err) {
+			res.status(500).json(err);
+		}
+	});
+
 }
