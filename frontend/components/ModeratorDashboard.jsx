@@ -10,7 +10,6 @@ const ModeratorDashboard = () => {
 
 	const [stats, setStats] = useState({
 		total: 0,
-		pending: 0,
 		assigned: 0,
 		cleared: 0
 	});
@@ -42,18 +41,18 @@ const ModeratorDashboard = () => {
 						<h1 className="font-light font-nunito text-2xl">Total Metric</h1>
 					</div>
 					<div className="flex flex-col mb-4 items-center gap-y-4 p-4 border-x-2 border-red-300 border-dashed bg-gray-50 rounded-lg">
-						<h2 className="text-center font-nunito text-lg font-bold text-gray-800 tracking-wide">Pending Report(s)</h2>
-						<p className="text-center font-nunito text-xl font-bold h-10 w-10 bg-red-300 p-1 rounded-full">{stats.pending}</p>
+						<h2 className="text-center font-nunito text-lg font-bold text-gray-800 tracking-wide">Pending Task(s)</h2>
+						<p className="text-center font-nunito text-xl font-bold h-10 w-10 bg-red-300 p-1 rounded-full">{stats.assigned}</p>
 						<button className="bg-yellow-500 font-nunito p-1 w-fit text-sm rounded-lg shadow-xs border-1 border-yellow-400 cursor-pointer" onClick={() => navigate('/waste-location')}>Assign Task</button>
 					</div>
 
 					<div className="flex gap-x-2">
 						<div className="flex flex-col mb-4 items-center w-6/12 gap-y-4 p-2 border-x-2 border-yellow-300 border-dashed bg-gray-50 shadow-xs rounded-lg">
-							<h2 className="text-center font-nunito text-lg font-bold text-gray-800 tracking-wide">Total Report(s)</h2>
+							<h2 className="text-center font-nunito text-lg font-bold text-gray-800 tracking-wide">Total Task(s)</h2>
 							<p className="text-center font-nunito text-xl font-bold h-10 w-10 bg-yellow-300 p-1 rounded-full">{stats.total}</p>
 						</div>
 						<div className="flex flex-col mb-4 items-center w-6/12 gap-y-4 p-2 border-x-2 border-green-300 border-dashed bg-gray-50 shadow-xs rounded-lg">
-							<h2 className="text-center font-nunito text-lg font-bold text-gray-800 tracking-wide">Total Clean Up</h2>
+							<h2 className="text-center font-nunito text-lg font-bold text-gray-800 tracking-wide">Completed Task</h2>
 							<p className="text-center font-nunito text-xl font-bold h-10 w-10 bg-green-300 p-1 rounded-full">{stats.cleared}</p>
 						</div>
 					</div>
