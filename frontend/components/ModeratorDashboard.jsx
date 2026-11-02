@@ -16,7 +16,7 @@ const ModeratorDashboard = () => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const response = await fetch(`${BASE_URL}/api/report-stats-admin`, {
+			const response = await fetch(`${BASE_URL}/api/report-stats-moderator`, {
 				method: 'GET',
 				headers: {
 					Authorization: `Bearer ${token}`
