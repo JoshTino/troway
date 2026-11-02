@@ -1,10 +1,13 @@
 import {useState, useEffect} from "react"
+import {useNavigate} from "react-router-dom"
 import AdminNavigation from "/components/AdminNavigation"
 import HamburgerNav from "/components/HamburgerNav"
 
 import BASE_URL from "../constants/base-url"
 
 const AdminMetric = () => {
+
+	const navigate = useNavigate();
 
 	const token = localStorage.getItem("token");
 
