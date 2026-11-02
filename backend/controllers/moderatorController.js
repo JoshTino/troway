@@ -2,13 +2,14 @@ const User = require('../models/userModel');
 const Report = require('../models/reportModel');
 const multer = require('../multer/multer');
 const authMiddleware = require('../middleware/authMiddleware');
+const authorize = require('../middleware/authorize');
 const bcrypt = require('bcryptjs');
 
 
 
 module.exports = (app) => {
 
-	app.get('/api/moderator', authMiddleware, async (req, res) => {
+	app.get('/api/moderator', authMiddleware, authorize("moderator"), async (req, res) => {
 
 		try {
 			const moderatorDetails = await User.findById(req.user.id);
@@ -19,7 +20,7 @@ module.exports = (app) => {
 		}
 	});
 
-	app.get('/api/moderator-task', authMiddleware, async (req, res) => {
+	app.get('/api/moderator-task', authMiddleware, authorize("moderator"), async (req, res) => {
 		const moderatorId =  req.user.id;
 
 		try {
@@ -33,7 +34,7 @@ module.exports = (app) => {
 		}
 	});
 
-	app.post('/api/mark-completed-task/:id', authMiddleware, multer.upload.single("file"), async (req, res) => {
+	app.post('/api/mark-completed-task/:id', authMiddleware, authorize("moderator"), multer.upload.single("file"), async (req, res) => {
 
 		const reportId = req.params.id;
 		const moderatorId = req.user.id;
@@ -53,7 +54,7 @@ module.exports = (app) => {
 		}
 	});
 
-	app.post('/api/add-reporter/', authMiddleware, async (req, res) => {
+	app.post('/api/add-reporter/', authMiddleware, authorize("moderator"), async (req, res) => {
 		const {name, email} = req.body;
 		const moderatorId = req.user.id;
 		const defaultPassword = await bcrypt.hash("1234", 10);
@@ -81,7 +82,7 @@ module.exports = (app) => {
 	});
 
 
-	app.get('/api/moderator-profile-data', authMiddleware, async (req, res) => {
+	app.get('/api/moderator-profile-data', authMiddleware, authorize("moderator"), async (req, res) => {
 
 
 		try {
