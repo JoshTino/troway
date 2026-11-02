@@ -18,6 +18,7 @@ import Unauthorized from "/components/Unauthorized"
 import AddAdmin from "/components/AddAdmin"
 import AddReporter from "/components/AddReporter"
 import AddModerator from "/components/AddModerator"
+import ModeratorDashboard from "/components/ModeratorDashboard"
 
 import ProtectedRoute from "/protected routes/ProtectedRoute"
 
@@ -94,6 +95,13 @@ function App() {
             <AddModerator />
           </ProtectedRoute>
         } />
+
+        <Route path="moderator-dashboard" element={
+          <ProtectedRoute allowedRoles={["moderator"]}>
+            <ModeratorDashboard />
+          </ProtectedRoute>
+        }
+        />
 
         <Route path="/add-new-reporter" element={
           <ProtectedRoute allowedRoles={["moderator"]}>
