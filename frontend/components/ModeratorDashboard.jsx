@@ -43,7 +43,6 @@ const ModeratorDashboard = () => {
 					<div className="flex flex-col mb-4 items-center gap-y-4 p-4 border-x-2 border-red-300 border-dashed bg-gray-50 rounded-lg">
 						<h2 className="text-center font-nunito text-lg font-bold text-gray-800 tracking-wide">Pending Task(s)</h2>
 						<p className="text-center font-nunito text-xl font-bold h-10 w-10 bg-red-300 p-1 rounded-full">{stats.assigned}</p>
-						<button className="bg-yellow-500 font-nunito p-1 w-fit text-sm rounded-lg shadow-xs border-1 border-yellow-400 cursor-pointer" onClick={() => navigate('/waste-location')}>Assign Task</button>
 					</div>
 
 					<div className="flex gap-x-2">
@@ -112,9 +111,6 @@ const ModeratorDashboard = () => {
 								<h2 className="font-nunito text-sm font-bold">Cleared Today</h2>
 								<p className="font-nunito text-sm">2</p>
 							</div>
-						</div>
-						<div className="flex justify-center">
-							<button className="bg-yellow-500 p-2 rounded-lg font-light font-nunito cursor-pointer" onClick={() => navigate('/waste-location')}>Assign Truck</button>
 						</div>
 					</div>
 				</div>
