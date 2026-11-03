@@ -21,7 +21,7 @@ const AdminViewUsers = () => {
 	//Retrieving moderators
 	useEffect( () => {
 
-		fetch(`${BASE_URL}/api/moderators`, {
+		fetch(`${BASE_URL}/api/lga-moderators`, {
 			method: 'GET',
 			headers: {
 				Authorization: `Bearer ${token}`,
