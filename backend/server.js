@@ -7,6 +7,7 @@ const registerController = require('./controllers/registerController');
 const loginController = require('./controllers/loginController');
 const adminController = require('./controllers/adminController');
 const moderatorController = require('./controllers/moderatorController');
+const superAdminController = require('./controllers/superAdminController');
 const truckLocationController = require('./controllers/truckLocationController');
 
 const app = express();
