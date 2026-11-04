@@ -37,7 +37,7 @@ const AdminViewUsers = () => {
 	//Retrieving users
 	useEffect(() => {
 
-		fetch(`${BASE_URL}/api/users`, {
+		fetch(`${BASE_URL}/api/lga-reporters`, {
 			method: 'GET',
 			headers: {
 				Authorization: `Bearer ${token}`,
