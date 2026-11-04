@@ -42,6 +42,9 @@ adminController(app);
 //Fire Moderator Controller
 moderatorController(app);
 
+//Fire Super Admin Controller
+superAdminController(app);
+
 //Fire Truck Location Controller
 truckLocationController(app);
 
