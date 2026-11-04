@@ -19,6 +19,20 @@ module.exports = (app) => {
 		}
 	});
 
+	//This endpoint retrieves all reporters from database
+	app.get('/api/all-reporters', authMiddleware, authorize("super_admin"), async (req, res) => {
+		try {
+			const users = await User.find({role: "user"});
+
+			if (users) return res.status(200).json(users);
+
+			return res.status(404).json({message: "No userr"});
+		} catch (err) {
+			return res.status(500).json(err);
+		}
+	});
+
+	
 
 
 }
