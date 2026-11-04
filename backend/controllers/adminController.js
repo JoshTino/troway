@@ -49,6 +49,21 @@ module.exports = (app) => {
 		}
 	});
 
+	//Retrive reporters from admin's lga from database
+	app.get('/api/lga-reporters', authMiddleware, authorize("admin"), async (req, res) => {
+		try {
+			const admin = await User.findById(req.user.id);
+
+			const users = await User.find({role: "user", lga: admin.lga});
+
+			if (users) return res.status(200).json(users);
+
+			return res.status(404).json({message: "No reporter"});
+		} catch (err) {
+			return res.status(500).json(err);
+		}
+	});
+
 	app.patch('/api/moderator/:id', authMiddleware, authorize("admin"), async (req, res) => {
 		try {
 			const userId = req.params.id;
