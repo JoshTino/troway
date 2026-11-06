@@ -9,7 +9,7 @@ import ModeratorProfile from "/components/ModeratorProfile"
 import UserReportList from "/components/UserReportList"
 import ReporterEdit from "/components/ReporterEdit"
 import AdminMapView from "/components/AdminMapView"
-import AdminMetric from "/components/AdminMetric"
+import AdminDashboard from "/components/AdminDashboard"
 import AdminViewUsers from "/components/AdminViewUsers"
 import ModeratorMapView from "/components/ModeratorMapView"
 import Profile from "/components/Profile"
@@ -66,9 +66,9 @@ function App() {
         </ProtectedRoute>
       } />
 
-      <Route path="/admin-metric" element={
+      <Route path="/admin-dashboard" element={
         <ProtectedRoute allowedRoles={["admin"]}>
-          <AdminMetric />
+          <AdminDashboard />
         </ProtectedRoute>}
         />
 

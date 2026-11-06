@@ -5,7 +5,7 @@ import HamburgerNav from "/components/HamburgerNav"
 
 import BASE_URL from "../constants/base-url"
 
-const AdminMetric = () => {
+const AdminDashboard = () => {
 
 	const navigate = useNavigate();
 
@@ -126,4 +126,4 @@ const AdminMetric = () => {
 		</>
 	);
 }
-export default AdminMetric;
+export default AdminDashboard;
