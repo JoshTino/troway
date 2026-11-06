@@ -62,7 +62,7 @@ const Login = () => {
 
 				switch (user.role) {
 				case "super_admin":
-					navigate('/admin-dashboard');
+					navigate('/super-admin-dashboard');
 					break;
 				case "moderator":
 					navigate('/moderator-map-view');
