@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react"
 import {useNavigate} from "react-router-dom"
-import AdminNavigation from "/components/AdminNavigation"
+import SuperAdminNavigation from "/components/SuperAdminNavigation"
 import SuperAdminHamburgerNav from "/components/SuperAdminHamburgerNav"
 
 import BASE_URL from "../constants/base-url"
@@ -38,7 +38,7 @@ const SuperAdminDashboard = () => {
 	return(
 		<>
 			<SuperAdminHamburgerNav />
-			<AdminNavigation />
+			<SuperAdminNavigation />
 			<div className="flex flex-col items-center mb-4">
 				<div className="bg-white w-11/12 mb-4 rounded-lg mt-3 px-4 py-3 shadow-lg">
 					<div className="flex justify-center mb-4">

@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react"
-import AdminNavigation from "/components/AdminNavigation"
+import SuperAdminNavigation from "/components/SuperAdminNavigation"
 import SuperAdminHamburgerNav from "/components/SuperAdminHamburgerNav"
 import { useNavigate } from "react-router-dom"
 import BASE_URL from "/constants/base-url"
@@ -34,7 +34,7 @@ const SuperAdminProfile = () => {
 	return(
 		<>
 			<SuperAdminHamburgerNav/>	
-			<AdminNavigation/>
+			<SuperAdminNavigation/>
 			<div className="flex flex-col items-center justify-center">
 				<div className="bg-white w-11/12 rounded-lg mt-3 px-6 py-3 shadow-lg">
 					<div className="flex flex-col gap-x-8">
