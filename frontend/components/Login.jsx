@@ -15,7 +15,7 @@ const Login = () => {
 			const storedRole = localStorage.getItem("role");
 			switch (storedRole) {
 			case 'admin':
-				navigate('/admin-metric');
+				navigate('/admin-dashboard');
 				break;
 			case 'moderator':
 				navigate('/moderator-map-view');
