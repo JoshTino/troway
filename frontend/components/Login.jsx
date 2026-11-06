@@ -64,6 +64,9 @@ const Login = () => {
 				case "super_admin":
 					navigate('/super-admin-dashboard');
 					break;
+				case "admin":
+					navigate('/admin-dashboard');
+					break;
 				case "moderator":
 					navigate('/moderator-map-view');
 					break;
