@@ -172,7 +172,7 @@ module.exports = (app) => {
 	});
 
 	//This retrieve number of all pending, assigned and cleared waste report for super admin metric
-	app.get('/api/report-stats', authMiddleware, authorize("admin"), async (req, res) => {
+	app.get('/api/report-stats', authMiddleware, authorize("super_admin"), async (req, res) => {
 
 		try {
 			const [total, pending, assigned, cleared] = await Promise.all([
