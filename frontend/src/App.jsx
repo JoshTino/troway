@@ -21,6 +21,7 @@ import AddModerator from "/components/AddModerator"
 import ModeratorDashboard from "/components/ModeratorDashboard"
 
 import SuperAdminDashboard from "/components/SuperAdminDashboard"
+import SuperAdminProfile from "/components/SuperAdminProfile"
 
 import ProtectedRoute from "/protected routes/ProtectedRoute"
 
