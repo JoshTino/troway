@@ -118,6 +118,12 @@ function App() {
           </ProtectedRoute>
         } />
 
+        <Route path="/super-admin-profile" element={
+          <ProtectedRoute allowedRoles={["super_admin"]}>
+            <SuperAdminProfile />
+          </ProtectedRoute>
+        } />
+
         <Route path="/profile" element={
           <ProtectedRoute allowedRoles={["admin"]}>
             <Profile />
