@@ -20,6 +20,8 @@ import AddReporter from "/components/AddReporter"
 import AddModerator from "/components/AddModerator"
 import ModeratorDashboard from "/components/ModeratorDashboard"
 
+import SuperAdminDashboard from "/components/SuperAdminDashboard"
+
 import ProtectedRoute from "/protected routes/ProtectedRoute"
 
 
