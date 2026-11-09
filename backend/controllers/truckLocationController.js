@@ -30,7 +30,7 @@ module.exports = (app) => {
 
 	});
 
-	app.get('/api/truck-latest-location', authMiddleware, authorize("admin"), async (req, res) => {
+	app.get('/api/truck-latest-location', authMiddleware, authorize("admin", "super_admin"), async (req, res) => {
 
 		try {
 			const startOfToday = new Date();
