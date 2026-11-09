@@ -101,7 +101,7 @@ module.exports = (app) => {
 		}
 	});
 
-	app.get('/api/admin-profile-data', authMiddleware, async (req, res) => {
+	app.get('/api/admin-profile-data', authMiddleware, authorize("admin") async (req, res) => {
 
 
 		try {
@@ -118,7 +118,7 @@ module.exports = (app) => {
 
 	});
 
-	app.get('/api/admin', authMiddleware, async (req, res) => {
+	app.get('/api/admin', authMiddleware, authorize("admin") async (req, res) => {
 
 		try {
 			const adminDetails = await User.findById(req.user.id);
