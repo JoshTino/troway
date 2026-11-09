@@ -89,7 +89,7 @@ function App() {
         } />
 
         <Route path="/add-new-admin" element={
-          <ProtectedRoute allowedRoles={["admin"]}>
+          <ProtectedRoute allowedRoles={["super_admin"]}>
             <AddAdmin />
           </ProtectedRoute>
         } />
