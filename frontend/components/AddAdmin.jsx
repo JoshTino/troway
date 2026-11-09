@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react"
-import AdminNavigation from "/components/AdminNavigation"
+import SuperAdminNavigation from "/components/SuperAdminNavigation"
 import HamburgerNav from "/components/HamburgerNav"
 import BASE_URL from "/constants/base-url"
 
@@ -39,7 +39,7 @@ const AddAdmin = () => {
 	return(
 		<>
 			<HamburgerNav/>	
-			<AdminNavigation/>
+			<SuperAdminNavigation/>
 			<div className="flex flex-col items-center justify-center">
 				<div className="bg-white w-11/12 rounded-lg mt-3 px-6 py-3 shadow-lg">
 					<form onSubmit={handleSubmit}>
