@@ -101,7 +101,7 @@ module.exports = (app) => {
 		}
 	});
 
-	app.get('/api/admin-profile-data', authMiddleware, authorize("admin") async (req, res) => {
+	app.get('/api/admin-profile-data', authMiddleware, authorize("admin"), async (req, res) => {
 
 
 		try {
