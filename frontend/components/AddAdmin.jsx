@@ -1,11 +1,11 @@
 import {useState, useEffect} from "react"
 import SuperAdminNavigation from "/components/SuperAdminNavigation"
-import HamburgerNav from "/components/HamburgerNav"
+import SuperAdminHamburgerNav from "/components/SuperAdminHamburgerNav"
 import BASE_URL from "/constants/base-url"
 
 const AddAdmin = () => {
 
-	const token = localStorage.getItem("token") ;
+	const token = localStorage.getItem("token");
 
 	const [inputs, setInputs] = useState({
 		name: "",
@@ -38,7 +38,7 @@ const AddAdmin = () => {
 	}
 	return(
 		<>
-			<HamburgerNav/>	
+			<SuperAdminHamburgerNav/>	
 			<SuperAdminNavigation/>
 			<div className="flex flex-col items-center justify-center">
 				<div className="bg-white w-11/12 rounded-lg mt-3 px-6 py-3 shadow-lg">
