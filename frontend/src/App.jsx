@@ -22,6 +22,7 @@ import ModeratorDashboard from "/components/ModeratorDashboard"
 
 import SuperAdminDashboard from "/components/SuperAdminDashboard"
 import SuperAdminProfile from "/components/SuperAdminProfile"
+import SuperAdminMapView from "/components/SuperAdminMapView"
 
 import ProtectedRoute from "/protected routes/ProtectedRoute"
 
@@ -121,6 +122,12 @@ function App() {
         <Route path="/super-admin-profile" element={
           <ProtectedRoute allowedRoles={["super_admin"]}>
             <SuperAdminProfile />
+          </ProtectedRoute>
+        } />
+
+        <Route path="/all-waste-location" element={
+          <ProtectedRoute allowedRoles={["super_admin"]}>
+            <SuperAdminMapView />
           </ProtectedRoute>
         } />
 
