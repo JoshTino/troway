@@ -16,7 +16,7 @@ const SuperAdminProfile = () => {
 
 		const fetchData = async () => {
 
-			const response = await fetch(`${BASE_URL}/api/admin-profile-data`, {
+			const response = await fetch(`${BASE_URL}/api/super-admin-profile-data`, {
 				method: "GET",
 				headers: {
 					"Content-Type": "application/json",
