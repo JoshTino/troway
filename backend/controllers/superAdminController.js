@@ -64,9 +64,9 @@ module.exports = (app) => {
 
 		try {
 
-		const admin = await User.findById(req.user.id);	
+		const superAdmin = await User.findById(req.user.id);	
 
-		if (admin) return res.status(200).json(admin);
+		if (superAdmin) return res.status(200).json(superAdmin);
 
 		return res.status(404).json({message: "Admin not found"});
 
