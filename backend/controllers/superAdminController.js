@@ -59,4 +59,21 @@ module.exports = (app) => {
 
 	});
 
+	app.get('/api/super-admin-profile-data', authMiddleware, authorize("super_admin"), async (req, res) => {
+
+
+		try {
+
+		const admin = await User.findById(req.user.id);	
+
+		if (admin) return res.status(200).json(admin);
+
+		return res.status(404).json({message: "Admin not found"});
+
+		} catch (err) {
+			return res.status(500).json(err);
+		}
+
+	});
+
 }
