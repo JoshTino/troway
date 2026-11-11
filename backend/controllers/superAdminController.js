@@ -6,6 +6,19 @@ const bcrypt = require('bcryptjs');
 
 module.exports = (app) => {
 
+	//This endpoint retrieves all reporters from database
+	app.get('/api/all-admin', authMiddleware, authorize("super_admin"), async (req, res) => {
+		try {
+			const admin = await User.find({role: "admin"});
+
+			if (admin) return res.status(200).json(admin);
+
+			return res.status(404).json({message: "No admin"});
+		} catch (err) {
+			return res.status(500).json(err);
+		}
+	});
+
 	//This endpoint retrieve all moderators  from the database
 	app.get('/api/all-moderators', authMiddleware, authorize("super_admin"), async (req, res) => {
 		try {
