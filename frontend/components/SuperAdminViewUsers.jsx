@@ -189,9 +189,7 @@ const SuperAdminViewUsers = () => {
 									<div>
 										<h2 className="font-nunito font-bold text-sm">{moderator.name}</h2>
 										<p className="font-nunito text-xs">{moderator.email}</p>
-										<div className="flex gap-x-2">
-										<button className="underline cursor-pointer font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1" onClick={() => {setShowModal(true); setSelectedId(moderator._id); setAction("remove moderator"); setMessage(`This user "${moderator.name}" will no longer be a moderator.`); setId(moderator._id); /*removeModerator(`${moderator._id}`);*/ }}>Remove</button>
-										<button className="underline text-green-700 cursor-pointer font-nunito font-light rounded-xs text-sm shadow-md mt-2 px-1">Assign task</button>	
+										<div className="flex gap-x-2">	
 										</div>
 									</div>
 								</div>
