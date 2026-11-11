@@ -190,9 +190,7 @@ const SuperAdminViewUsers = () => {
 									<div>
 										<h2 className="font-nunito font-bold text-sm">{admin.name}</h2>
 										<p className="font-nunito text-xs">{admin.email}</p>
-										<div className="flex gap-x-2">
-										<button className="underline cursor-pointer font-nunito font-light rounded-xs text-sm  shadow-md mt-2 px-1" onClick={() => { setSelectedId(user._id); setAction("delete user");  setMessage("Are you sure you want to delete this user?"); setShowModal(true); setId(user._id);}}>Remove</button>
-										<button className="underline text-green-700 cursor-pointer font-nunito font-light rounded-xs  text-sm shadow-md mt-2 px-1" onClick={() => { setSelectedId(user._id); setAction("make moderator"); setMessage(`You are about making this user "${user.name}" a moderator`); setShowModal(true); setId(user._id);}}>Make moderator</button>
+										<div className="flex gap-x-2">										
 										</div>								
 									</div>
 								</div>
@@ -200,7 +198,7 @@ const SuperAdminViewUsers = () => {
 							))
 
 						) : (
-							<p className="text-center font-nunito">No user(s) yet.</p>
+							<p className="text-center font-nunito">No admin(s) yet.</p>
 						)}
 					</div>
 					
