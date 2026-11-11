@@ -7,6 +7,7 @@ import BASE_URL from "/constants/base-url"
 
 const SuperAdminViewUsers = () => {
 	const navigate = useNavigate();
+	const [admin, setAdmin] = useState([]);
 	const [moderators, setModerator] = useState([]);
 	const [users, setUser] = useState([]);
 
@@ -17,6 +18,22 @@ const SuperAdminViewUsers = () => {
 	const [id, setId] = useState(null);
 
 	const token = localStorage.getItem("token");
+
+	//Retrieving moderators
+	useEffect( () => {
+
+		fetch(`${BASE_URL}/api/all-admin`, {
+			method: 'GET',
+			headers: {
+				Authorization: `Bearer ${token}`,
+			}
+		})
+		.then(res => res.json())
+		.then(data => {
+			setAdmin(data);
+		})
+		.catch(err => console.log(err));
+	}, []);
 
 	//Retrieving moderators
 	useEffect( () => {
