@@ -175,21 +175,21 @@ const SuperAdminViewUsers = () => {
 				</div>
 				<div className="bg-white w-11/12 rounded-lg mt-3 px-4 py-3 shadow-lg">
 					<div className="flex justify-start mb-1">
-						<h1 className="font-light font-nunito text-lg">Users</h1>
+						<h1 className="font-light font-nunito text-lg">Admins</h1>
 					</div>
 
 					<div className="grid md:grid-cols-2 gap-4">
-						{users && users.length > 0 ? (
+						{admins && admins.length > 0 ? (
 
-							users.map((user) => (
+							admins.map((admin) => (
 
-								<div key={user._id} className="flex gap-x-2 shadow-md p-2 border-x-2 border-yellow-500 border-dashed rounded-md">
+								<div key={admin._id} className="flex gap-x-2 shadow-md p-2 border-x-2 border-yellow-500 border-dashed rounded-md">
 									<div>
 										<img className="rounded-full object-cover size-15"  src="https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-avatar-placeholder-png-image_3416697.jpg" />
 									</div>
 									<div>
-										<h2 className="font-nunito font-bold text-sm">{user.name}</h2>
-										<p className="font-nunito text-xs">{user.email}</p>
+										<h2 className="font-nunito font-bold text-sm">{admin.name}</h2>
+										<p className="font-nunito text-xs">{admin.email}</p>
 										<div className="flex gap-x-2">
 										<button className="underline cursor-pointer font-nunito font-light rounded-xs text-sm  shadow-md mt-2 px-1" onClick={() => { setSelectedId(user._id); setAction("delete user");  setMessage("Are you sure you want to delete this user?"); setShowModal(true); setId(user._id);}}>Remove</button>
 										<button className="underline text-green-700 cursor-pointer font-nunito font-light rounded-xs  text-sm shadow-md mt-2 px-1" onClick={() => { setSelectedId(user._id); setAction("make moderator"); setMessage(`You are about making this user "${user.name}" a moderator`); setShowModal(true); setId(user._id);}}>Make moderator</button>
