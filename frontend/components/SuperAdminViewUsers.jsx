@@ -21,7 +21,7 @@ const SuperAdminViewUsers = () => {
 	//Retrieving moderators
 	useEffect( () => {
 
-		fetch(`${BASE_URL}/api/lga-moderators`, {
+		fetch(`${BASE_URL}/api/all-moderators`, {
 			method: 'GET',
 			headers: {
 				Authorization: `Bearer ${token}`,
