@@ -7,7 +7,7 @@ import BASE_URL from "/constants/base-url"
 
 const SuperAdminViewUsers = () => {
 	const navigate = useNavigate();
-	const [admin, setAdmin] = useState([]);
+	const [admins, setAdmins] = useState([]);
 	const [moderators, setModerator] = useState([]);
 	const [users, setUser] = useState([]);
 
@@ -30,7 +30,7 @@ const SuperAdminViewUsers = () => {
 		})
 		.then(res => res.json())
 		.then(data => {
-			setAdmin(data);
+			setAdmins(data);
 		})
 		.catch(err => console.log(err));
 	}, []);
