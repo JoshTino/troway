@@ -70,7 +70,7 @@ const Login = () => {
 				case "moderator":
 					navigate('/moderator-map-view');
 					break;
-				case "user":
+				case "reporter":
 					navigate('/reporter');
 					break;
 				default:
