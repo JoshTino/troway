@@ -5,6 +5,8 @@ import SuperAdminNavigation from "/components/SuperAdminNavigation"
 import Modal from "/components/Modal"
 import BASE_URL from "/constants/base-url"
 
+import { MapPinned } from 'lucide-react';
+
 const SuperAdminViewUsers = () => {
 	const navigate = useNavigate();
 	const [admins, setAdmins] = useState([]);
