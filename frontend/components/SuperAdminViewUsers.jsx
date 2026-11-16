@@ -163,7 +163,7 @@ const SuperAdminViewUsers = () => {
 										<h2 className="font-nunito font-bold text-sm">{admin.name}</h2>
 										<p className="font-nunito text-xs">{admin.email}</p>
 										<div className="flex gap-x-2 mt-2">
-										<span className="text-gray-700"><MapPinned size={18}/></span>
+										<span className="text-gray-700"><MapPinned size={16}/></span>
 										<span className="capitalize text-sm font-nunito">{admin.lga}</span>								
 										</div>								
 									</div>
