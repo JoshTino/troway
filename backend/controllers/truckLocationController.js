@@ -3,7 +3,7 @@ const authMiddleware = require('../middleware/authMiddleware');
 const authorize = require('../middleware/authorize');
 
 module.exports = (app) => {
-	app.post('/api/truck-location', authMiddleware, authorize("admin", "moderator"), async (req, res) => {
+	app.post('/api/truck-location', authMiddleware, authorize("moderator"), async (req, res) => {
 			const {lat, lng} = req.body;
 			const truckId = req.user.id;
 
