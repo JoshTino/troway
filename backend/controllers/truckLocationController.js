@@ -1,6 +1,7 @@
 const TruckLocation = require('../models/truckLocationModel');
 const authMiddleware = require('../middleware/authMiddleware');
 const authorize = require('../middleware/authorize');
+const User = require('../models/userModel');
 
 module.exports = (app) => {
 	app.post('/api/truck-location', authMiddleware, authorize("moderator"), async (req, res) => {
@@ -38,7 +39,7 @@ module.exports = (app) => {
 
 		try {
 			const admin = await User.findById(req.user.id);
-			
+
 			const startOfToday = new Date();
 			startOfToday.setHours(0, 0, 0, 0);
 
