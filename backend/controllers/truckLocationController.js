@@ -30,7 +30,9 @@ module.exports = (app) => {
 
 	});
 
-	app.get('/api/truck-latest-location', authMiddleware, authorize("admin", "super_admin"), async (req, res) => {
+	app.get('/api/truck-latest-location-admin', authMiddleware, authorize("admin"), async (req, res) => {
+
+		const admin = await User.findById(req.user.id);
 
 		try {
 			const startOfToday = new Date();
@@ -39,7 +41,8 @@ module.exports = (app) => {
 			const truckLatestLocation = await TruckLocation.aggregate([
 				{
 					$match: {
-						createdAt: { $gte: startOfToday}
+						createdAt: { $gte: startOfToday},
+						lga: admin.lga
 					}
 				},
 
