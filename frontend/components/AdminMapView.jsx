@@ -95,7 +95,7 @@ const AdminMapView = () => {
 	
 	  const fetchTrucks = async () => {
 	    try {
-	      const res = await fetch(`${BASE_URL}/api/truck-latest-location`, {
+	      const res = await fetch(`${BASE_URL}/api/truck-latest-location-admin`, {
 	        headers: {
 	          Authorization: `Bearer ${token}`
 	        }
