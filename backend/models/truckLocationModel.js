@@ -9,7 +9,10 @@ const truckLocationSchema = new mongoose.Schema({
 		lat: Number,
 		lng: Number
 	},
-	lga: null
+	lga: {
+		type: String,
+		default: null
+	}
 }, {timestamps: true});
 
 module.exports = mongoose.model('TruckLocation', truckLocationSchema);
