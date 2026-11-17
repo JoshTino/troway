@@ -9,6 +9,8 @@ module.exports = (app) => {
 
 		try {
 
+			const moderator = await User.findById(req.user.id);
+
 			if (lat == null || lng == null) {
 				return res.status(400).json({error: "Missing data"});
 			}
@@ -20,7 +22,8 @@ module.exports = (app) => {
 				location: {
 					lat,
 					lng
-				}
+				},
+				lga: admin.lga
 			});
 
 			return res.status(201).json(truckLocation);
