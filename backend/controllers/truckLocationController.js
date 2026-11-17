@@ -23,7 +23,7 @@ module.exports = (app) => {
 					lat,
 					lng
 				},
-				lga: admin.lga
+				lga: moderator.lga
 			});
 
 			return res.status(201).json(truckLocation);
