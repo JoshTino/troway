@@ -35,9 +35,10 @@ module.exports = (app) => {
 
 	app.get('/api/truck-latest-location-admin', authMiddleware, authorize("admin"), async (req, res) => {
 
-		const admin = await User.findById(req.user.id);
 
 		try {
+			const admin = await User.findById(req.user.id);
+			
 			const startOfToday = new Date();
 			startOfToday.setHours(0, 0, 0, 0);
 
