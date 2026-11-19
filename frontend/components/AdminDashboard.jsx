@@ -81,7 +81,7 @@ const AdminDashboard = () => {
 									<span className="bg-white font-nunito text-xs font-bold text-gray-600 px-1">Blocked Drainage</span>
 								</div>
 								<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
-									<div className="w-[14.93%] bg-yellow-500/35 py-2 rounded-sm"></div>
+									<div className="w-[1.20%] bg-yellow-500/35 py-2 rounded-sm"></div>
 								</div>
 							</div>
 
@@ -90,7 +90,7 @@ const AdminDashboard = () => {
 									<span className="bg-white font-nunito text-xs font-bold text-gray-600 px-1">Illegal Dumping</span>
 								</div>
 								<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
-									<div className="w-[14.93%] bg-yellow-500/35 py-2 rounded-sm"></div>
+									<div className="w-[11.12%] bg-yellow-500/35 py-2 rounded-sm"></div>
 								</div>
 							</div>
 
@@ -99,7 +99,7 @@ const AdminDashboard = () => {
 									<span className="bg-white font-nunito text-xs font-bold text-gray-600 px-1">Plastic Pollution</span>
 								</div>
 								<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
-									<div className="w-[14.93%] bg-yellow-500/35 py-2 rounded-sm"></div>
+									<div className="w-[18.32%] bg-yellow-500/35 py-2 rounded-sm"></div>
 								</div>
 							</div>
 
