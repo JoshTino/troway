@@ -66,7 +66,7 @@ const AdminDashboard = () => {
 						<div className="flex justify-center mb-4">
 							<h1 className="font-light font-nunito text-2xl">Waste Chart</h1>
 						</div>
-						<div className="mb-6">
+						<div className="mb-6 flex flex-col gap-y-2">
 							<div className="flex flex-row gap-x-1 justify-center items-center">
 								<div className="w-[35%] md:w-[33%] lg:w-[16%]">
 									<span className="bg-white font-nunito text-xs font-bold text-gray-600 px-1">Hazardous waste</span>
