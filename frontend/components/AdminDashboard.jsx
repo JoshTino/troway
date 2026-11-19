@@ -61,7 +61,7 @@ const AdminDashboard = () => {
 						</div>
 					</div>
 				</div>
-				<div className="bg-white w-11/12  rounded-lg mt-3 px-4 py-3 shadow-lg">
+				<div className="bg-white w-11/12  rounded-lg mt-3 px-2 md:px-4 py-3 shadow-lg">
 					<div className="bg-gray-50 w-full md:w-6/12 p-3 rounded-lg">
 						<div className="flex justify-center mb-4">
 							<h1 className="font-light font-nunito text-2xl">Waste Chart</h1>
