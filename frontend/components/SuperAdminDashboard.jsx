@@ -61,50 +61,82 @@ const SuperAdminDashboard = () => {
 						</div>
 					</div>
 				</div>
-				<div className="bg-white w-11/12  rounded-lg mt-3 px-4 py-3 shadow-lg">
+				<div className="bg-white w-11/12  rounded-lg mt-3 px-2 md:px-4 py-3 shadow-lg">
 					<div className="bg-gray-50 w-full md:w-6/12 p-3 rounded-lg">
 						<div className="flex justify-center mb-4">
 							<h1 className="font-light font-nunito text-2xl">Waste Chart</h1>
 						</div>
-						<div className="mb-6">
-							<div>
-								<span className="bg-white font-nunito text-xs border-1 border-gray-200 px-1">Hazardous waste</span>
-								<div className="w-[14.93%] bg-yellow-500/35 mb-2 px-2 py-2 rounded-sm"></div>
+						<div className="mb-6 flex flex-col gap-y-2">
+							<div className="flex flex-row gap-x-1 justify-center items-center">
+								<div className="w-[35%] md:w-[33%] lg:w-[16%]">
+									<span className="bg-white font-nunito text-xs font-bold text-gray-600 px-1">Hazardous waste</span>
+								</div>
+								<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
+									<div className="w-[14.93%] bg-yellow-500/35 py-2 rounded-sm"></div>
+								</div>
 							</div>
 
-							<div>
-								<span className="bg-white font-nunito text-xs border-1 border-gray-200 px-1">Blocked Drainage</span>
-								<div className="w-[1.20%] bg-green-700/35 mb-2 px-2 py-2 rounded-sm"></div>
+							<div className="flex flex-row gap-x-1 justify-center items-center">
+								<div className="w-[35%] md:w-[33%] lg:w-[16%]">
+									<span className="bg-white font-nunito text-xs font-bold text-gray-600 px-1">Blocked Drainage</span>
+								</div>
+								<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
+									<div className="w-[1.20%] bg-green-700/35 py-2 rounded-sm"></div>
+								</div>
 							</div>
 
-							<div>
-								<span className="bg-white font-nunito text-xs border-1 border-gray-200 px-1">Illegal dumping</span>
-								<div className="w-[11.12%] bg-slate-700/35 mb-2 px-2 py-2 rounded-sm"></div>
+							<div className="flex flex-row gap-x-1 justify-center items-center">
+								<div className="w-[35%] md:w-[33%] lg:w-[16%]">
+									<span className="bg-white font-nunito text-xs font-bold text-gray-600 px-1">Illegal Dumping</span>
+								</div>
+								<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
+									<div className="w-[11.12%] bg-slate-700/35 py-2 rounded-sm"></div>
+								</div>
 							</div>
 
-							<div>
-								<span className="bg-white font-nunito text-xs border-1 border-gray-200 px-1">Plastic pollution</span>
-								<div className="w-[18.32%] bg-blue-300 mb-2 px-2 py-2 rounded-sm"></div>
+							<div className="flex flex-row gap-x-1 justify-center items-center">
+								<div className="w-[35%] md:w-[33%] lg:w-[16%]">
+									<span className="bg-white font-nunito text-xs font-bold text-gray-600 px-1">Plastic Pollution</span>
+								</div>
+								<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
+									<div className="w-[18.32%] bg-blue-300 py-2 rounded-sm"></div>
+								</div>
 							</div>
 
-							<div>
-								<span className="bg-white font-nunito text-xs border-1 border-gray-200 px-1">Broken waste bin</span>
-								<div className="w-[24.83%] bg-orange-700/50 mb-2 px-2 py-2 rounded-sm"></div>
+							<div className="flex flex-row gap-x-1 justify-center items-center">
+								<div className="w-[35%] md:w-[33%] lg:w-[16%]">
+									<span className="bg-white font-nunito text-xs font-bold text-gray-600 px-1">Broken waste bin</span>
+								</div>
+								<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
+									<div className="w-[24.83%] bg-orange-700/50 py-2 rounded-sm"></div>
+								</div>
 							</div>
 
-							<div>
-								<span className="bg-white font-nunito text-xs border-1 border-gray-200 px-1">Uncollected waste</span>
-								<div className="w-[9.83%] bg-zinc-900/35 mb-2 px-2 py-2 rounded-sm"></div>
+							<div className="flex flex-row gap-x-1 justify-center items-center">
+								<div className="w-[35%] md:w-[33%] lg:w-[16%]">
+									<span className="bg-white font-nunito text-[11px] font-bold text-gray-600 px-1">Uncollected Waste</span>
+								</div>
+								<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
+									<div className="w-[9.83%] bg-zinc-900/35 py-2 rounded-sm"></div>
+								</div>
 							</div>
 
-							<div>
-								<span className="bg-white font-nunito text-xs border-1 border-gray-200 px-1">Overflowing bin</span>
-								<div className="w-[4.17%] bg-blue-700/35 mb-2 px-2 py-2 rounded-sm"></div>
+							<div className="flex flex-row gap-x-1 justify-center items-center">
+								<div className="w-[35%] md:w-[33%] lg:w-[16%]">
+									<span className="bg-white font-nunito text-xs font-bold text-gray-600 px-1">Broken waste bin</span>
+								</div>
+								<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
+									<div className="w-[4.17%] bg-blue-700/35 py-2 rounded-sm"></div>
+								</div>
 							</div>
 
-							<div>
-								<span className="bg-white font-nunito text-xs border-1 border-gray-200 px-1">Burning of waste</span>
-								<div className="w-[15.60%] bg-red-500/35 mb-2 px-2 py-2 rounded-sm"></div>
+							<div className="flex flex-row gap-x-1 justify-center items-center">
+								<div className="w-[35%] md:w-[33%] lg:w-[16%]">
+									<span className="bg-white font-nunito text-xs font-bold text-gray-600 px-1">Burning of waste</span>
+								</div>
+								<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
+									<div className="w-[15.60%] bg-red-500/35 py-2 rounded-sm"></div>
+								</div>
 							</div>
 						</div>
 						<div className="flex justify-center gap-x-4 mb-4">
@@ -118,7 +150,7 @@ const SuperAdminDashboard = () => {
 							</div>
 						</div>
 						<div className="flex justify-center">
-							<button className="bg-yellow-500 p-2 rounded-lg font-light font-nunito cursor-pointer" onClick={() => navigate('/all-waste-location')}>View map</button>
+							<button className="bg-yellow-500 p-2 rounded-lg font-light font-nunito cursor-pointer" onClick={() => navigate('/waste-location')}>Assign Truck</button>
 						</div>
 					</div>
 				</div>
