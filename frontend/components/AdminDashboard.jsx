@@ -114,7 +114,7 @@ const AdminDashboard = () => {
 
 							<div className="flex flex-row gap-x-1 justify-center items-center">
 								<div className="w-[35%] md:w-[33%] lg:w-[16%]">
-									<span className="bg-white font-nunito text-xs font-bold text-gray-600 px-1">Uncollected Waste</span>
+									<span className="bg-white font-nunito text-[11px] font-bold text-gray-600 px-1">Uncollected Waste</span>
 								</div>
 								<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
 									<div className="w-[9.83%] bg-zinc-900/35 py-2 rounded-sm"></div>
