@@ -121,9 +121,13 @@ const AdminDashboard = () => {
 								</div>
 							</div>
 
-							<div>
-								<span className="bg-white font-nunito text-xs border-1 border-gray-200 px-1">Overflowing bin</span>
-								<div className="w-[4.17%] bg-blue-700/35 mb-2 px-2 py-2 rounded-sm"></div>
+							<div className="flex flex-row gap-x-1 justify-center items-center">
+								<div className="w-[35%] md:w-[33%] lg:w-[16%]">
+									<span className="bg-white font-nunito text-xs font-bold text-gray-600 px-1">Broken waste bin</span>
+								</div>
+								<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
+									<div className="w-[4.17%] bg-blue-700/35 py-2 rounded-sm"></div>
+								</div>
 							</div>
 
 							<div>
