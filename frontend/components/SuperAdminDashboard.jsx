@@ -149,9 +149,6 @@ const SuperAdminDashboard = () => {
 								<p className="font-nunito text-sm">2</p>
 							</div>
 						</div>
-						<div className="flex justify-center">
-							<button className="bg-yellow-500 p-2 rounded-lg font-light font-nunito cursor-pointer" onClick={() => navigate('/waste-location')}>Assign Truck</button>
-						</div>
 					</div>
 				</div>
 			</div>
