@@ -79,9 +79,13 @@ module.exports = (app) => {
 
 		const reporter = await User.findById(userId).select("lga state");
 
+		const filePath = `./uploads/${Date.now()}-${file}.jpg`;
+		const cloudinaryUrl = cloudinary.uploader.upload(filePath);
+		const cloudinaryImage = cloudinaryUrl.secure_url;
+
 		const data = {
 			user: userId,
-			file,
+			file: cloudinaryImage,
 			category,
 			location: {
 				lat,
