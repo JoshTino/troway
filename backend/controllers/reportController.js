@@ -245,4 +245,33 @@ module.exports = (app) => {
 		}
 	});
 
+
+	app.get('/api/waste-percentage', authMiddleware, authorize("super_admin"), async (req, res) => {
+
+		try {
+
+			const wasteStats = await Report.aggregate([
+			  {
+			    $group: {
+			      _id: "$category",
+			      count: { $sum: 1 }
+			    }
+			  }
+			]);
+
+			const total = wasteStats.reduce((sum, item) => sum + item.count, 0);
+
+			const result = wasteStats.map(item => ({
+			  category: item._id,
+			  count: item.count,
+			  percentage: Number(((item.count / total) * 100).toFixed(2))
+			}));
+
+			res.status(200).json(result);
+
+		} catch (err) {
+			res.status(500).json(err);
+		}
+	});
+
 }
