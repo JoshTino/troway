@@ -18,6 +18,10 @@ const SuperAdminDashboard = () => {
 		cleared: 0
 	});
 
+	const [data, setData] = useState([]);
+
+	
+
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await fetch(`${BASE_URL}/api/report-stats`, {
@@ -33,6 +37,23 @@ const SuperAdminDashboard = () => {
 		}
 
 		fetchData();
+	}, []);
+
+	useEffect( () => {
+		const fetchWastePercentage = async () => {
+			const response = await fetch(`${BASE_URL}/api/waste-percentage`, {
+				method: 'GET',
+				headers: {
+					Authorization: `Bearer ${token}`
+				}
+			});
+
+			const result = await response.json();
+			setData(result);
+
+		}
+
+		fetchWastePercentage();
 	}, []);
 
 	return(
