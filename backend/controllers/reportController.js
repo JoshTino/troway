@@ -82,7 +82,7 @@ module.exports = (app) => {
 
 		const filePath = `./uploads/${Date.now()}-${file}.jpg`;
 		const cloudinaryUrl = cloudinary.uploader.upload(filePath);
-		const cloudinaryImage = cloudinaryUrl.secure_url;
+		const cloudinaryImage = await cloudinaryUrl.secure_url;
 
 		const data = {
 			user: userId,
