@@ -3,7 +3,7 @@ const Report = require('../models/reportModel');
 const User = require('../models/userModel');
 const authMiddleware = require('../middleware/authMiddleware');
 const authorize = require('../middleware/authorize');
-const cloudinary = require('cloudinary');
+const cloudinary = require('..services/cloudinary');
 
 
 module.exports = (app) => {
