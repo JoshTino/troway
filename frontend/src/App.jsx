@@ -36,25 +36,25 @@ function App() {
       <Route path="/signup" element={<SignUp />} />
       <Route path="/unauthorized" element={<Unauthorized />}/>
       <Route path="/reporter" element={
-        <ProtectedRoute allowedRoles={["user"]}>
+        <ProtectedRoute allowedRoles={["reporter"]}>
           <Reporter />
         </ProtectedRoute>
       } />
 
       <Route path="/reporter-edit/:id" element={
-        <ProtectedRoute allowedRoles={["user"]}>
+        <ProtectedRoute allowedRoles={["reporter"]}>
           <ReporterEdit />
       </ProtectedRoute>
       } />
 
       <Route path="/reporter-list" element={
-        <ProtectedRoute allowedRoles={["user"]}>
+        <ProtectedRoute allowedRoles={["reporter"]}>
           <UserReportList />
         </ProtectedRoute>
       } />
 
       <Route path="/reporter-profile" element={
-        <ProtectedRoute allowedRoles={["user"]}> 
+        <ProtectedRoute allowedRoles={["reporter"]}> 
           <ReporterProfile />
       </ProtectedRoute>}
     />
