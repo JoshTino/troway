@@ -96,7 +96,7 @@ const ModeratorClusterMap = ({ moderatorLga, reports, handleChange, handleSubmit
 					return (
 				<Marker icon={iconManager(report.status)} key={report._id} position={[report.location.lat, report.location.lng]}>
 					<Popup>
-						<img className="shadow-lg" src={`${BASE_URL}/uploads/${report.file}`} />
+						<img className="shadow-lg" src={`${report.file}`} />
 						<p className="font-bold font-nunito text-lg">{report.category}</p>
 						<form onSubmit={(e) => {
 						 	e.preventDefault();
