@@ -103,7 +103,7 @@ const AdminClusterMap = ({ adminLga, reports, moderators, selectedModerator, han
 					return (
 				<Marker icon={iconManager(report.status)} key={report._id} position={[report.location.lat, report.location.lng]}>
 					<Popup>
-						<img className="shadow-lg" src={`${BASE_URL}/uploads/${report.file}`} />
+						<img className="shadow-lg" src={`${report.file}`} />
 						<p className="font-bold font-nunito text-lg">{report.category}</p>
 						{/*<button onClick={() => alert(`${report._id}`)} className="bg-green-500 font-nunito rounded-sm p-2 text-white">Resolved</button>*/}
 						<div className="flex flex-col items-center gap-y-1">
