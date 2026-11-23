@@ -80,7 +80,7 @@ module.exports = (app) => {
 
 		const reporter = await User.findById(userId).select("lga state");
 
-		const filePath = `./uploads/${Date.now()}-${file}.jpg`;
+		const filePath = req.file.path;
 		const cloudinaryUrl = await cloudinary.uploader.upload(filePath);
 		const cloudinaryImage = cloudinaryUrl.secure_url;
 
