@@ -20,7 +20,16 @@ const SuperAdminDashboard = () => {
 
 	const [data, setData] = useState([]);
 
-	
+	const categoryColors = {
+	  "Hazardous Waste": "bg-yellow-500/35",
+	  "Blocked Drainage": "bg-green-500/35",
+	  "Illegal Dumping": "bg-slate-500/35",
+	  "Plastic Pollution": "bg-blue-300",
+	  "Overflowing Bin": "bg-orange-700/50",
+	  "Uncollected Waste": "bg-zinc-900/35",
+	  "Broken Waste Bin": "bg-blue-700/35",
+	  "Burning of Waste": "bg-red-500/35",
+};
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -88,77 +97,37 @@ const SuperAdminDashboard = () => {
 							<h1 className="font-light font-nunito text-2xl">Waste Chart</h1>
 						</div>
 						<div className="mb-6 flex flex-col gap-y-2">
-							<div className="flex flex-row gap-x-1 justify-center items-center">
-								<div className="w-[35%] md:w-[33%] lg:w-[16%]">
-									<span className="bg-white font-nunito text-xs font-bold text-gray-600 px-1">Hazardous waste</span>
-								</div>
-								<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
-									<div className="w-[14.93%] bg-yellow-500/35 py-2 rounded-sm"></div>
-								</div>
-							</div>
+							{data.map((item) => {
 
-							<div className="flex flex-row gap-x-1 justify-center items-center">
-								<div className="w-[35%] md:w-[33%] lg:w-[16%]">
-									<span className="bg-white font-nunito text-xs font-bold text-gray-600 px-1">Blocked Drainage</span>
-								</div>
-								<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
-									<div className="w-[1.20%] bg-green-700/35 py-2 rounded-sm"></div>
-								</div>
-							</div>
+								if (item.category === "Uncollected Waste") {
+									return(
+										<div className="flex flex-row gap-x-1 justify-center items-center">
+											<div className="w-[35%] md:w-[33%] lg:w-[16%]">
+												<span className="bg-white font-nunito text-[11px] font-bold text-gray-600 px-1">{item.category}</span>
+											</div>
+											<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
+												<div style={{ width: `${item.percentage}%` }} className={`${ categoryColors[item.category]} py-2 rounded-sm`}></div>
+											</div>
+										</div>
 
-							<div className="flex flex-row gap-x-1 justify-center items-center">
-								<div className="w-[35%] md:w-[33%] lg:w-[16%]">
-									<span className="bg-white font-nunito text-xs font-bold text-gray-600 px-1">Illegal Dumping</span>
-								</div>
-								<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
-									<div className="w-[11.12%] bg-slate-700/35 py-2 rounded-sm"></div>
-								</div>
-							</div>
+									);
+								} else {
+									return (
+										<div className="flex flex-row gap-x-1 justify-center items-center">
+											<div className="w-[35%] md:w-[33%] lg:w-[16%]">
+												<span className="bg-white font-nunito text-xs font-bold text-gray-600 px-1">{item.category}</span>
+											</div>
+											<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
+												<div style={{ width: `${item.percentage}%` }} className={`${ categoryColors[item.category]} py-2 rounded-sm`}></div>
+											</div>
+										</div>
 
-							<div className="flex flex-row gap-x-1 justify-center items-center">
-								<div className="w-[35%] md:w-[33%] lg:w-[16%]">
-									<span className="bg-white font-nunito text-xs font-bold text-gray-600 px-1">Plastic Pollution</span>
-								</div>
-								<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
-									<div className="w-[18.32%] bg-blue-300 py-2 rounded-sm"></div>
-								</div>
-							</div>
+									);
+								}
+								
 
-							<div className="flex flex-row gap-x-1 justify-center items-center">
-								<div className="w-[35%] md:w-[33%] lg:w-[16%]">
-									<span className="bg-white font-nunito text-xs font-bold text-gray-600 px-1">Overflowing bin</span>
-								</div>
-								<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
-									<div className="w-[24.83%] bg-orange-700/50 py-2 rounded-sm"></div>
-								</div>
-							</div>
+							})}
 
-							<div className="flex flex-row gap-x-1 justify-center items-center">
-								<div className="w-[35%] md:w-[33%] lg:w-[16%]">
-									<span className="bg-white font-nunito text-[11px] font-bold text-gray-600 px-1">Uncollected Waste</span>
-								</div>
-								<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
-									<div className="w-[9.83%] bg-zinc-900/35 py-2 rounded-sm"></div>
-								</div>
-							</div>
-
-							<div className="flex flex-row gap-x-1 justify-center items-center">
-								<div className="w-[35%] md:w-[33%] lg:w-[16%]">
-									<span className="bg-white font-nunito text-xs font-bold text-gray-600 px-1">Broken waste bin</span>
-								</div>
-								<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
-									<div className="w-[4.17%] bg-blue-700/35 py-2 rounded-sm"></div>
-								</div>
-							</div>
-
-							<div className="flex flex-row gap-x-1 justify-center items-center">
-								<div className="w-[35%] md:w-[33%] lg:w-[16%]">
-									<span className="bg-white font-nunito text-xs font-bold text-gray-600 px-1">Burning of waste</span>
-								</div>
-								<div className="bg-white w-[65%] md:w-[74%] lg:w-[84%]">
-									<div className="w-[15.60%] bg-red-500/35 py-2 rounded-sm"></div>
-								</div>
-							</div>
 						</div>
 						<div className="flex justify-center gap-x-4 mb-4">
 							<div className="flex flex-col items-center p-3 rounded-sm w-fit md:w-4/12 bg-white shadow-md">
