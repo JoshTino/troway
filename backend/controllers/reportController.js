@@ -53,7 +53,7 @@ module.exports = (app) => {
 		}
 	});
 
-	app.delete('/api/report/:id', authMiddleware, async (req, res) => {
+	app.delete('/api/report/:id', authMiddleware, authorize("reporter"), async (req, res) => {
 		const reportId = req.params.id;
 
 
