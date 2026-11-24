@@ -37,7 +37,7 @@ module.exports = (app) => {
 		}
 	});
 
-	app.patch('/api/report/:id', authMiddleware, async (req, res) => {
+	app.patch('/api/report/:id', authMiddleware, authorize("reporter"), async (req, res) => {
 		const reportId = req.params.id;
 		const {category} = req.body;
 
