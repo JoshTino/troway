@@ -18,7 +18,7 @@ module.exports = (app) => {
 		}
 	});
 
-	app.get('/get_report_edit/:id', async (req, res) => {
+	app.get('/get_report_edit/:id', authorize("reporter"), async (req, res) => {
 		const reportId = req.params.id;
 
 		try {
