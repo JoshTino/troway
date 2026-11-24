@@ -72,7 +72,7 @@ module.exports = (app) => {
 		}
 	});
 
-	app.post('/api/report', authMiddleware, multer.upload.single('file'), async (req, res) => {
+	app.post('/api/report', authMiddleware, authorize("reporter"), multer.upload.single('file'), async (req, res) => {
 
 		const {category, lat, lng} = req.body;
 		const file = req.file.filename;
