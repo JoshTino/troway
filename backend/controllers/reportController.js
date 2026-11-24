@@ -8,7 +8,7 @@ const cloudinary = require('../services/cloudinary');
 
 module.exports = (app) => {
 
-	app.get('/api/report', authMiddleware, async (req, res) => {
+	app.get('/api/report', authMiddleware, authorize("reporter"), async (req, res) => {
 		try {
 			const userId = req.user.id;
 			const report = await Report.find({user: userId});
